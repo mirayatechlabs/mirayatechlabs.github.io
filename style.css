@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   background-color: #000;
@@ -17,7 +16,4 @@ body {
   max-height: 90vh;
   width: auto;
   height: auto;
-}
-
-  to { opacity: 1; }
 }
