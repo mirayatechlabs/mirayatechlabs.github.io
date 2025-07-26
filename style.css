@@ -1,19 +1,7 @@
 body {
   margin: 0;
-  background-color: #e3cde7;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.full-logo-container {
-  text-align: center;
-}
-
-.full-logo {
-  max-width: 90vw;
-  max-height: 90vh;
-  width: auto;
-  height: auto;
+  padding: 0;
+  background: url("assets/logobig.png") no-repeat center center fixed;
+  background-size: cover;
+  background-color: #e3cde7; /* fallback */
 }
