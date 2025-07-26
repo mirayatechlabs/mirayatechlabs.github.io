@@ -1,0 +1,149 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: #1a1a1a;
+  color: #eaeaea;
+  overflow-x: hidden;
+}
+
+header {
+  width: 100%;
+  text-align: center;
+  background-color: #000;
+}
+
+.hero-logo {
+  width: 200px;
+  margin: 20px auto;
+  animation: zoomIn 1.5s ease-out;
+}
+
+.hero-text {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.hero-text h1 {
+  font-size: 3em;
+  color: #b64aff;
+}
+
+.hero-text p {
+  font-size: 1.2em;
+  margin-top: 10px;
+  color: #a8ff2f;
+}
+
+.enter-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #a8ff2f;
+  color: #000;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.enter-btn:hover {
+  background: #b64aff;
+  color: #fff;
+}
+
+.mission-vision {
+  padding: 60px 20px;
+  background: #111;
+  text-align: center;
+}
+
+.mission-vision h2 {
+  font-size: 2em;
+  color: #b64aff;
+  margin-bottom: 10px;
+}
+
+.mission-vision p {
+  font-size: 1.1em;
+  color: #a8ff2f;
+  margin-bottom: 30px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  background: #0a0a0a;
+  color: #aaa;
+}
+
+.fade-in {
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+.fade-in-delay {
+  animation: fadeIn 2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0; transform: translateY(20px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes zoomIn {
+  0% {transform: scale(0.8); opacity: 0;}
+  100% {transform: scale(1); opacity: 1;}
+}
+
+/* Loader */
+#loader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeOutLoader 2.5s forwards 2.5s;
+}
+
+.pulse {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #a8ff2f;
+  box-shadow: 0 0 20px #b64aff;
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.3);}
+  100% {transform: scale(1);}
+}
+
+@keyframes fadeOutLoader {
+  to {opacity: 0; visibility: hidden;}
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #0a0a0a;
+    color: #eaeaea;
+  }
+  header {
+    background-color: #111;
+    border-bottom: 1px solid #333;
+  }
+  a {
+    color: #a1ff00;
+  }
+}
