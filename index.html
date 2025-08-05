@@ -1,11 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Miraya Tech Labs</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+      background: url('assets/miraya-hero-bg.jpg') center center / cover no-repeat;
+      /* Sostituisci il nome file se serve */
+      position: relative;
+      overflow: hidden;
+    }
+    /* Optional: overlay scuro per testo leggibile sopra l'immagine */
+    .overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.2);
+      z-index: 1;
+      pointer-events: none;
+    }
+    /* Esempio di testo centrale sopra lo sfondo */
+    .center-content {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      font-family: 'Montserrat', 'Arial', sans-serif;
+      font-size: 2.5rem;
+      text-align: center;
+      z-index: 2;
+      text-shadow: 0 2px 12px #000, 0 0 12px #5d19be99;
+      /* Personalizza a piacere */
+    }
+    @media (max-width: 600px) {
+      .center-content {
+        font-size: 1.2rem;
+        padding: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
+  <!-- Rimuovi questa overlay se vuoi solo immagine -->
+  <!-- <div class="overlay"></div> -->
+  
+  <!-- Se vuoi aggiungere un testo centrale, togli i commenti qui sotto -->
+  <!--
+  <div class="center-content">
+    Miraya Tech Labs<br>
+    <span style="font-size:1.3rem;font-weight:400;">Welcome to the code that dreams of a free world.</span>
+  </div>
+  -->
 </body>
 </html>
