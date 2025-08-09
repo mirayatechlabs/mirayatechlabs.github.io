@@ -121,4 +121,49 @@ section h2{ max-width:1000px; width:100%; font-size:clamp(24px,4vw,42px); letter
 @media (prefers-reduced-motion: reduce){
   .bg,.orb,.wheel{ animation: none !important; }
 }
+:root{
+  --fontBrand: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
+
+/* Logo: niente schiacciamenti */
+#site-logo{
+  width: auto;
+  height: clamp(72px, 12vh, 120px);     /* controlliamo SOLO l'altezza */
+  display:block; margin: 4px auto 6px;
+  object-fit: contain; aspect-ratio: auto;
+  filter: drop-shadow(0 12px 28px rgba(0,0,0,.35));
+}
+
+/* Testo brand in stile v1: pulito, techno, leggibile */
+.brand-text{
+  font-family: var(--fontBrand);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  font-size: clamp(36px, 8vw, 92px);
+  margin: 6px 0 0;
+  text-align: center;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 8px 40px rgba(0,0,0,.35);
+}
+.brand-text .thin{
+  font-weight: 700;
+  font-size: clamp(20px, 3.8vw, 44px);
+  opacity: .95;
+}
+
+/* Spaziature più aria sopra i bottoni */
+.lead{ margin-top: 10px; }
+.cta{ margin-top: clamp(14px, 3vw, 24px); }
+
+/* Hero più alta con contenuto alzato (come la prima versione) */
+.hero{
+  position:relative; min-height:100svh;
+  display:grid; align-content:start; justify-items:center;
+  padding-top: clamp(96px, 18vh, 220px);
+  padding-bottom: clamp(40px, 10vh, 120px);
+  overflow: clip; isolation: isolate;
+}
 
