@@ -2,85 +2,35 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <title>miraya tech labs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root{
-      --bg-url: url("assets/miraya-hero-bg.jpg");
-      --ink:#0e0f13; --paper:#fff;
-      --accent:#a78bfa;
-      --accent2:#6ef2c4;
-      --glow: 0 0 40px rgba(167,139,250,.45), 0 0 80px rgba(110,242,196,.22);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-      color:var(--paper); background:#0b0c12; overflow-x:hidden;
-    }
-
-    .hero{position:relative; min-height:100svh; display:grid; place-items:center; overflow:clip; isolation:isolate;}
-    .bg{position:absolute; inset:-10%; background-image:var(--bg-url); background-size:cover; background-position:center; will-change:transform; transform:translateZ(0)}
-    .vignette{position:absolute; inset:0; background:radial-gradient(120% 80% at 50% 20%, rgba(0,0,0,.04), rgba(0,0,0,.62))}
-    .tint{position:absolute; inset:0; background:linear-gradient(180deg, rgba(14,15,19,0) 0%, rgba(14,15,19,.5) 60%, rgba(14,15,19,.85) 100%); mix-blend-mode:multiply}
-    .grid{position:absolute; inset:0; background-image:
-      linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,.06) 1px, transparent 1px);
-      background-size:40px 40px; opacity:.18; mask-image:radial-gradient(80% 50% at 50% 40%, black 60%, transparent 100%);
-    }
-
-    .content{position:relative; z-index:2; text-align:center; padding:clamp(16px,4vw,32px); max-width:min(1000px,92vw)}
-    .badge{display:inline-flex; align-items:center; gap:.5rem; padding:.5rem .8rem; border:1.5px solid rgba(255,255,255,.25);
-      border-radius:999px; background:rgba(255,255,255,.06); backdrop-filter:blur(6px); font-weight:700; letter-spacing:.02em; box-shadow:var(--glow)}
-    .dot{width:8px; height:8px; border-radius:50%; background:var(--accent2); box-shadow:0 0 0 6px rgba(110,242,196,.18)}
-    p.lead{margin:14px auto 0; max-width:72ch; font-size:clamp(16px,2.2vw,22px); opacity:.92; text-wrap:pretty}
-
-    .cta{margin-top:clamp(14px,3vw,28px); display:inline-flex; gap:12px; flex-wrap:wrap}
-    .btn{appearance:none; border:none; cursor:pointer; font-weight:800; letter-spacing:.02em; padding:14px 18px; border-radius:16px;
-      box-shadow:0 10px 30px rgba(0,0,0,.25); user-select:none; -webkit-tap-highlight-color:transparent; transform:translateZ(0)}
-    .btn.primary{background:linear-gradient(135deg, var(--accent), #5f45ff); color:#fff; border:2px solid rgba(255,255,255,.2)}
-    .btn.ghost{background:rgba(255,255,255,.06); color:#fff; border:2px solid rgba(255,255,255,.2)}
-    .btn:focus-visible{outline:2px solid var(--accent2); outline-offset:2px; box-shadow:var(--glow)}
-    .btn:active{transform:translateY(1px)}
-
-    .orb{position:absolute; border-radius:50%; opacity:.6; filter:blur(10px); mix-blend-mode:screen; will-change:transform}
-    .o1{width:260px; height:260px; background:radial-gradient(circle at 30% 30%, #fff, rgba(255,255,255,.1)); top:8%; left:6%}
-    .o2{width:180px; height:180px; background:radial-gradient(circle at 60% 40%, #fff, rgba(255,255,255,.15)); bottom:12%; right:10%}
-    .o3{width:120px; height:120px; background:radial-gradient(circle at 50% 50%, #fff, rgba(255,255,255,.08)); top:30%; right:25%}
-
-    .hint{position:absolute; left:50%; bottom:20px; transform:translateX(-50%); display:grid; place-items:center; gap:6px; color:rgba(255,255,255,.85); font-weight:700; letter-spacing:.08em; text-transform:uppercase}
-    .mouse{width:26px; height:40px; border-radius:16px; border:2px solid rgba(255,255,255,.7); position:relative}
-    .wheel{position:absolute; left:50%; top:6px; transform:translateX(-50%); width:4px; height:8px; background:rgba(255,255,255,.85); border-radius:2px; animation:wheel 1.4s infinite}
-    @keyframes wheel{0%{transform:translate(-50%,0);opacity:1}100%{transform:translate(-50%,12px);opacity:0}}
-
-    @media (prefers-reduced-motion: reduce){
-      .bg,.orb,.wheel{animation:none!important}
-    }
-
-    section{padding:80px 24px; background:#0e0f13; color:#dfe4ea; display:grid; place-items:center}
-    section h2{max-width:1000px; width:100%; font-size:clamp(24px,4vw,42px); letter-spacing:-.01em}
-  </style>
+  <title>miraya tech labs</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="hero" id="hero">
-    <div class="bg" id="bg"></div>
-    <div class="vignette"></div>
-    <div class="tint"></div>
+  <header class="hero" id="hero" aria-label="Sezione introduttiva">
+    <div class="bg" id="bg" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="tint" aria-hidden="true"></div>
     <div class="grid" aria-hidden="true"></div>
 
     <div class="orb o1" aria-hidden="true"></div>
     <div class="orb o2" aria-hidden="true"></div>
     <div class="orb o3" aria-hidden="true"></div>
 
-    <div class="content" role="region" aria-label="Hero">
-      <div class="badge"><span class="dot" aria-hidden="true"></span>Dove il futuro non ha padroni</div>
-      <!-- Logo al posto del titolo -->
-      <img src="assets/logo-full.png" alt="Miraya Tech Labs" id="site-logo" style="max-width: 100%; height: auto;">
-      <p class="lead">Scriviamo tecnologia per liberare tempo e immaginazione. Prodotti digitali, automazioni e design con un pizzico di disobbedienza in codice.</p>
-      <div class="cta">
+    <div class="content">
+      <div class="badge"><span class="dot" aria-hidden="true"></span> Dove il futuro non ha padroni</div>
+
+      <!-- LOGO -->
+      <img src="assets/logo-full.png" alt="Miraya Tech Labs" id="site-logo" />
+
+      <p class="lead">
+        Scriviamo tecnologia per liberare tempo e immaginazione. Prodotti digitali, automazioni e design con un pizzico di disobbedienza in codice.
+      </p>
+
+      <nav class="cta" aria-label="Azioni principali">
         <a class="btn primary" href="#progetti">Scopri i progetti</a>
         <a class="btn ghost" href="#contatti">Contatti</a>
-      </div>
+      </nav>
     </div>
 
     <div class="hint" aria-hidden="true">
@@ -89,18 +39,21 @@
     </div>
   </header>
 
-  <section id="progetti">
-    <h2>Sezione di esempio sotto la hero — inserisci cards, progetti, o qualunque contenuto.</h2>
-  </section>
+  <main>
+    <section id="progetti">
+      <h2>Sezione di esempio sotto la hero — inserisci cards, progetti o qualunque contenuto.</h2>
+    </section>
+  </main>
 
-  <footer id="contatti" style="padding:60px 24px; background:#0b0c12; color:#9aa3af; text-align:center;">
-    <div>© <span id="year"></span> Miraya Tech Labs — Tutti i diritti riservati</div>
+  <footer id="contatti" class="footer">
+    © <span id="year"></span> Miraya Tech Labs — Tutti i diritti riservati
   </footer>
 
   <script>
+    // Anno footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Fade-in per il logo
+    // Fade-in logo rispettando "reduce motion"
     const logo = document.getElementById('site-logo');
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       logo.style.opacity = 0;
@@ -112,49 +65,32 @@
       });
     }
 
-    // Parallax con RAF
+    // Parallax super-leggero
     const bg = document.getElementById('bg');
     const orbs = document.querySelectorAll('.orb');
     let tx=0, ty=0, px=0, py=0;
+
     function loop(){
       px += (tx - px) * 0.08;
       py += (ty - py) * 0.08;
       const bgX = px * 14, bgY = py * 8;
       bg.style.transform = `translate(${bgX}%, ${bgY}%) scale(1.08)`;
-      orbs.forEach((o, i)=>{ const k=(i+1)*8; o.style.transform = `translate(${px*k}px, ${py*k}px)`; });
+      orbs.forEach((o,i)=>{ const k=(i+1)*8; o.style.transform = `translate(${px*k}px, ${py*k}px)`; });
       requestAnimationFrame(loop);
     }
     requestAnimationFrame(loop);
 
     window.addEventListener('pointermove', e=>{
-      const w=innerWidth, h=innerHeight;
-      tx = (e.clientX/w)*2-1;
-      ty = (e.clientY/h)*2-1;
+      const w = innerWidth, h = innerHeight;
+      tx = (e.clientX/w)*2 - 1;
+      ty = (e.clientY/h)*2 - 1;
     }, {passive:true});
 
     window.addEventListener('deviceorientation', e=>{
       const gx=(e.gamma||0)/30, gy=(e.beta||0)/45;
       tx = Math.max(-1, Math.min(1, gx));
       ty = Math.max(-1, Math.min(1, gy));
-    });
-
-    window.addEventListener('scroll', ()=>{
-      const y = scrollY||0;
-      bg.style.transform += ` translateY(${y * -0.06}px)`;
     }, {passive:true});
-
-    document.querySelectorAll('.btn').forEach(btn=>{
-      let bx=0, by=0, mx=0, my=0;
-      function bLoop(){ bx+=(mx-bx)*0.2; by+=(my-by)*0.2; btn.style.transform=`translate(${bx}px,${by}px)`; requestAnimationFrame(bLoop); }
-      requestAnimationFrame(bLoop);
-      btn.addEventListener('pointermove', e=>{
-        const r=btn.getBoundingClientRect();
-        mx = ((e.clientX - r.left)/r.width - .5) * 8;
-        my = ((e.clientY - r.top)/r.height - .5) * 8;
-      }, {passive:true});
-      btn.addEventListener('pointerleave', ()=>{ mx=0; my=0; });
-      btn.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' ') btn.click(); });
-    });
   </script>
 </body>
 </html>
