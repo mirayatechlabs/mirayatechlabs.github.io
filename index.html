@@ -79,6 +79,27 @@
         logo.style.transform = 'translateY(0)';
       });
     }
+<script>
+  // ...qui c'è già il codice che hai ora per anno, parallax ecc.
+
+  // Animazione lettera-per-lettera sul testo brand
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce){
+    const h1 = document.querySelector('.brand-text');
+    const html = h1.innerHTML;
+    const plain = html.replace(/<br\s*\/?>/g,'§BR§').replace(/<[^>]+>/g,'');
+    h1.innerHTML = [...plain].map(ch => ch==='§' ? '' : `<span class="ch">${ch}</span>`).join('').replace(/§BR§/g,'<br>');
+    const chars = h1.querySelectorAll('.ch');
+    chars.forEach((el,i)=>{
+      el.style.display='inline-block';
+      el.style.transform='translateY(18px) scale(.98)';
+      el.style.opacity='0';
+      el.style.transition='transform .55s cubic-bezier(.2,.8,.2,1), opacity .55s';
+      el.style.transitionDelay = (i*10)+'ms';
+      requestAnimationFrame(()=>{ el.style.transform='translateY(0) scale(1)'; el.style.opacity='1'; });
+    });
+  }
+</script>
 
     // Parallax super-leggero
     const bg = document.getElementById('bg');
