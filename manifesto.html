@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -9,62 +9,58 @@
         .nav-links { display: flex; gap: 1.5rem; }
         .nav-links a { color: inherit; text-decoration: none; font-size: 0.9rem; opacity: 0.8; transition: opacity 0.3s; }
         .nav-links a:hover, .nav-links a.active { opacity: 1; }
-        .page-hero { min-height: 40vh; display: flex; align-items: center; padding: 4rem 5%; max-width: 1400px; margin: 0 auto; }
-        .page-hero h1 { font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 1rem; letter-spacing: -1.5px; }
-        .page-hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; line-height: 1.6; }
+        .page-shell { max-width: 1240px; margin: 0 auto; padding: 0 5% 5rem; }
+        .hero { padding: 3rem 0 2rem; }
+        .hero h1 { margin: 0 0 0.8rem; font-size: clamp(2rem, 5vw, 3.8rem); letter-spacing: -1px; }
+        .hero p { margin: 0; max-width: 740px; }
+
+        .principles-grid { display: grid; grid-template-columns: repeat(3, minmax(240px, 1fr)); gap: 1rem; }
+        .card { display: block; height: 100%; text-decoration: none; color: inherit; }
+        .card-glow-wrapper { width: 100%; height: 100%; }
+        .card-inner { height: 100%; display: flex; flex-direction: column; gap: 0.75rem; padding: 1.5rem; }
+        .principle-index { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.7px; }
+        .principle-footer { margin-top: auto; border-top: 1px solid rgba(124,58,237,0.16); padding-top: 0.8rem; font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .quote-box { margin-top: 2.4rem; border-radius: 24px; padding: 2px; background: var(--gradient-tech); }
+        .quote-inner { border-radius: 22px; background: rgba(255,255,255,0.95); padding: 2rem; font-size: 1.35rem; line-height: 1.5; font-weight: 700; letter-spacing: -0.4px; }
+
+        @media (max-width: 980px) {
+            .principles-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
-
     <nav>
         <div class="logo">mirayatechlabs.</div>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="progetti.html">Progetti</a>
             <a href="lab.html">Lab</a>
-            <a href="manifesto.html">Manifesto</a>
+            <a href="manifesto.html" class="active">Manifesto</a>
             <a href="contatti.html">Contatti</a>
         </div>
     </nav>
 
-    <header class="page-hero">
-        <div>
-            <h1>Manifesto<span class="hero-highlight">Perch&eacute; si fa.</span></h1>
-            <p>Le cose in cui credo, tradotte in pratica.</p>
-        </div>
-    </header>
+    <main class="page-shell">
+        <header class="hero">
+            <h1>Manifesto<span class="hero-highlight">Principi non negoziabili.</span></h1>
+            <p>Pagina esempio con narrazione piu forte: meno testo lungo, piu dichiarazioni chiare e leggibili.</p>
+        </header>
 
-    <section class="features-container" aria-label="Il manifesto">
-        
-        <div class="card" style="max-width: 800px; margin: 0 auto;" aria-label="Manifesto">
-            <div class="card-glow-wrapper">
-                <div class="card-inner" style="text-align: left;">
-                    <p style="margin-bottom: 1.5rem;">
-                        <strong>L'intelligenza artificiale &egrave; uno strumento.</strong> Come tutti gli strumenti, pu&ograve; liberare o opprimere. Dipende da chi la impugna e da quali fini persegue.
-                    </p>
-                    <p style="margin-bottom: 1.5rem;">
-                        Non mi interessa la tecnologia per la tecnologia. Mi interessa quando alleggerisce il lavoro ripetitivo, quando restituisce tempo alle persone, quando amplia le possibilit&agrave; invece di restringerle.
-                    </p>
-                    <p style="margin-bottom: 1.5rem;">
-                        <strong>La tecnologia non &egrave; neutrale.</strong> Ogni scelta tecnica &egrave; una scelta politica: cosa automatizzare, chi ha accesso, chi viene escluso. Provo a rendere queste scelte esplicite e consapevoli.
-                    </p>
-                    <p style="margin-bottom: 1.5rem;">
-                        <strong>L'autonomia &egrave; il fine.</strong> L'obiettivo non &egrave; sostituire l'umano, ma potenziarlo. Ogni soluzione che propongo deve lasciare il controllo a chi la usa.
-                    </p>
-                    <p style="margin-bottom: 1.5rem;">
-                        <strong>L'accessibilit&agrave; non &egrave; un'opzione.</strong> &Egrave; la misura di quanto ci teniamo davvero a includere. Se escludi qualcuno, il problema non &egrave; loro.
-                    </p>
-                    <p style="margin-bottom: 1.5rem;">
-                        <strong>La sostenibilit&agrave; &egrave; pratica.</strong> Non un hashtag, ma decisioni concrete: architetture efficienti, query mirate, risorse giuste. L'impatto si misura, e si riduce.
-                    </p>
-                    <p>
-                        Questo laboratorio &egrave; il posto dove queste idee diventano codice, prodotti, processi. Se ti riconosci in questo, costruiamo insieme.
-                    </p>
-                </div>
-            </div>
-        </div>
+        <section class="principles-grid" aria-label="Principi">
+            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P01</div><h3>Prima le persone</h3><p>L'AI deve alleggerire il lavoro e aumentare autonomia, non creare dipendenza.</p><div class="principle-footer">Human-first systems</div></div></div></article>
+            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P02</div><h3>Utilita concreta</h3><p>Niente demo vuote: ogni integrazione deve migliorare un KPI reale.</p><div class="principle-footer">Impact before hype</div></div></div></article>
+            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P03</div><h3>Trasparenza</h3><p>Scelte tecniche spiegabili, limiti espliciti, dati trattati con responsabilita.</p><div class="principle-footer">Trust by design</div></div></div></article>
+            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P04</div><h3>Accessibilita</h3><p>Interfacce e contenuti leggibili da tutti, senza esclusioni implicite.</p><div class="principle-footer">Inclusive product</div></div></div></article>
+            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P05</div><h3>Sostenibilita</h3><p>Ottimizziamo carico, costi e processi per evitare complessita inutile.</p><div class="principle-footer">Lean architecture</div></div></div></article>
+            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P06</div><h3>Apprendimento continuo</h3><p>Misuriamo, correggiamo, miglioriamo: il sistema cresce con il team.</p><div class="principle-footer">Continuous improvement</div></div></div></article>
+        </section>
 
-    </section>
-
+        <section class="quote-box" aria-label="Dichiarazione">
+            <div class="quote-inner">"Non cerchiamo automazione per sostituire persone. La cerchiamo per restituire qualita al lavoro umano."</div>
+        </section>
+    </main>
 </body>
 </html>
+
+

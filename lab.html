@@ -1,112 +1,74 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lab / Metodo | Miraya Tech Labs</title>
+    <title>Lab | Miraya Tech Labs</title>
     <link rel="stylesheet" href="style-v2.css">
     <style>
         .nav-links { display: flex; gap: 1.5rem; }
         .nav-links a { color: inherit; text-decoration: none; font-size: 0.9rem; opacity: 0.8; transition: opacity 0.3s; }
         .nav-links a:hover, .nav-links a.active { opacity: 1; }
-        .card-tags { font-size: 0.75rem; color: #666; margin-top: 1rem; text-transform: uppercase; letter-spacing: 0.5px; }
-        .page-hero { min-height: 40vh; display: flex; align-items: center; padding: 4rem 5%; max-width: 1400px; margin: 0 auto; }
-        .page-hero h1 { font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 1rem; letter-spacing: -1.5px; }
-        .page-hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; line-height: 1.6; }
+        .page-shell { max-width: 1240px; margin: 0 auto; padding: 0 5% 5rem; }
+        .page-hero { padding: 3.2rem 0 2rem; }
+        .page-hero h1 { margin: 0 0 0.8rem; font-size: clamp(2rem, 5vw, 3.8rem); letter-spacing: -1px; }
+        .page-hero p { margin: 0; max-width: 700px; }
+
+        .steps-grid { display: grid; grid-template-columns: repeat(4, minmax(190px, 1fr)); gap: 1rem; }
+        .step-card { border: 1px solid rgba(124,58,237,0.2); border-radius: 18px; background: rgba(255,255,255,0.78); padding: 1.1rem; }
+        .step-n { font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted); }
+        .step-card h3 { margin: 0.45rem 0 0.55rem; font-size: 1.08rem; }
+        .step-card p { margin: 0; font-size: 0.95rem; }
+
+        .section-title { margin: 2.4rem 0 1rem; font-size: 1.4rem; letter-spacing: -0.4px; }
+        .cards-grid { display: grid; grid-template-columns: repeat(3, minmax(240px, 1fr)); gap: 1rem; }
+        .card { display: block; height: 100%; color: inherit; text-decoration: none; }
+        .card-glow-wrapper { width: 100%; height: 100%; }
+        .card-inner { height: 100%; display: flex; flex-direction: column; padding: 1.5rem; gap: 0.75rem; }
+        .small-tag { display: inline-block; width: fit-content; padding: 0.24rem 0.55rem; border: 1px solid rgba(124,58,237,0.2); border-radius: 999px; font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; }
+        .card-foot { margin-top: auto; font-size: 0.82rem; color: var(--text-muted); border-top: 1px solid rgba(124,58,237,0.15); padding-top: 0.8rem; text-transform: uppercase; letter-spacing: 0.6px; }
+
+        @media (max-width: 980px) {
+            .steps-grid { grid-template-columns: 1fr; }
+            .cards-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
-
     <nav>
         <div class="logo">mirayatechlabs.</div>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="progetti.html">Progetti</a>
-            <a href="lab.html">Lab</a>
+            <a href="lab.html" class="active">Lab</a>
             <a href="manifesto.html">Manifesto</a>
             <a href="contatti.html">Contatti</a>
         </div>
     </nav>
 
-    <header class="page-hero">
-        <div>
-            <h1>Lab<span class="hero-highlight">Il Metodo.</span></h1>
-            <p>Come trasformo idee in soluzioni concrete, un passo alla volta.</p>
-        </div>
-    </header>
+    <main class="page-shell">
+        <header class="page-hero">
+            <h1>Lab<span class="hero-highlight">Metodo operativo.</span></h1>
+            <p>Pagina esempio orientata al processo: come passiamo da ipotesi a impatto misurabile.</p>
+        </header>
 
-    <section class="features-container" aria-label="Il metodo">
-        <h2 style="width: 100%; text-align: center; margin-bottom: 2rem;">Il processo</h2>
+        <section class="steps-grid" aria-label="Metodo in 4 step">
+            <article class="step-card"><div class="step-n">Step 01</div><h3>Discovery</h3><p>Analisi flussi, rischi, strumenti e decision maker.</p></article>
+            <article class="step-card"><div class="step-n">Step 02</div><h3>Design Sprint</h3><p>Prototipo rapido con casi reali del team.</p></article>
+            <article class="step-card"><div class="step-n">Step 03</div><h3>Build</h3><p>Integrazione progressiva con guardrail operativi.</p></article>
+            <article class="step-card"><div class="step-n">Step 04</div><h3>Scale</h3><p>Training e KPI condivise per adozione stabile.</p></article>
+        </section>
 
-        <div class="card" aria-label="Diagnosi">
-            <div class="card-glow-wrapper">
-                <div class="card-inner">
-                    <div class="card-icon" aria-hidden="true">🔍</div>
-                    <h3>1. Diagnosi</h3>
-                    <p>Analizzo il contesto reale: flussi esistenti, pain point, vincoli tecnici e organizzativi. Prima di proporre soluzioni, capisco davvero come funziona il sistema.</p>
-                </div>
+        <section>
+            <h2 class="section-title">Formati di collaborazione</h2>
+            <div class="cards-grid">
+                <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><span class="small-tag">Audit</span><h3>AI Readiness</h3><p>Valutazione completa di processi, stack e rischio operativo.</p><div class="card-foot">2-3 settimane</div></div></div></article>
+                <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><span class="small-tag">Sprint</span><h3>Prototype Program</h3><p>Un caso d'uso reale pronto per validazione interna.</p><div class="card-foot">4 settimane</div></div></div></article>
+                <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><span class="small-tag">Partnership</span><h3>Continuous Lab</h3><p>Roadmap trimestrale, governance e rilascio continuo.</p><div class="card-foot">ongoing</div></div></div></article>
             </div>
-        </div>
-
-        <div class="card" aria-label="Prototipo">
-            <div class="card-glow-wrapper">
-                <div class="card-inner">
-                    <div class="card-icon" aria-hidden="true">🛠️</div>
-                    <h3>2. Prototipo</h3>
-                    <p>Sperimentazione rapida. Costruisco versioni minimali per validare l'idea con utenti reali. Il feedback arriva presto, le correzioni sono economiche.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" aria-label="Integrazione">
-            <div class="card-glow-wrapper">
-                <div class="card-inner">
-                    <div class="card-icon" aria-hidden="true">🚀</div>
-                    <h3>3. Integrazione</h3>
-                    <p>Distribuzione graduale. Accompagno il team nell'adozione, formazione e monitoraggio. L'obiettivo &egrave; che la soluzione viva e migliori nel tempo.</p>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <section class="features-container" aria-label="Decisioni di design" style="margin-top: 3rem;">
-        <h2 style="width: 100%; text-align: center; margin-bottom: 2rem;">Decisioni di design</h2>
-
-        <div class="card" aria-label="Controllo umano">
-            <div class="card-glow-wrapper">
-                <div class="card-inner">
-                    <div class="card-icon" aria-hidden="true">✋</div>
-                    <h3>Controllo umano</h3>
-                    <p>Niente automazione cieca. L'AI suggerisce, decide sempre una persona. Questo non &egrave; un limite: &egrave; la differenza tra strumento e sostituto.</p>
-                    <div class="card-tags">Human-in-the-loop &middot; Accountability</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" aria-label="Accessibilità">
-            <div class="card-glow-wrapper">
-                <div class="card-inner">
-                    <div class="card-icon" aria-hidden="true">♿</div>
-                    <h3>Accessibilit&agrave; di default</h3>
-                    <p>Non un'aggiunta, ma un requisito base. Se non funziona per tutti, non funziona.</p>
-                    <div class="card-tags">WCAG &middot; Inclusione</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" aria-label="Sostenibilità">
-            <div class="card-glow-wrapper">
-                <div class="card-inner">
-                    <div class="card-icon" aria-hidden="true">🌱</div>
-                    <h3>Sostenibilit&agrave; concreta</h3>
-                    <p>Scelte tecniche consapevoli. Query mirate invece di processi bulk, architetture leggere, hosting responsabile.</p>
-                    <div class="card-tags">Efficienza &middot; Riduzione impatto</div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
+        </section>
+    </main>
 </body>
 </html>
+
+
