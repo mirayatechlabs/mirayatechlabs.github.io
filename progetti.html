@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
@@ -9,10 +9,109 @@
         .nav-links { display: flex; gap: 1.5rem; }
         .nav-links a { color: inherit; text-decoration: none; font-size: 0.9rem; opacity: 0.8; transition: opacity 0.3s; }
         .nav-links a:hover, .nav-links a.active { opacity: 1; }
-        .card-tags { font-size: 0.75rem; color: #666; margin-top: 1rem; text-transform: uppercase; letter-spacing: 0.5px; }
-        .page-hero { min-height: 40vh; display: flex; align-items: center; padding: 4rem 5%; max-width: 1400px; margin: 0 auto; }
-        .page-hero h1 { font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 1rem; letter-spacing: -1.5px; }
-        .page-hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; line-height: 1.6; }
+
+        .page-shell { max-width: 1240px; margin: 0 auto; padding: 0 5% 5rem; }
+        .page-hero { padding: 3.5rem 0 2.2rem; }
+        .page-hero h1 { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 900; line-height: 1.05; margin: 0 0 1rem; letter-spacing: -1.4px; }
+        .page-hero p { margin: 0; max-width: 680px; }
+
+        .kpi-strip {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(170px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0 3rem;
+        }
+        .kpi-item {
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            background: rgba(255, 255, 255, 0.74);
+            border-radius: 18px;
+            padding: 1rem 1.2rem;
+        }
+        .kpi-value { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.8px; }
+        .kpi-label { margin-top: 0.3rem; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.7px; }
+
+        .section-title { margin: 0 0 1.2rem; font-size: 1.4rem; letter-spacing: -0.4px; }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(260px, 1fr));
+            gap: 1.2rem;
+        }
+
+        .card {
+            display: block;
+            height: 100%;
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .card-glow-wrapper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .card-inner {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            padding: 1.6rem;
+        }
+
+        .project-topline {
+            display: inline-block;
+            font-size: 0.72rem;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            background: rgba(124, 58, 237, 0.08);
+            border: 1px solid rgba(124, 58, 237, 0.18);
+            border-radius: 999px;
+            padding: 0.25rem 0.55rem;
+            width: fit-content;
+        }
+
+        .project-card-text { font-size: 1rem; line-height: 1.55; color: var(--text-muted); margin: 0; }
+
+        .project-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            border-top: 1px solid rgba(124, 58, 237, 0.18);
+            padding-top: 0.9rem;
+        }
+
+        .project-arrow { font-weight: 900; color: var(--text-dark); }
+
+        .featured-case {
+            margin-top: 2.5rem;
+            border-radius: 26px;
+            padding: 2px;
+            background: var(--gradient-tech);
+            box-shadow: 0 26px 50px -26px rgba(124, 58, 237, 0.45);
+        }
+        .featured-case-inner {
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.96);
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 1.4rem;
+        }
+        .featured-case h3 { margin: 0 0 0.8rem; font-size: 1.85rem; letter-spacing: -0.8px; }
+        .featured-list { margin: 0; padding-left: 1.1rem; color: var(--text-muted); line-height: 1.7; }
+
+        @media (max-width: 980px) {
+            .kpi-strip { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .featured-case-inner { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -21,98 +120,99 @@
         <div class="logo">mirayatechlabs.</div>
         <div class="nav-links">
             <a href="index.html">Home</a>
-            <a href="progetti.html">Progetti</a>
+            <a href="progetti.html" class="active">Progetti</a>
             <a href="lab.html">Lab</a>
             <a href="manifesto.html">Manifesto</a>
             <a href="contatti.html">Contatti</a>
         </div>
     </nav>
 
-    <header class="page-hero">
-        <div>
-            <h1>Progetti<span class="hero-highlight">Selezionati.</span></h1>
-            <p>Una selezione di lavori dove l'intelligenza artificiale incontra il design che conta.</p>
-        </div>
-    </header>
+    <main class="page-shell">
+        <header class="page-hero">
+            <h1>Progetti<span class="hero-highlight">Che muovono risultati.</span></h1>
+            <p>Un esempio di pagina interna piu moderna: struttura editoriale, ritmo visivo e card allineate in altezza.</p>
+        </header>
 
-    <section class="features-container" aria-label="Progetti in evidenza">
-        <h2 style="width: 100%; text-align: center; margin-bottom: 2rem;">In evidenza</h2>
+        <section class="kpi-strip" aria-label="Metriche progetto">
+            <article class="kpi-item">
+                <div class="kpi-value">-38%</div>
+                <div class="kpi-label">Tempo operativo</div>
+            </article>
+            <article class="kpi-item">
+                <div class="kpi-value">+2.3x</div>
+                <div class="kpi-label">Velocita rilascio</div>
+            </article>
+            <article class="kpi-item">
+                <div class="kpi-value">92%</div>
+                <div class="kpi-label">Adozione team</div>
+            </article>
+        </section>
 
-        <div class="card" aria-label="Progetto automazione">
-            <div class="card-glow-wrapper">
-                <div class="card-inner">
-                    <div class="card-icon" aria-hidden="true">⚙️</div>
-                    <h3>[Nome progetto]</h3>
-                    <p>[Breve descrizione del progetto e risultato ottenuto]</p>
-                    <div class="card-tags">AI &middot; Automation &middot; [Tag]</div>
+        <section aria-label="Cards progetto">
+            <h2 class="section-title">In evidenza</h2>
+            <div class="projects-grid">
+                <a href="#" class="card" aria-label="Caso onboarding AI">
+                    <div class="card-glow-wrapper">
+                        <div class="card-inner">
+                            <span class="project-topline">Operations AI</span>
+                            <h3>Onboarding intelligente per support team</h3>
+                            <p class="project-card-text">Ridisegno del flusso di assistenza con suggerimenti contestuali e routing automatico delle richieste complesse.</p>
+                            <div class="project-footer">
+                                <span>Tempo medio -42%</span>
+                                <span class="project-arrow">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="card" aria-label="Caso product copilot">
+                    <div class="card-glow-wrapper">
+                        <div class="card-inner">
+                            <span class="project-topline">Product UX</span>
+                            <h3>Copilot dentro dashboard SaaS</h3>
+                            <p class="project-card-text">Interfaccia guidata da intenti utente per analisi dati e creazione automatica di report leggibili in un click.</p>
+                            <div class="project-footer">
+                                <span>NPS +18 punti</span>
+                                <span class="project-arrow">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="card" aria-label="Caso accessibilita AI">
+                    <div class="card-glow-wrapper">
+                        <div class="card-inner">
+                            <span class="project-topline">Responsible AI</span>
+                            <h3>Layer accessibilita per contenuti dinamici</h3>
+                            <p class="project-card-text">Sistema di controllo linguaggio e lettura assistita per rendere output AI piu chiari, inclusivi e verificabili.</p>
+                            <div class="project-footer">
+                                <span>Escalation -31%</span>
+                                <span class="project-arrow">+</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="featured-case" aria-label="Caso studio">
+            <div class="featured-case-inner">
+                <div>
+                    <span class="project-topline">Case Study</span>
+                    <h3>Da backlog ingestibile a pipeline continua</h3>
+                    <p class="project-card-text">Mappatura attriti, sprint di prototipazione, implementazione guidata e training team. Risultato: meno richieste duplicate e piu tempo su decisioni ad alto impatto.</p>
+                </div>
+                <div>
+                    <ul class="featured-list">
+                        <li>Audit processo in 5 giorni</li>
+                        <li>Prototype AI in 2 settimane</li>
+                        <li>Rollout progressivo con guardrail</li>
+                        <li>KPI condivise tra tech e business</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-
-        <div class="card" aria-label="Progetto prodotto">
-            <div class="card-glow-wrapper">
-                <div class="card-inner">
-                    <div class="card-icon" aria-hidden="true">🧠</div>
-                    <h3>[Nome progetto]</h3>
-                    <p>[Breve descrizione del progetto e risultato ottenuto]</p>
-                    <div class="card-tags">Product &middot; UX &middot; [Tag]</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" aria-label="Progetto impatto">
-            <div class="card-glow-wrapper">
-                <div class="card-inner">
-                    <div class="card-icon" aria-hidden="true">🌱</div>
-                    <h3>[Nome progetto]</h3>
-                    <p>[Breve descrizione del progetto e risultato ottenuto]</p>
-                    <div class="card-tags">Accessibilit&agrave; &middot; Impatto &middot; [Tag]</div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-    <section class="features-container" aria-label="Template scheda progetto" style="margin-top: 3rem;">
-        <h2 style="width: 100%; text-align: center; margin-bottom: 2rem;">Struttura scheda progetto</h2>
-
-        <div class="card" aria-label="Problema">
-            <div class="card-glow-wrapper">
-                <div class="card-inner">
-                    <h3>Problema</h3>
-                    <p>Descrivi il problema o la sfida iniziale.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" aria-label="Soluzione">
-            <div class="card-glow-wrapper">
-                <div class="card-inner">
-                    <h3>Soluzione</h3>
-                    <p>Come &egrave; stata affrontata la sfida con AI e design.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" aria-label="Stack tecnologico">
-            <div class="card-glow-wrapper">
-                <div class="card-inner">
-                    <h3>Stack</h3>
-                    <p>Tecnologie e strumenti utilizzati.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" aria-label="Impatto">
-            <div class="card-glow-wrapper">
-                <div class="card-inner">
-                    <h3>Impatto</h3>
-                    <p>Risultati concreti e benefici per gli utenti.</p>
-                </div>
-            </div>
-        </div>
-
-    </section>
+        </section>
+    </main>
 
 </body>
 </html>
