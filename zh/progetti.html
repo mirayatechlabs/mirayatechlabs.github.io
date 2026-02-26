@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Miraya Tech Labs 项目案例：将 AI 融入流程与产品，并产出可衡量的业务结果。">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mirayatechlabs.github.io/zh/progetti.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:site_name" content="Miraya Tech Labs">
+    <meta property="og:title" content="项目 | Miraya Tech Labs">
+    <meta property="og:description" content="流程与产品 AI 集成案例，结果可衡量。">
+    <meta property="og:url" content="https://mirayatechlabs.github.io/zh/progetti.html">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="项目 | Miraya Tech Labs">
+    <meta name="twitter:description" content="流程与产品 AI 集成案例，结果可衡量。">
+    <title>项目 | Miraya Tech Labs</title>
+    <link rel="stylesheet" href="../style-v2.css">
+    <style>
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a { color: inherit; text-decoration: none; font-size: 0.9rem; opacity: 0.8; transition: opacity 0.3s; }
+        .nav-links a:hover, .nav-links a.active { opacity: 1; }
+        .lang-switch { display: inline-flex; gap: 0.45rem; margin-left: 0.35rem; }
+        .lang-switch a { opacity: 1; font-size: 1rem; line-height: 1; }
+
+        .page-shell { max-width: 1240px; margin: 0 auto; padding: 0 5% 5rem; }
+        .page-hero { padding: 3.5rem 0 2.2rem; }
+        .page-hero h1 { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 900; line-height: 1.05; margin: 0 0 1rem; letter-spacing: -1.4px; }
+        .page-hero p { margin: 0; max-width: 680px; }
+
+        .kpi-strip { display: grid; grid-template-columns: repeat(3, minmax(170px, 1fr)); gap: 1rem; margin: 2rem 0 3rem; }
+        .kpi-item { border: 1px solid rgba(124, 58, 237, 0.2); background: rgba(255, 255, 255, 0.74); border-radius: 18px; padding: 1rem 1.2rem; }
+        .kpi-value { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.8px; }
+        .kpi-label { margin-top: 0.3rem; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 0.7px; }
+
+        .section-title { margin: 0 0 1.2rem; font-size: 1.4rem; letter-spacing: -0.4px; }
+        .projects-grid { display: grid; grid-template-columns: repeat(3, minmax(260px, 1fr)); gap: 1.2rem; }
+        .card { display: block; height: 100%; color: inherit; text-decoration: none; }
+        .card-glow-wrapper { width: 100%; height: 100%; }
+        .card-inner { height: 100%; display: flex; flex-direction: column; gap: 0.8rem; padding: 1.6rem; }
+        .project-topline { display: inline-block; font-size: 0.72rem; letter-spacing: 0.6px; text-transform: uppercase; color: var(--text-muted); background: rgba(124, 58, 237, 0.08); border: 1px solid rgba(124, 58, 237, 0.18); border-radius: 999px; padding: 0.25rem 0.55rem; width: fit-content; }
+        .project-card-text { font-size: 1rem; line-height: 1.55; color: var(--text-muted); margin: 0; }
+        .project-footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 0.6rem; font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.6px; border-top: 1px solid rgba(124, 58, 237, 0.18); padding-top: 0.9rem; }
+        .project-arrow { font-weight: 900; color: var(--text-dark); }
+
+        .featured-case { margin-top: 2.5rem; border-radius: 26px; padding: 2px; background: var(--gradient-tech); box-shadow: 0 26px 50px -26px rgba(124, 58, 237, 0.45); }
+        .featured-case-inner { border-radius: 24px; background: rgba(255, 255, 255, 0.96); padding: 2rem; display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.4rem; }
+        .featured-case h3 { margin: 0 0 0.8rem; font-size: 1.85rem; letter-spacing: -0.8px; }
+        .featured-list { margin: 0; padding-left: 1.1rem; color: var(--text-muted); line-height: 1.7; }
+
+        @media (max-width: 980px) {
+            nav { align-items: flex-start; gap: 0.75rem; padding: 1rem 5%; }
+            .logo { font-size: 1.25rem; }
+            .nav-links { flex-wrap: wrap; row-gap: 0.5rem; column-gap: 1rem; }
+            .nav-links a { font-size: 0.88rem; }
+            .lang-switch a { font-size: 0.95rem; }
+            .page-shell { padding: 0 5% 3.5rem; }
+            .kpi-strip { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .featured-case-inner { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">mirayatechlabs.</div>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="progetti.html" class="active">项目</a>
+            <a href="lab.html">方法</a>
+            <a href="manifesto.html">宣言</a>
+            <a href="contatti.html">联系</a>
+            <span class="lang-switch" aria-label="语言切换">
+                <a href="../progetti.html" title="Italiano">&#127470;&#127481;</a>
+                <a href="../en/progetti.html" title="English">&#127468;&#127463;</a>
+                <a href="progetti.html" title="中文">&#127464;&#127475;</a>
+            </span>
+        </div>
+    </nav>
+
+    <main class="page-shell">
+        <header class="page-hero">
+            <h1>项目<span class="hero-highlight">推动真实结果。</span></h1>
+            <p>更现代的内页结构：更清晰的内容节奏、统一高度的卡片和可读性更高的信息层次。</p>
+        </header>
+
+        <section class="kpi-strip" aria-label="项目指标">
+            <article class="kpi-item"><div class="kpi-value">-38%</div><div class="kpi-label">运营耗时</div></article>
+            <article class="kpi-item"><div class="kpi-value">+2.3x</div><div class="kpi-label">发布速度</div></article>
+            <article class="kpi-item"><div class="kpi-value">92%</div><div class="kpi-label">团队采用率</div></article>
+        </section>
+
+        <section aria-label="项目卡片">
+            <h2 class="section-title">重点案例</h2>
+            <div class="projects-grid">
+                <a href="#" class="card" aria-label="AI onboarding 案例"><div class="card-glow-wrapper"><div class="card-inner"><span class="project-topline">Operations AI</span><h3>智能化客服上手流程</h3><p class="project-card-text">重构支持流程：上下文建议 + 复杂请求自动路由，提高响应质量与速度。</p><div class="project-footer"><span>平均耗时 -42%</span><span class="project-arrow">+</span></div></div></div></a>
+                <a href="#" class="card" aria-label="产品 copilot 案例"><div class="card-glow-wrapper"><div class="card-inner"><span class="project-topline">Product UX</span><h3>在 SaaS 仪表盘中嵌入 Copilot</h3><p class="project-card-text">基于意图的交互：数据分析与报告生成一步完成。</p><div class="project-footer"><span>NPS +18 分</span><span class="project-arrow">+</span></div></div></div></a>
+                <a href="#" class="card" aria-label="可访问性 AI 案例"><div class="card-glow-wrapper"><div class="card-inner"><span class="project-topline">Responsible AI</span><h3>动态内容可访问层</h3><p class="project-card-text">语言与阅读辅助系统，让 AI 输出更清晰、更包容、更可验证。</p><div class="project-footer"><span>升级工单 -31%</span><span class="project-arrow">+</span></div></div></div></a>
+            </div>
+        </section>
+
+        <section class="featured-case" aria-label="案例研究">
+            <div class="featured-case-inner">
+                <div>
+                    <span class="project-topline">Case Study</span>
+                    <h3>从失控积压到连续交付</h3>
+                    <p class="project-card-text">通过摩擦点梳理、原型冲刺、渐进式实施与团队赋能，实现更少重复请求与更高决策效率。</p>
+                </div>
+                <div>
+                    <ul class="featured-list">
+                        <li>5 天完成流程审计</li>
+                        <li>2 周交付 AI 原型</li>
+                        <li>带护栏的渐进式上线</li>
+                        <li>技术与业务共享 KPI</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

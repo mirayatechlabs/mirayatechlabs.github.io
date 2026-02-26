@@ -1,33 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://mirayatechlabs.github.io/</loc>
-    <lastmod>2026-02-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://mirayatechlabs.github.io/progetti.html</loc>
-    <lastmod>2026-02-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://mirayatechlabs.github.io/lab.html</loc>
-    <lastmod>2026-02-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://mirayatechlabs.github.io/manifesto.html</loc>
-    <lastmod>2026-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://mirayatechlabs.github.io/contatti.html</loc>
-    <lastmod>2026-02-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <url><loc>https://mirayatechlabs.github.io/</loc><lastmod>2026-02-26</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://mirayatechlabs.github.io/progetti.html</loc><lastmod>2026-02-26</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mirayatechlabs.github.io/lab.html</loc><lastmod>2026-02-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mirayatechlabs.github.io/manifesto.html</loc><lastmod>2026-02-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mirayatechlabs.github.io/contatti.html</loc><lastmod>2026-02-26</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <url><loc>https://mirayatechlabs.github.io/en/index.html</loc><lastmod>2026-02-26</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mirayatechlabs.github.io/en/progetti.html</loc><lastmod>2026-02-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mirayatechlabs.github.io/en/lab.html</loc><lastmod>2026-02-26</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mirayatechlabs.github.io/en/manifesto.html</loc><lastmod>2026-02-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mirayatechlabs.github.io/en/contatti.html</loc><lastmod>2026-02-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <url><loc>https://mirayatechlabs.github.io/zh/index.html</loc><lastmod>2026-02-26</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mirayatechlabs.github.io/zh/progetti.html</loc><lastmod>2026-02-26</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mirayatechlabs.github.io/zh/lab.html</loc><lastmod>2026-02-26</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mirayatechlabs.github.io/zh/manifesto.html</loc><lastmod>2026-02-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mirayatechlabs.github.io/zh/contatti.html</loc><lastmod>2026-02-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

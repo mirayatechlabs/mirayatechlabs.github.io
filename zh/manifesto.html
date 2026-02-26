@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Miraya Tech Labs 宣言：关于有用、负责、可访问且面向真实影响的 AI 原则。">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mirayatechlabs.github.io/zh/manifesto.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:site_name" content="Miraya Tech Labs">
+    <meta property="og:title" content="宣言 | Miraya Tech Labs">
+    <meta property="og:description" content="关于有用、负责、可访问且面向真实影响的 AI 原则。">
+    <meta property="og:url" content="https://mirayatechlabs.github.io/zh/manifesto.html">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="宣言 | Miraya Tech Labs">
+    <meta name="twitter:description" content="关于有用、负责、可访问且面向真实影响的 AI 原则。">
+    <title>宣言 | Miraya Tech Labs</title>
+    <link rel="stylesheet" href="../style-v2.css">
+    <style>
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a { color: inherit; text-decoration: none; font-size: 0.9rem; opacity: 0.8; transition: opacity 0.3s; }
+        .nav-links a:hover, .nav-links a.active { opacity: 1; }
+        .lang-switch { display: inline-flex; gap: 0.45rem; margin-left: 0.35rem; }
+        .lang-switch a { opacity: 1; font-size: 1rem; line-height: 1; }
+        .page-shell { max-width: 1240px; margin: 0 auto; padding: 0 5% 5rem; }
+        .hero { padding: 3rem 0 2rem; }
+        .hero h1 { margin: 0 0 0.8rem; font-size: clamp(2rem, 5vw, 3.8rem); letter-spacing: -1px; }
+        .hero p { margin: 0; max-width: 740px; }
+
+        .principles-grid { display: grid; grid-template-columns: repeat(3, minmax(240px, 1fr)); gap: 1rem; }
+        .card { display: block; height: 100%; text-decoration: none; color: inherit; }
+        .card-glow-wrapper { width: 100%; height: 100%; }
+        .card-inner { height: 100%; display: flex; flex-direction: column; gap: 0.75rem; padding: 1.5rem; }
+        .principle-index { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.7px; }
+        .principle-footer { margin-top: auto; border-top: 1px solid rgba(124,58,237,0.16); padding-top: 0.8rem; font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .quote-box { margin-top: 2.4rem; border-radius: 24px; padding: 2px; background: var(--gradient-tech); }
+        .quote-inner { border-radius: 22px; background: rgba(255,255,255,0.95); padding: 2rem; font-size: 1.35rem; line-height: 1.5; font-weight: 700; letter-spacing: -0.4px; }
+
+        @media (max-width: 980px) {
+            nav { align-items: flex-start; gap: 0.75rem; padding: 1rem 5%; }
+            .logo { font-size: 1.25rem; }
+            .nav-links { flex-wrap: wrap; row-gap: 0.5rem; column-gap: 1rem; }
+            .nav-links a { font-size: 0.88rem; }
+            .lang-switch a { font-size: 0.95rem; }
+            .page-shell { padding: 0 5% 3.5rem; }
+            .principles-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">mirayatechlabs.</div>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="progetti.html">项目</a>
+            <a href="lab.html">方法</a>
+            <a href="manifesto.html" class="active">宣言</a>
+            <a href="contatti.html">联系</a>
+            <span class="lang-switch" aria-label="语言切换">
+                <a href="../manifesto.html" title="Italiano">&#127470;&#127481;</a>
+                <a href="../en/manifesto.html" title="English">&#127468;&#127463;</a>
+                <a href="manifesto.html" title="中文">&#127464;&#127475;</a>
+            </span>
+        </div>
+    </nav>
+
+    <main class="page-shell">
+        <header class="hero">
+            <h1>宣言<span class="hero-highlight">不可妥协的原则。</span></h1>
+            <p>更有力度的叙事方式：减少冗长文本，强化清晰可读的承诺。</p>
+        </header>
+
+        <section class="principles-grid" aria-label="原则">
+            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P01</div><h3>以人为先</h3><p>AI 应该减轻负担、提升自主，而不是制造依赖。</p><div class="principle-footer">Human-first systems</div></div></div></article>
+            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P02</div><h3>务实有效</h3><p>拒绝空洞演示：每次集成都必须改善真实 KPI。</p><div class="principle-footer">Impact before hype</div></div></div></article>
+            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P03</div><h3>透明可解释</h3><p>技术选择可解释、边界清晰、数据使用负责任。</p><div class="principle-footer">Trust by design</div></div></div></article>
+            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P04</div><h3>可访问性</h3><p>界面与内容应对所有人可读可用，不留隐性门槛。</p><div class="principle-footer">Inclusive product</div></div></div></article>
+            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P05</div><h3>可持续性</h3><p>优化负载、成本与流程，避免无意义复杂度。</p><div class="principle-footer">Lean architecture</div></div></div></article>
+            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P06</div><h3>持续学习</h3><p>度量、校正、迭代：让系统与团队一起成长。</p><div class="principle-footer">Continuous improvement</div></div></div></article>
+        </section>
+
+        <section class="quote-box" aria-label="声明">
+            <div class="quote-inner">"我们做自动化不是为了替代人，而是为了让人的工作重新拥有质量。"</div>
+        </section>
+    </main>
+</body>
+</html>

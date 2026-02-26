@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Miraya Tech Labs manifesto: principles for useful, responsible, accessible AI focused on real impact.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://mirayatechlabs.github.io/en/manifesto.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Miraya Tech Labs">
+    <meta property="og:title" content="Manifesto | Miraya Tech Labs">
+    <meta property="og:description" content="Principles for useful, responsible, accessible AI focused on real impact.">
+    <meta property="og:url" content="https://mirayatechlabs.github.io/en/manifesto.html">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Manifesto | Miraya Tech Labs">
+    <meta name="twitter:description" content="Principles for useful, responsible, accessible AI focused on real impact.">
+    <title>Manifesto | Miraya Tech Labs</title>
+    <link rel="stylesheet" href="../style-v2.css">
+    <style>
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a { color: inherit; text-decoration: none; font-size: 0.9rem; opacity: 0.8; transition: opacity 0.3s; }
+        .nav-links a:hover, .nav-links a.active { opacity: 1; }
+        .lang-switch { display: inline-flex; gap: 0.45rem; margin-left: 0.35rem; }
+        .lang-switch a { opacity: 1; font-size: 1rem; line-height: 1; }
+        .page-shell { max-width: 1240px; margin: 0 auto; padding: 0 5% 5rem; }
+        .hero { padding: 3rem 0 2rem; }
+        .hero h1 { margin: 0 0 0.8rem; font-size: clamp(2rem, 5vw, 3.8rem); letter-spacing: -1px; }
+        .hero p { margin: 0; max-width: 740px; }
+
+        .principles-grid { display: grid; grid-template-columns: repeat(3, minmax(240px, 1fr)); gap: 1rem; }
+        .card { display: block; height: 100%; text-decoration: none; color: inherit; }
+        .card-glow-wrapper { width: 100%; height: 100%; }
+        .card-inner { height: 100%; display: flex; flex-direction: column; gap: 0.75rem; padding: 1.5rem; }
+        .principle-index { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.7px; }
+        .principle-footer { margin-top: auto; border-top: 1px solid rgba(124,58,237,0.16); padding-top: 0.8rem; font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+        .quote-box { margin-top: 2.4rem; border-radius: 24px; padding: 2px; background: var(--gradient-tech); }
+        .quote-inner { border-radius: 22px; background: rgba(255,255,255,0.95); padding: 2rem; font-size: 1.35rem; line-height: 1.5; font-weight: 700; letter-spacing: -0.4px; }
+
+        @media (max-width: 980px) {
+            nav { align-items: flex-start; gap: 0.75rem; padding: 1rem 5%; }
+            .logo { font-size: 1.25rem; }
+            .nav-links { flex-wrap: wrap; row-gap: 0.5rem; column-gap: 1rem; }
+            .nav-links a { font-size: 0.88rem; }
+            .lang-switch a { font-size: 0.95rem; }
+            .page-shell { padding: 0 5% 3.5rem; }
+            .principles-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">mirayatechlabs.</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="progetti.html">Projects</a>
+            <a href="lab.html">Lab</a>
+            <a href="manifesto.html" class="active">Manifesto</a>
+            <a href="contatti.html">Contact</a>
+            <span class="lang-switch" aria-label="Language selector">
+                <a href="../manifesto.html" title="Italiano">&#127470;&#127481;</a>
+                <a href="manifesto.html" title="English">&#127468;&#127463;</a>
+                <a href="../zh/manifesto.html" title="中文">&#127464;&#127475;</a>
+            </span>
+        </div>
+    </nav>
+
+    <main class="page-shell">
+        <header class="hero">
+            <h1>Manifesto<span class="hero-highlight">Non-negotiable principles.</span></h1>
+            <p>A stronger narrative: less long text, more clear and readable commitments.</p>
+        </header>
+
+        <section class="principles-grid" aria-label="Principles">
+            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P01</div><h3>People first</h3><p>AI should reduce friction and increase autonomy, not create dependency.</p><div class="principle-footer">Human-first systems</div></div></div></article>
+            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P02</div><h3>Concrete usefulness</h3><p>No empty demos: every integration must improve a real KPI.</p><div class="principle-footer">Impact before hype</div></div></div></article>
+            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P03</div><h3>Transparency</h3><p>Explainable technical choices, explicit limits, and responsible data use.</p><div class="principle-footer">Trust by design</div></div></div></article>
+            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P04</div><h3>Accessibility</h3><p>Interfaces and content readable by everyone, without hidden exclusions.</p><div class="principle-footer">Inclusive product</div></div></div></article>
+            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P05</div><h3>Sustainability</h3><p>We optimize load, costs, and processes to avoid unnecessary complexity.</p><div class="principle-footer">Lean architecture</div></div></div></article>
+            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P06</div><h3>Continuous learning</h3><p>Measure, adjust, improve: the system grows with the team.</p><div class="principle-footer">Continuous improvement</div></div></div></article>
+        </section>
+
+        <section class="quote-box" aria-label="Statement">
+            <div class="quote-inner">"We do not seek automation to replace people. We seek it to restore quality to human work."</div>
+        </section>
+    </main>
+</body>
+</html>
