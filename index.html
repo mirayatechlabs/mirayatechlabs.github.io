@@ -16,11 +16,6 @@
         .hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; }
         .btn-ghost { display: inline-block; padding: 1.05rem 1.6rem; border: 1px solid rgba(124,58,237,0.22); text-decoration: none; color: var(--text-dark); font-weight: 700; }
 
-        .signal-grid { display: grid; grid-template-columns: repeat(3, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem; }
-        .signal-card { border: 1px solid rgba(124,58,237,0.22); border-radius: 18px; background: rgba(255,255,255,0.72); padding: 1rem; }
-        .signal-card h3 { margin: 0 0 0.5rem; font-size: 1.05rem; }
-        .signal-card p { margin: 0; font-size: 0.95rem; }
-
         .section-title { margin: 2.8rem 0 1rem; font-size: 1.45rem; letter-spacing: -0.4px; }
         .tracks { display: grid; grid-template-columns: repeat(3, minmax(250px, 1fr)); gap: 1.1rem; }
         .card { display: block; height: 100%; text-decoration: none; color: inherit; }
@@ -31,7 +26,6 @@
 
         @media (max-width: 980px) {
             .hero-modern { grid-template-columns: 1fr; }
-            .signal-grid { grid-template-columns: 1fr; }
             .tracks { grid-template-columns: 1fr; }
         }
     </style>
@@ -58,10 +52,8 @@
                     <a href="contatti.html" class="btn-ghost">Prenota una call</a>
                 </div>
             </div>
-            <div class="signal-grid">
-                <article class="signal-card"><h3>Analisi rapida</h3><p>Mappa attriti operativi e punti ad alto impatto.</p></article>
-                <article class="signal-card"><h3>Prototype sprint</h3><p>Soluzioni testabili in settimane, non in trimestri.</p></article>
-                <article class="signal-card"><h3>Rollout con KPI</h3><p>Ogni scelta tecnica legata a metriche reali.</p></article>
+            <div class="hero-visual-side" id="reactive-zone" aria-hidden="true">
+                <div class="main-blob"></div>
             </div>
         </section>
 
@@ -95,6 +87,42 @@
             </div>
         </section>
     </main>
+    <script>
+        const reactiveZone = document.getElementById('reactive-zone');
+        let lastExecution = 0;
+
+        if (reactiveZone) {
+            reactiveZone.addEventListener('mousemove', (e) => {
+                const now = Date.now();
+                if (now - lastExecution < 90) return;
+                lastExecution = now;
+                createParticle(e.clientX, e.clientY);
+            });
+        }
+
+        function createParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+
+            const rect = reactiveZone.getBoundingClientRect();
+            const offsetX = x - rect.left;
+            const offsetY = y - rect.top;
+
+            const size = Math.random() * 10 + 6;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${offsetX - size / 2}px`;
+            particle.style.top = `${offsetY - size / 2}px`;
+
+            const tx = (Math.random() - 0.5) * 220;
+            const ty = (Math.random() - 0.5) * 220;
+            particle.style.setProperty('--tx', `${tx}px`);
+            particle.style.setProperty('--ty', `${ty}px`);
+
+            reactiveZone.appendChild(particle);
+            setTimeout(() => particle.remove(), 1500);
+        }
+    </script>
 </body>
 </html>
 
