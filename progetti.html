@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progetti | Miraya Tech Labs</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a { color: inherit; text-decoration: none; font-size: 0.9rem; opacity: 0.8; transition: opacity 0.3s; }
+        .nav-links a:hover, .nav-links a.active { opacity: 1; }
+        .card-tags { font-size: 0.75rem; color: #666; margin-top: 1rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .page-hero { min-height: 40vh; display: flex; align-items: center; padding: 4rem 5%; max-width: 1400px; margin: 0 auto; }
+        .page-hero h1 { font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 1rem; letter-spacing: -1.5px; }
+        .page-hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">mirayatechlabs.</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="progetti.html">Progetti</a>
+            <a href="lab.html">Lab</a>
+            <a href="manifesto.html">Manifesto</a>
+            <a href="contatti.html">Contatti</a>
+        </div>
+    </nav>
+
+    <header class="page-hero">
+        <div>
+            <h1>Progetti<span class="hero-highlight">Selezionati.</span></h1>
+            <p>Una selezione di lavori dove l'intelligenza artificiale incontra il design che conta.</p>
+        </div>
+    </header>
+
+    <section class="features-container" aria-label="Progetti in evidenza">
+        <h2 style="width: 100%; text-align: center; margin-bottom: 2rem;">In evidenza</h2>
+
+        <div class="card" aria-label="Progetto automazione">
+            <div class="card-glow-wrapper">
+                <div class="card-inner">
+                    <div class="card-icon" aria-hidden="true">⚙️</div>
+                    <h3>[Nome progetto]</h3>
+                    <p>[Breve descrizione del progetto e risultato ottenuto]</p>
+                    <div class="card-tags">AI &middot; Automation &middot; [Tag]</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" aria-label="Progetto prodotto">
+            <div class="card-glow-wrapper">
+                <div class="card-inner">
+                    <div class="card-icon" aria-hidden="true">🧠</div>
+                    <h3>[Nome progetto]</h3>
+                    <p>[Breve descrizione del progetto e risultato ottenuto]</p>
+                    <div class="card-tags">Product &middot; UX &middot; [Tag]</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" aria-label="Progetto impatto">
+            <div class="card-glow-wrapper">
+                <div class="card-inner">
+                    <div class="card-icon" aria-hidden="true">🌱</div>
+                    <h3>[Nome progetto]</h3>
+                    <p>[Breve descrizione del progetto e risultato ottenuto]</p>
+                    <div class="card-tags">Accessibilit&agrave; &middot; Impatto &middot; [Tag]</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="features-container" aria-label="Template scheda progetto" style="margin-top: 3rem;">
+        <h2 style="width: 100%; text-align: center; margin-bottom: 2rem;">Struttura scheda progetto</h2>
+
+        <div class="card" aria-label="Problema">
+            <div class="card-glow-wrapper">
+                <div class="card-inner">
+                    <h3>Problema</h3>
+                    <p>Descrivi il problema o la sfida iniziale.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" aria-label="Soluzione">
+            <div class="card-glow-wrapper">
+                <div class="card-inner">
+                    <h3>Soluzione</h3>
+                    <p>Come &egrave; stata affrontata la sfida con AI e design.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" aria-label="Stack tecnologico">
+            <div class="card-glow-wrapper">
+                <div class="card-inner">
+                    <h3>Stack</h3>
+                    <p>Tecnologie e strumenti utilizzati.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" aria-label="Impatto">
+            <div class="card-glow-wrapper">
+                <div class="card-inner">
+                    <h3>Impatto</h3>
+                    <p>Risultati concreti e benefici per gli utenti.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+</html>

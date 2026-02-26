@@ -1,132 +1,115 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
-  <title>miraya tech labs</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miraya Tech Labs | Freedom & Future</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a { color: inherit; text-decoration: none; font-size: 0.9rem; opacity: 0.8; transition: opacity 0.3s; }
+        .nav-links a:hover, .nav-links a.active { opacity: 1; }
+        .card-tags { font-size: 0.75rem; color: #666; margin-top: 1rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .card { display: block; color: inherit; text-decoration: none; }
+    </style>
 </head>
 <body>
-  <header class="hero" id="hero" aria-label="Sezione introduttiva">
-    <div class="bg" id="bg" aria-hidden="true"></div>
-    <div class="vignette" aria-hidden="true"></div>
-    <div class="tint" aria-hidden="true"></div>
-    <div class="grid" aria-hidden="true"></div>
 
-    <div class="orb o1" aria-hidden="true"></div>
-    <div class="orb o2" aria-hidden="true"></div>
-    <div class="orb o3" aria-hidden="true"></div>
+    <nav>
+        <div class="logo">mirayatechlabs.</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="progetti.html">Progetti</a>
+            <a href="lab.html">Lab</a>
+            <a href="manifesto.html">Manifesto</a>
+            <a href="contatti.html">Contatti</a>
+        </div>
+    </nav>
 
-    <div class="content">
-  <div class="badge"><span class="dot" aria-hidden="true"></span> Dove il futuro non ha padroni</div>
+    <header class="hero-split">
+        <div class="hero-text-side">
+            <h1>Si &egrave; sempre fatto cos&igrave;.
+                <span class="hero-highlight">Finch&eacute; non l'abbiamo cambiato.</span>
+            </h1>
+            <p>Integro l'intelligenza artificiale nei prodotti e nei processi per ridurre attrito, aumentare autonomia e restituire tempo alle persone.</p>
+        </div>
 
-<!-- Logo simbolo sopra -->
-<img src="assets/logo-symbol.png" alt="Logo Miraya" id="site-logo">
+        <div class="hero-visual-side" id="reactive-zone" aria-hidden="true">
+            <div class="main-blob"></div>
+        </div>
+    </header>
 
-<!-- Scritta testuale sotto (nitida e responsive) -->
-<h1 class="brand-text">
-  <span class="word">MIRAYA</span><br>
-  <span class="word thin">TECH LABS</span>
-</h1>
+    <section class="features-container" id="agenti" aria-label="Aree di competenza">
 
+        <a href="lab.html" class="card" aria-label="Automazione processi">
+            <div class="card-glow-wrapper">
+                <div class="card-inner">
+                    <div class="card-icon" aria-hidden="true">⚡</div>
+                    <h3>Automazione processi</h3>
+                    <p>Analizzo flussi e colli di bottiglia e applico l'AI dove alleggerisce lavoro ripetitivo e riduce errori.</p>
+                    <div class="card-tags">Workflow &middot; Efficienza &middot; Operazioni</div>
+                </div>
+            </div>
+        </a>
 
+        <a href="progetti.html" class="card" aria-label="AI dentro i prodotti">
+            <div class="card-glow-wrapper">
+                <div class="card-inner">
+                    <div class="card-icon" aria-hidden="true">📚</div>
+                    <h3>AI dentro i prodotti</h3>
+                    <p>Progetto integrazioni AI native: utili, leggibili, orientate all'esperienza.</p>
+                    <div class="card-tags">Product &middot; UX &middot; Integrazione</div>
+                </div>
+            </div>
+        </a>
 
-      <!-- Solo logo -->
-<img src="assets/logo-symbol.png" alt="Logo Miraya" id="site-logo">
+        <a href="manifesto.html" class="card" aria-label="Impatto umano e sostenibile">
+            <div class="card-glow-wrapper">
+                <div class="card-inner">
+                    <div class="card-icon" aria-hidden="true">👟</div>
+                    <h3>Impatto umano e sostenibile</h3>
+                    <p>Scelte tecniche con responsabilit&agrave;: accessibilit&agrave;, contesto, sostenibilit&agrave; concreta.</p>
+                    <div class="card-tags">Accessibilit&agrave; &middot; Impatto &middot; Cultura</div>
+                </div>
+            </div>
+        </a>
 
-<!-- Testo brand -->
-<h1 class="brand-text">MIRAYA TECH LABS</h1>
-
-      <p class="lead">
-        Scriviamo tecnologia per liberare tempo e immaginazione. Prodotti digitali, automazioni e design con un pizzico di disobbedienza in codice.
-      </p>
-
-      <nav class="cta" aria-label="Azioni principali">
-        <a class="btn primary" href="#progetti">Scopri i progetti</a>
-        <a class="btn ghost" href="#contatti">Contatti</a>
-      </nav>
-    </div>
-
-    <div class="hint" aria-hidden="true">
-      <div class="mouse"><div class="wheel"></div></div>
-      <div>Scroll</div>
-    </div>
-  </header>
-
-  <main>
-    <section id="progetti">
-      <h2>Sezione di esempio sotto la hero — inserisci cards, progetti o qualunque contenuto.</h2>
     </section>
-  </main>
 
-  <footer id="contatti" class="footer">
-    © <span id="year"></span> Miraya Tech Labs — Tutti i diritti riservati
-  </footer>
+    <script>
+        const reactiveZone = document.getElementById('reactive-zone');
+        let lastExecution = 0;
 
-  <script>
-    // Anno footer
-    document.getElementById('year').textContent = new Date().getFullYear();
+        reactiveZone.addEventListener('mousemove', (e) => {
+            const now = Date.now();
+            if (now - lastExecution < 100) return;
+            lastExecution = now;
+            createParticle(e.clientX, e.clientY);
+        });
 
-    // Fade-in logo rispettando "reduce motion"
-    const logo = document.getElementById('site-logo');
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      logo.style.opacity = 0;
-      logo.style.transform = 'translateY(18px)';
-      logo.style.transition = 'transform .6s cubic-bezier(.2,.8,.2,1), opacity .6s';
-      requestAnimationFrame(() => {
-        logo.style.opacity = 1;
-        logo.style.transform = 'translateY(0)';
-      });
-    }
-<script>
-  // ...qui c'è già il codice che hai ora per anno, parallax ecc.
+        function createParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
 
-  // Animazione lettera-per-lettera sul testo brand
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(!reduce){
-    const h1 = document.querySelector('.brand-text');
-    const html = h1.innerHTML;
-    const plain = html.replace(/<br\s*\/?>/g,'§BR§').replace(/<[^>]+>/g,'');
-    h1.innerHTML = [...plain].map(ch => ch==='§' ? '' : `<span class="ch">${ch}</span>`).join('').replace(/§BR§/g,'<br>');
-    const chars = h1.querySelectorAll('.ch');
-    chars.forEach((el,i)=>{
-      el.style.display='inline-block';
-      el.style.transform='translateY(18px) scale(.98)';
-      el.style.opacity='0';
-      el.style.transition='transform .55s cubic-bezier(.2,.8,.2,1), opacity .55s';
-      el.style.transitionDelay = (i*10)+'ms';
-      requestAnimationFrame(()=>{ el.style.transform='translateY(0) scale(1)'; el.style.opacity='1'; });
-    });
-  }
-</script>
+            const rect = reactiveZone.getBoundingClientRect();
+            const offsetX = x - rect.left;
+            const offsetY = y - rect.top;
 
-    // Parallax super-leggero
-    const bg = document.getElementById('bg');
-    const orbs = document.querySelectorAll('.orb');
-    let tx=0, ty=0, px=0, py=0;
+            const size = Math.random() * 12 + 8;
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${offsetX - size / 2}px`;
+            particle.style.top = `${offsetY - size / 2}px`;
 
-    function loop(){
-      px += (tx - px) * 0.08;
-      py += (ty - py) * 0.08;
-      const bgX = px * 14, bgY = py * 8;
-      bg.style.transform = `translate(${bgX}%, ${bgY}%) scale(1.08)`;
-      orbs.forEach((o,i)=>{ const k=(i+1)*8; o.style.transform = `translate(${px*k}px, ${py*k}px)`; });
-      requestAnimationFrame(loop);
-    }
-    requestAnimationFrame(loop);
+            const tx = (Math.random() - 0.5) * 250;
+            const ty = (Math.random() - 0.5) * 250;
+            particle.style.setProperty('--tx', `${tx}px`);
+            particle.style.setProperty('--ty', `${ty}px`);
 
-    window.addEventListener('pointermove', e=>{
-      const w = innerWidth, h = innerHeight;
-      tx = (e.clientX/w)*2 - 1;
-      ty = (e.clientY/h)*2 - 1;
-    }, {passive:true});
+            reactiveZone.appendChild(particle);
+            setTimeout(() => particle.remove(), 1500);
+        }
+    </script>
 
-    window.addEventListener('deviceorientation', e=>{
-      const gx=(e.gamma||0)/30, gy=(e.beta||0)/45;
-      tx = Math.max(-1, Math.min(1, gx));
-      ty = Math.max(-1, Math.min(1, gy));
-    }, {passive:true});
-  </script>
 </body>
 </html>

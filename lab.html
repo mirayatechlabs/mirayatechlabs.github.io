@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab / Metodo | Miraya Tech Labs</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a { color: inherit; text-decoration: none; font-size: 0.9rem; opacity: 0.8; transition: opacity 0.3s; }
+        .nav-links a:hover, .nav-links a.active { opacity: 1; }
+        .card-tags { font-size: 0.75rem; color: #666; margin-top: 1rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .page-hero { min-height: 40vh; display: flex; align-items: center; padding: 4rem 5%; max-width: 1400px; margin: 0 auto; }
+        .page-hero h1 { font-size: 3.5rem; font-weight: 900; line-height: 1.1; margin-bottom: 1rem; letter-spacing: -1.5px; }
+        .page-hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">mirayatechlabs.</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="progetti.html">Progetti</a>
+            <a href="lab.html">Lab</a>
+            <a href="manifesto.html">Manifesto</a>
+            <a href="contatti.html">Contatti</a>
+        </div>
+    </nav>
+
+    <header class="page-hero">
+        <div>
+            <h1>Lab<span class="hero-highlight">Il Metodo.</span></h1>
+            <p>Come trasformo idee in soluzioni concrete, un passo alla volta.</p>
+        </div>
+    </header>
+
+    <section class="features-container" aria-label="Il metodo">
+        <h2 style="width: 100%; text-align: center; margin-bottom: 2rem;">Il processo</h2>
+
+        <div class="card" aria-label="Diagnosi">
+            <div class="card-glow-wrapper">
+                <div class="card-inner">
+                    <div class="card-icon" aria-hidden="true">🔍</div>
+                    <h3>1. Diagnosi</h3>
+                    <p>Analizzo il contesto reale: flussi esistenti, pain point, vincoli tecnici e organizzativi. Prima di proporre soluzioni, capisco davvero come funziona il sistema.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" aria-label="Prototipo">
+            <div class="card-glow-wrapper">
+                <div class="card-inner">
+                    <div class="card-icon" aria-hidden="true">🛠️</div>
+                    <h3>2. Prototipo</h3>
+                    <p>Sperimentazione rapida. Costruisco versioni minimali per validare l'idea con utenti reali. Il feedback arriva presto, le correzioni sono economiche.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" aria-label="Integrazione">
+            <div class="card-glow-wrapper">
+                <div class="card-inner">
+                    <div class="card-icon" aria-hidden="true">🚀</div>
+                    <h3>3. Integrazione</h3>
+                    <p>Distribuzione graduale. Accompagno il team nell'adozione, formazione e monitoraggio. L'obiettivo &egrave; che la soluzione viva e migliori nel tempo.</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="features-container" aria-label="Decisioni di design" style="margin-top: 3rem;">
+        <h2 style="width: 100%; text-align: center; margin-bottom: 2rem;">Decisioni di design</h2>
+
+        <div class="card" aria-label="Controllo umano">
+            <div class="card-glow-wrapper">
+                <div class="card-inner">
+                    <div class="card-icon" aria-hidden="true">✋</div>
+                    <h3>Controllo umano</h3>
+                    <p>Niente automazione cieca. L'AI suggerisce, decide sempre una persona. Questo non &egrave; un limite: &egrave; la differenza tra strumento e sostituto.</p>
+                    <div class="card-tags">Human-in-the-loop &middot; Accountability</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" aria-label="Accessibilità">
+            <div class="card-glow-wrapper">
+                <div class="card-inner">
+                    <div class="card-icon" aria-hidden="true">♿</div>
+                    <h3>Accessibilit&agrave; di default</h3>
+                    <p>Non un'aggiunta, ma un requisito base. Se non funziona per tutti, non funziona.</p>
+                    <div class="card-tags">WCAG &middot; Inclusione</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card" aria-label="Sostenibilità">
+            <div class="card-glow-wrapper">
+                <div class="card-inner">
+                    <div class="card-icon" aria-hidden="true">🌱</div>
+                    <h3>Sostenibilit&agrave; concreta</h3>
+                    <p>Scelte tecniche consapevoli. Query mirate invece di processi bulk, architetture leggere, hosting responsabile.</p>
+                    <div class="card-tags">Efficienza &middot; Riduzione impatto</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+</html>
