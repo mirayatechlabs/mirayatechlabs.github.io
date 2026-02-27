@@ -27,14 +27,21 @@
         .hero { padding: 3rem 0 2rem; }
         .hero h1 { margin: 0 0 0.8rem; font-size: clamp(2rem, 5vw, 3.8rem); letter-spacing: -1px; }
 
-        .contact-layout { display: grid; grid-template-columns: 1.15fr 1fr; gap: 1rem; }
+        .contact-layout { display: grid; grid-template-columns: 1.15fr 1fr; gap: 1rem; margin-top: 1rem; }
+        .contact-layout + .contact-layout { margin-top: 1.6rem; }
+        .contact-single { grid-template-columns: 1fr; }
         .card { display: block; height: 100%; color: inherit; text-decoration: none; }
         .card-glow-wrapper { width: 100%; height: 100%; }
         .card-inner { height: 100%; display: flex; flex-direction: column; gap: 0.8rem; padding: 1.6rem; }
+        .card-inner h3 { margin: 0; line-height: 1.2; }
+        .card-inner p { margin: 0; font-size: 1rem; line-height: 1.55; color: var(--text-muted); }
 
         .mail-cta { display: inline-block; width: fit-content; padding: 0.95rem 1.4rem; background: var(--text-dark); color: #fff; text-decoration: none; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.7px; font-weight: 800; }
+        .paypal-cta { display: inline-block; width: fit-content; padding: 0.95rem 1.4rem; background: #0070ba; color: #fff; text-decoration: none; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.7px; font-weight: 800; }
+        .cta-row { display: flex; gap: 0.7rem; flex-wrap: wrap; margin-top: 0.35rem; }
         .small { font-size: 0.86rem; color: var(--text-muted); margin: 0; }
-        .list { margin: 0; padding-left: 1.1rem; color: var(--text-muted); line-height: 1.7; }
+        .list { margin: 0.25rem 0 0; padding-left: 1.1rem; color: var(--text-muted); line-height: 1.7; }
+        .list li + li { margin-top: 0.3rem; }
 
         @media (max-width: 980px) {
             nav { align-items: flex-start; gap: 0.75rem; padding: 1rem 5%; }
@@ -71,14 +78,23 @@
             <p>A direct CTA with a clear structure to turn your request into a practical kickoff.</p>
         </header>
 
-        <section class="contact-layout" aria-label="Contacts and onboarding">
+        <section class="contact-layout" id="quick-start" aria-label="Starter AI and contacts">
             <article class="card">
                 <div class="card-glow-wrapper">
                     <div class="card-inner">
-                        <h3>Write to me now</h3>
-                        <p>Share your context, goal, and timeline. I will reply with an operational proposal and first steps.</p>
-                        <a class="mail-cta" href="mailto:mirayatechlabs@gmail.com">mirayatechlabs@gmail.com</a>
-                        <p class="small">Average response time: within 24 business hours.</p>
+                        <h3>Starter AI for SMBs</h3>
+                        <p>A fast, practical, low-cost starting package to deliver value quickly.</p>
+                        <ul class="list">
+                            <li>Kickoff call and priorities review (60 min)</li>
+                            <li>Map of the top 3 AI opportunities for your business</li>
+                            <li>1 ready-to-use automation</li>
+                            <li>30-day action plan</li>
+                        </ul>
+                        <p class="small"><strong>From €490</strong> + VAT</p>
+                        <div class="cta-row">
+                            <a class="paypal-cta" href="https://www.paypal.com/paypalme/mirayatechlabs/490" target="_blank" rel="noopener noreferrer">Buy with PayPal</a>
+                            <a class="mail-cta" href="mailto:mirayatechlabs@gmail.com?subject=Starter%20AI%20SMB%20Request">Quick Questions</a>
+                        </div>
                     </div>
                 </div>
             </article>
@@ -86,12 +102,32 @@
             <article class="card">
                 <div class="card-glow-wrapper">
                     <div class="card-inner">
-                        <h3>What we need to start</h3>
+                        <h3>Direct contact</h3>
+                        <p>If you prefer to discuss first, send us your context and we will reply with a tailored plan.</p>
+                        <a class="mail-cta" href="mailto:mirayatechlabs@gmail.com">mirayatechlabs@gmail.com</a>
+                        <p class="small">Average reply time: within 24 business hours.</p>
+                        <h3 style="margin-top: 0.55rem;">Best fit for</h3>
                         <ul class="list">
-                            <li>Top priority objective (one clear priority)</li>
-                            <li>Team or workflow involved</li>
-                            <li>Known technical or legal constraints</li>
-                            <li>Time horizon: 30, 60, or 90 days</li>
+                            <li>SMBs with no AI project started yet</li>
+                            <li>Teams that want to identify high-value use cases</li>
+                            <li>Companies looking for a fast and affordable first step</li>
+                            <li>Decision makers who want clear guidance, not theory</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <section class="contact-layout contact-single" aria-label="Info to get started">
+            <article class="card">
+                <div class="card-glow-wrapper">
+                    <div class="card-inner">
+                        <h3>What we need to help you quickly</h3>
+                        <ul class="list">
+                            <li>Main problem you want to solve first</li>
+                            <li>Team or department involved</li>
+                            <li>Tools you currently use</li>
+                            <li>When you want to see first results</li>
                         </ul>
                     </div>
                 </div>
