@@ -6,7 +6,7 @@ Costruzione di un sito statico Astro 5 per mirayatechlabs.github.io — fronte c
 
 ## Phases
 
-- [ ] **Phase 1: Setup & Foundation** - Progetto Astro 5 + Tailwind 4 buildabile e deployabile
+- [x] **Phase 1: Setup & Foundation** - Progetto Astro 5 + Tailwind 4 buildabile e deployabile (completed 2026-03-27)
 - [ ] **Phase 2: Layout & Componenti** - Tutti i componenti condivisi + i18n IT/EN
 - [ ] **Phase 3: Homepage & Servizi** - Pagine principali complete in IT e EN
 - [ ] **Phase 4: Configuratore, Contatti, SEO & Deploy** - Form multi-step, contatti, SEO, deploy GitHub Pages
@@ -27,7 +27,7 @@ Costruzione di un sito statico Astro 5 per mirayatechlabs.github.io — fronte c
 
 Plans:
 - [x] 01-01-PLAN.md — Inizializzazione Astro 5 + Tailwind CSS 4 + struttura cartelle + public assets
-- [ ] 01-02-PLAN.md — global.css con Tailwind 4, palette colori @theme, Google Fonts, import nelle pagine
+- [x] 01-02-PLAN.md — global.css con Tailwind 4, palette colori @theme, Google Fonts, import nelle pagine
 
 ### Phase 2: Layout & Componenti
 **Goal**: Tutti i componenti riusabili pronti: Navbar, Footer, SEO, BaseLayout, ServiceCard, PricingCard, Hero. Sistema i18n IT/EN funzionante.
@@ -82,7 +82,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Setup & Foundation | 1/2 | In Progress|  |
+| 1. Setup & Foundation | 2/2 | Complete   | 2026-03-27 |
 | 2. Layout & Componenti | 0/2 | Not started | - |
 | 3. Homepage & Servizi | 0/2 | Not started | - |
 | 4. Configuratore, Contatti, SEO & Deploy | 0/2 | Not started | - |
