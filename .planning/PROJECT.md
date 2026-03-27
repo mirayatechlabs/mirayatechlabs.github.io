@@ -12,11 +12,11 @@ Un visitatore PMI capisce in 10 secondi cosa offre Tatiana, quanto costa, e come
 
 ### Validated
 
-(Nessuno ancora — da validare con la build)
+- [x] Setup progetto Astro 5 + Tailwind CSS 4 deployabile su GitHub Pages — Validated in Phase 1: Setup & Foundation
+- [x] Design system: palette rame/carta/inchiostro, Syne + Source Serif 4 — Validated in Phase 1: Setup & Foundation
 
 ### Active
 
-- [ ] Setup progetto Astro 5 + Tailwind CSS 4 deployabile su GitHub Pages
 - [ ] Componenti condivisi: Navbar, Footer, SEO, layout base
 - [ ] Homepage IT/EN con hero, chi c'è dietro, servizi preview, prezzi rapidi
 - [ ] Pagina Servizi IT/EN con 4 livelli + metodologia
@@ -24,7 +24,6 @@ Un visitatore PMI capisce in 10 secondi cosa offre Tatiana, quanto costa, e come
 - [ ] Pagina Contatti IT/EN — solo email diretta, no form
 - [ ] i18n Astro nativo — IT default, EN su /en/
 - [ ] SEO: title/meta unici per pagina, sitemap XML, robots.txt, OG tags
-- [ ] Design system: palette rame/carta/inchiostro, Syne + Source Serif 4
 
 ### Out of Scope
 
@@ -58,10 +57,11 @@ Un visitatore PMI capisce in 10 secondi cosa offre Tatiana, quanto costa, e come
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Astro 5 SSG | GitHub Pages richiede output statico, nessun server | — Pending |
-| Tailwind CSS 4 | Versione moderna, CSS custom properties native | — Pending |
+| Astro 5 SSG | GitHub Pages richiede output statico, nessun server | ✓ Astro 5.18.1 installato, build passa |
+| Tailwind CSS 4 via @tailwindcss/vite | @astrojs/tailwind deprecato per Tailwind 4 | ✓ Validato in Phase 1 |
+| @theme {} per CSS custom properties | Tailwind 4 genera utility classes da @theme | ✓ Validato in Phase 1 |
 | mailto: per il form | Zero infrastruttura backend richiesta | — Pending |
 | Legacy HTML ignorato | Non è una migrazione — è un nuovo progetto parallelo | — Pending |
 
 ---
-*Last updated: 2026-03-26 — project initialization*
+*Last updated: 2026-03-27 — Phase 1 complete: Astro 5 + Tailwind 4 buildable foundation*
