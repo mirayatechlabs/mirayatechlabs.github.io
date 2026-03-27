@@ -1,6 +1,8 @@
 ---
 // Pagina principale italiana — placeholder per Phase 2+
 // Contenuto completo implementato in Phase 3
+// Stili: global.css con Tailwind 4 + palette colori + font
+import '../styles/global.css';
 ---
 <!DOCTYPE html>
 <html lang="it">
@@ -10,7 +12,10 @@
     <title>mirayatechlabs. — AI consultant per PMI</title>
   </head>
   <body>
-    <h1>mirayatechlabs.</h1>
-    <p>In costruzione — Phase 1 fondamenta.</p>
+    <main class="container" style="padding-top: 4rem;">
+      <h1>mirayatechlabs.</h1>
+      <p style="color: var(--color-testo-muted);">Fondamenta Phase 1 completate. Stili Tailwind 4 + font attivi.</p>
+      <p><a href="/en/">Switch to English</a></p>
+    </main>
   </body>
 </html>
