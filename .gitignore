@@ -1,0 +1,17 @@
+# Astro
+dist/
+.astro/
+
+# Node
+node_modules/
+
+# Preview server (legacy)
+.preview-err.log
+.preview-out.log
+.preview-server.js
+*.preview.html
+
+# Environment
+.env
+.env.*
+!.env.example
