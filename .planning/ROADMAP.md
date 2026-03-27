@@ -39,11 +39,11 @@ Plans:
   3. ServiceCard mostra hover lift + border rame on hover
   4. Footer ha sfondo inchiostro, testo carta
   5. SEO component inietta title e meta description corretti per ogni pagina
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 02-01: BaseLayout + Navbar + Footer + SEO component
-- [ ] 02-02: Hero + ServiceCard + PricingCard components + i18n it.json/en.json
+- [ ] 02-01-PLAN.md — BaseLayout + Navbar + Footer + SEO component + .btn-primary/.btn-secondary
+- [ ] 02-02-PLAN.md — Hero + ServiceCard + PricingCard + i18n it.json/en.json/utils.ts
 
 ### Phase 3: Homepage & Servizi
 **Goal**: Le due pagine principali — homepage e servizi — complete in IT e EN, con tutti i contenuti della spec, passando per i18n.
