@@ -1,0 +1,129 @@
+/* ============================================
+   global.css — mirayatechlabs.github.io
+   Tailwind CSS 4 + palette colori + tipografia
+   ============================================ */
+
+@import "tailwindcss";
+
+/* Google Fonts — Syne (titoli) + Source Serif 4 (corpo) — subset latin per performance */
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap");
+
+/* ============================================
+   @theme — Palette colori e font (Tailwind 4)
+   Tailwind genera automaticamente le utility:
+   bg-rame, text-carta, border-inchiostro ecc.
+   ============================================ */
+@theme {
+  /* Colori principali */
+  --color-inchiostro: #1A1A2E;
+  --color-inchiostro-muted: #2D2D44;
+  --color-ardesia: #4A4A6A;
+
+  /* Sfondi */
+  --color-carta: #F7F5F0;
+  --color-carta-alt: #EEEAE2;
+
+  /* Accenti */
+  --color-rame: #B5622A;
+  --color-rame-light: #D4834A;
+  --color-salvia: #6B8F71;
+  --color-salvia-light: #8AAD8F;
+
+  /* Testo */
+  --color-testo: #1A1A2E;
+  --color-testo-muted: #5A5A7A;
+
+  /* Font families */
+  --font-sans: 'Syne', 'Arial Black', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Source Serif 4', Georgia, ui-serif, serif;
+}
+
+/* ============================================
+   Reset e base tipografia
+   ============================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--color-carta);
+  color: var(--color-testo);
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-inchiostro);
+  margin-top: 0;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.75rem); }
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  max-width: 65ch;
+}
+
+a {
+  color: var(--color-rame);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+a:hover {
+  color: var(--color-rame-light);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-rame);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ============================================
+   Utility classi base
+   ============================================ */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .container { padding-inline: 2rem; }
+}
+
+@media (min-width: 1024px) {
+  .container { padding-inline: 3rem; }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
