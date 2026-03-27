@@ -7,12 +7,12 @@
 
 ### Setup
 
-- [ ] **SETUP-01**: Progetto Astro 5 inizializzato con `output: 'static'` e config GitHub Pages
+- [x] **SETUP-01**: Progetto Astro 5 inizializzato con `output: 'static'` e config GitHub Pages
 - [ ] **SETUP-02**: Tailwind CSS 4 configurato con custom properties palette colori
 - [ ] **SETUP-03**: Google Fonts integrati (Syne + Source Serif 4) con font subsetting
 - [ ] **SETUP-04**: Global CSS con variabili colore e tipografia base
-- [ ] **SETUP-05**: `public/robots.txt` e `public/favicon.svg` (lettera "m." su sfondo rame)
-- [ ] **SETUP-06**: Struttura cartelle completa come da spec
+- [x] **SETUP-05**: `public/robots.txt` e `public/favicon.svg` (lettera "m." su sfondo rame)
+- [x] **SETUP-06**: Struttura cartelle completa come da spec
 
 ### Componenti
 

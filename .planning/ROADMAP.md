@@ -26,7 +26,7 @@ Costruzione di un sito statico Astro 5 per mirayatechlabs.github.io — fronte c
 **Plans**: 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Inizializzazione Astro 5 + Tailwind CSS 4 + struttura cartelle + public assets
+- [x] 01-01-PLAN.md — Inizializzazione Astro 5 + Tailwind CSS 4 + struttura cartelle + public assets
 - [ ] 01-02-PLAN.md — global.css con Tailwind 4, palette colori @theme, Google Fonts, import nelle pagine
 
 ### Phase 2: Layout & Componenti
@@ -82,7 +82,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Setup & Foundation | 0/2 | Planned | - |
+| 1. Setup & Foundation | 1/2 | In Progress|  |
 | 2. Layout & Componenti | 0/2 | Not started | - |
 | 3. Homepage & Servizi | 0/2 | Not started | - |
 | 4. Configuratore, Contatti, SEO & Deploy | 0/2 | Not started | - |
