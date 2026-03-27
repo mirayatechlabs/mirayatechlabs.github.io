@@ -23,11 +23,11 @@ Costruzione di un sito statico Astro 5 per mirayatechlabs.github.io — fronte c
   3. I font Syne e Source Serif 4 sono caricati
   4. Le CSS custom properties (--color-rame, --color-carta, ecc.) sono definite e accessibili
   5. La struttura cartelle src/pages, src/components, src/layouts, src/i18n, src/styles esiste
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 01-01: Inizializzazione Astro 5 + Tailwind CSS 4 + dipendenze
-- [ ] 01-02: Configurazione astro.config.mjs + global CSS + font + palette colori
+- [ ] 01-01-PLAN.md — Inizializzazione Astro 5 + Tailwind CSS 4 + struttura cartelle + public assets
+- [ ] 01-02-PLAN.md — global.css con Tailwind 4, palette colori @theme, Google Fonts, import nelle pagine
 
 ### Phase 2: Layout & Componenti
 **Goal**: Tutti i componenti riusabili pronti: Navbar, Footer, SEO, BaseLayout, ServiceCard, PricingCard, Hero. Sistema i18n IT/EN funzionante.
@@ -82,7 +82,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Setup & Foundation | 0/2 | Not started | - |
+| 1. Setup & Foundation | 0/2 | Planned | - |
 | 2. Layout & Componenti | 0/2 | Not started | - |
 | 3. Homepage & Servizi | 0/2 | Not started | - |
 | 4. Configuratore, Contatti, SEO & Deploy | 0/2 | Not started | - |
