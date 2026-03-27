@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Servizi",
+    "configurator": "Configuratore",
+    "contact": "Contatti"
+  },
+  "meta": {
+    "home": {
+      "title": "mirayatechlabs. — Automazione AI per PMI italiane",
+      "description": "Sito web, chatbot e automazioni per le PMI che non vogliono perdere tempo. Tatiana Camillucci, AI consultant nelle Marche."
+    }
+  }
+}
