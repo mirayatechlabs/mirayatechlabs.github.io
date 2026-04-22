@@ -1,0 +1,115 @@
+---
+// Footer — copyright, email, LinkedIn
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+const isIT = lang === 'it';
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-left">
+      <span class="footer-logo">mirayatechlabs.</span>
+      <span class="footer-tagline">
+        {isIT ? 'Tatiana Camillucci — AI consultant' : 'Tatiana Camillucci — AI consultant'}
+      </span>
+    </div>
+
+    <nav class="footer-links" aria-label={isIT ? 'Link footer' : 'Footer links'}>
+      <a href="mailto:ciao@mirayatechlabs.it">ciao@mirayatechlabs.it</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href={isIT ? '/privacy/' : '/en/privacy/'}>Privacy</a>
+    </nav>
+  </div>
+
+  <div class="footer-copy">
+    <div class="container">
+      © 2026 mirayatechlabs. — Tatiana Camillucci ·
+      <a href="https://github.com/blackspike/blackspike-astro-landing-page" target="_blank" rel="noopener noreferrer">
+        Theme inspired by Blackspike (CC BY 4.0)
+      </a>
+      ·
+      <a href="https://github.com/guihubie/free-astro-template" target="_blank" rel="noopener noreferrer">
+        Tokens inspired by Free Astro Template (MIT)
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--color-bs-surface-0);
+    color: var(--color-bs-foreground-light);
+    margin-top: 5rem;
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .footer-logo {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--color-bs-foreground-light);
+  }
+
+  .footer-tagline {
+    font-size: 0.85rem;
+    color: var(--color-bs-foreground-dark);
+  }
+
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    font-size: 0.875rem;
+    color: var(--color-bs-foreground-dark);
+    text-decoration: none;
+    transition: color 150ms ease;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-rame-light);
+  }
+
+  .footer-copy {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1rem 0;
+    font-size: 0.8rem;
+    color: var(--color-bs-foreground-dark);
+  }
+
+  .footer-copy a {
+    color: var(--color-bs-foreground-dark);
+    text-decoration: none;
+  }
+
+  .footer-copy a:hover {
+    color: var(--color-rame-light);
+  }
+
+  @media (max-width: 640px) {
+    .footer-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

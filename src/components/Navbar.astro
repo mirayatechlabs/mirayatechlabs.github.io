@@ -1,0 +1,264 @@
+---
+// Navbar — logo, link navigazione, toggle IT/EN, hamburger mobile
+interface Props {
+  lang: string;
+  currentPath: string;
+}
+const { lang, currentPath } = Astro.props;
+
+// Link navigazione per lingua
+const links = lang === 'it'
+  ? [
+      { href: '/', label: 'Home' },
+      { href: '/servizi/', label: 'Servizi' },
+      { href: '/configuratore/', label: 'Configuratore' },
+      { href: '/contatti/', label: 'Contatti' },
+    ]
+  : [
+      { href: '/en/', label: 'Home' },
+      { href: '/en/services/', label: 'Services' },
+      { href: '/en/configurator/', label: 'Configurator' },
+      { href: '/en/contact/', label: 'Contact' },
+    ];
+
+// Percorso per toggle lingua
+const altLang = lang === 'it' ? 'EN' : 'IT';
+const altHref = lang === 'it' ? '/en/' : '/';
+---
+
+<header class="site-header" id="site-header">
+  <div class="container nav-inner">
+    <a href={lang === 'it' ? '/' : '/en/'} class="logo" aria-label="mirayatechlabs. — torna alla home">
+      mirayatechlabs.
+    </a>
+
+    <!-- Navigazione desktop -->
+    <nav aria-label="Navigazione principale">
+      <ul class="nav-links">
+        {links.map(link => (
+          <li>
+            <a
+              href={link.href}
+              class={currentPath === link.href ? 'nav-link active' : 'nav-link'}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+        <li>
+          <a href={altHref} class="lang-toggle" aria-label={`Passa alla versione ${altLang}`}>
+            {altLang}
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Hamburger mobile -->
+    <button
+      class="hamburger"
+      id="hamburger"
+      aria-label="Apri menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Menu mobile -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <nav aria-label="Menu mobile">
+      <ul>
+        {links.map(link => (
+          <li>
+            <a href={link.href} class="mobile-link">{link.label}</a>
+          </li>
+        ))}
+        <li>
+          <a href={altHref} class="mobile-link lang-mobile">{altLang}</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(17, 18, 24, 0.6);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(14px);
+    transition: border-color 200ms ease, box-shadow 200ms ease, background-color 200ms ease;
+  }
+
+  .site-header.scrolled {
+    background-color: rgba(17, 18, 24, 0.9);
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+  }
+
+  .logo {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--color-bs-foreground-light);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+
+  .logo:hover {
+    color: var(--color-rame-light);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 0.4rem 0.75rem;
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--color-bs-foreground-dark);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: color 150ms ease, background-color 150ms ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--color-rame-light);
+    background-color: rgba(193, 106, 42, 0.12);
+  }
+
+  .lang-toggle {
+    display: block;
+    padding: 0.3rem 0.6rem;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-bs-foreground-light);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    transition: color 150ms ease, border-color 150ms ease;
+  }
+
+  .lang-toggle:hover {
+    color: var(--color-rame-light);
+    border-color: var(--color-rame-light);
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--color-bs-foreground-light);
+    border-radius: 2px;
+    transition: transform 200ms ease, opacity 200ms ease;
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    display: none;
+    padding: 1rem 0 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .mobile-link {
+    display: block;
+    padding: 0.6rem 0.5rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--color-bs-foreground-dark);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: color 150ms ease;
+  }
+
+  .mobile-link:hover {
+    color: var(--color-rame-light);
+  }
+
+  .lang-mobile {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-bs-foreground-dark);
+  }
+
+  @media (max-width: 640px) {
+    nav { display: none; }
+    .hamburger { display: flex; }
+    .mobile-menu.open { display: block; }
+  }
+</style>
+
+<script>
+  // Hamburger menu JS vanilla
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const header = document.getElementById('site-header');
+
+  hamburger?.addEventListener('click', () => {
+    const isOpen = hamburger.classList.toggle('open');
+    mobileMenu?.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+    mobileMenu?.setAttribute('aria-hidden', String(!isOpen));
+  });
+
+  // Scroll effect per header
+  const onScroll = () => {
+    if (window.scrollY > 10) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>

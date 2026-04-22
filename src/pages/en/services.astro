@@ -1,0 +1,183 @@
+---
+// EN Services — /en/services/
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Services — mirayatechlabs."
+  description="Four service levels for SMEs that want to use AI concretely: from online presence to internal automations and data analysis."
+  lang="en"
+>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>I don't sell the same package to everyone.</h1>
+      <p class="hero-sub">But I always start from the same building blocks. Here's how it works.</p>
+    </div>
+  </section>
+
+  <section class="livelli">
+    <div class="container">
+
+      <div class="livello">
+        <div class="livello-num">01</div>
+        <div class="livello-content">
+          <div class="livello-meta">
+            <h2>Presence</h2>
+            <span class="prezzo-tag">from €800</span>
+          </div>
+          <p>
+            Your site exists, it's professional, and it responds to customers even when you're busy.
+            A landing page built around you — not a template — with an AI chatbot trained on your data. Delivered in one week.
+          </p>
+          <ul class="livello-dettagli">
+            <li>Mobile-optimized landing page</li>
+            <li>AI chatbot with your FAQs and tone of voice</li>
+            <li>Domain, hosting and deployment included</li>
+            <li>Basic maintenance for 3 months</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="livello">
+        <div class="livello-num">02</div>
+        <div class="livello-content">
+          <div class="livello-meta">
+            <h2>Automated communication</h2>
+            <span class="prezzo-tag">+€200–300/year to subscription</span>
+          </div>
+          <p>
+            Repetitive emails, reminders, answers to FAQs — the system handles them, not you.
+            Integration with Gmail or Outlook via automations that work silently in the background.
+          </p>
+          <ul class="livello-dettagli">
+            <li>Automatic emails on triggers (booking, form, purchase)</li>
+            <li>Appointment reminders and follow-ups</li>
+            <li>Automatic FAQ responses via email</li>
+            <li>Simple dashboard to monitor flows</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="livello">
+        <div class="livello-num">03</div>
+        <div class="livello-content">
+          <div class="livello-meta">
+            <h2>Internal processes</h2>
+            <span class="prezzo-tag">from €100/month</span>
+          </div>
+          <p>
+            Quotes, appointments, notifications, sync with your management software.
+            What you do by hand every week — stop doing it.
+          </p>
+          <ul class="livello-dettagli">
+            <li>Automatic quote generation</li>
+            <li>Booking calendar with notifications</li>
+            <li>Sync with management software</li>
+            <li>Automatic weekly report by email</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="livello">
+        <div class="livello-num">04</div>
+        <div class="livello-content">
+          <div class="livello-meta">
+            <h2>AI on your data</h2>
+            <span class="prezzo-tag">custom quote</span>
+          </div>
+          <p>
+            You have data but don't know what it's telling you. We build you a system that answers concrete questions:
+            which customers haven't bought in 3 months, where you're losing time, what's actually working.
+          </p>
+          <ul class="livello-dettagli">
+            <li>Analysis of your existing business data</li>
+            <li>Custom dashboard with the metrics that matter</li>
+            <li>Automatic alerts on anomalies or opportunities</li>
+            <li>Monthly consulting included</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="metodo">
+    <div class="container">
+      <h2>How I work</h2>
+      <div class="step-grid">
+        <div class="step">
+          <div class="step-n">1</div>
+          <h3>Listen</h3>
+          <p>I start from what you actually do, not from what AI could theoretically do. One call, no templates.</p>
+        </div>
+        <div class="step">
+          <div class="step-n">2</div>
+          <h3>Propose</h3>
+          <p>I tell you what makes sense, what doesn't, and what it costs. Without selling smoke, without inflating the quote.</p>
+        </div>
+        <div class="step">
+          <div class="step-n">3</div>
+          <h3>Build</h3>
+          <p>I work with your team, test, and iterate until it works. I keep you updated without expecting you to understand the code.</p>
+        </div>
+        <div class="step">
+          <div class="step-n">4</div>
+          <h3>Autonomy</h3>
+          <p>The goal is that you don't need me for long. I hand you the tools, not a dependency.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-servizi">
+    <div class="container">
+      <h2>Start with the configurator</h2>
+      <p>Tell us something about your company — we'll reply within 24 hours with a concrete proposal.</p>
+      <a href="/en/configurator/" class="btn-primary">Open the configurator</a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background:
+      radial-gradient(circle at 15% 20%, rgba(193, 106, 42, 0.2), transparent 55%),
+      var(--color-bs-surface-1);
+    color: var(--color-bs-foreground-light);
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .page-hero h1 { color: var(--color-bs-foreground-light); max-width: 22ch; margin-bottom: 0.75rem; }
+  .hero-sub { color: var(--color-bs-foreground-dark); font-size: 1.1rem; margin: 0; }
+
+  .livelli { padding: 4rem 0; }
+  .livello { display: flex; gap: 2.5rem; padding: 3rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+  .livello:last-child { border-bottom: none; }
+  .livello-num { font-family: var(--font-sans); font-size: 3rem; font-weight: 700; color: rgba(193, 106, 42, 0.5); flex-shrink: 0; width: 4rem; line-height: 1; padding-top: 0.2rem; }
+  .livello-content { flex: 1; }
+  .livello-meta { display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+  .livello-meta h2 { margin: 0; }
+  .prezzo-tag { font-family: var(--font-sans); font-size: 0.875rem; color: var(--color-rame-light); background-color: rgba(193, 106, 42, 0.15); padding: 0.2rem 0.6rem; border-radius: 4px; white-space: nowrap; }
+  .livello-content > p { color: var(--color-bs-foreground-dark); margin-bottom: 1rem; max-width: 60ch; }
+  .livello-dettagli { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.35rem; }
+  .livello-dettagli li { font-size: 0.9rem; color: var(--color-bs-foreground-dark); padding-left: 1.25rem; position: relative; }
+  .livello-dettagli li::before { content: '—'; position: absolute; left: 0; color: var(--color-rame-light); }
+
+  .metodo { padding: 4rem 0; background-color: var(--color-bs-surface-2); }
+  .metodo h2 { margin-bottom: 2.5rem; }
+  .step-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+  .step-n { font-family: var(--font-sans); font-size: 0.8rem; font-weight: 700; color: var(--color-rame-light); margin-bottom: 0.5rem; }
+  .step h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .step p { font-size: 0.9rem; color: var(--color-bs-foreground-dark); margin: 0; max-width: none; }
+
+  .cta-servizi { padding: 4rem 0; text-align: center; }
+  .cta-servizi h2 { margin-bottom: 0.5rem; }
+  .cta-servizi p { color: var(--color-bs-foreground-dark); max-width: 48ch; margin: 0 auto 2rem; }
+
+  @media (max-width: 640px) {
+    .livello { flex-direction: column; gap: 1rem; }
+    .livello-num { font-size: 2rem; }
+  }
+</style>

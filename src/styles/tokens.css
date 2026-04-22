@@ -1,0 +1,68 @@
+/* Base design tokens and defaults. */
+:root {
+  /* Brand */
+  --color-rame: #c16a2a;
+  --color-rame-light: #e08a4b;
+  --color-salvia: #6b8f71;
+  --color-salvia-light: #8aad8f;
+
+  --accent: var(--color-rame);
+  --accent-dark: var(--color-rame-light);
+  --accent-rgb: 193, 106, 42;
+
+  /* Neutrals (light baseline; dark overrides live in themes/dark.css) */
+  --black: 15, 18, 25;
+  --gray: 96, 115, 159;
+  --gray-light: 229, 233, 240;
+  --gray-dark: 34, 41, 57;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 15px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 12px 25px rgba(0, 0, 0, 0.16);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.2);
+
+  --box-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.12),
+    0 8px 24px rgba(0, 0, 0, 0.12),
+    0 16px 32px rgba(0, 0, 0, 0.12);
+
+  --glow-accent: 0 0 40px rgba(var(--accent-rgb), 0.25);
+
+  /* Base tokens used by Tailwind utilities */
+  --background: #ffffff;
+  --foreground: #0f1219;
+  --card: #ffffff;
+  --card-foreground: #0f1219;
+  --popover: #ffffff;
+  --popover-foreground: #0f1219;
+  --primary: var(--accent);
+  --primary-foreground: #ffffff;
+  --secondary: #ffb36b;
+  --secondary-foreground: #0f1219;
+  --muted: rgb(246, 247, 249);
+  --muted-foreground: rgb(96, 115, 159);
+  --accent-foreground: #0f1219;
+  --info: #7dd3fc;
+  --info-foreground: #082f49;
+  --success: #86efac;
+  --success-foreground: #052e16;
+  --warning: #fcd34d;
+  --warning-foreground: #451a03;
+  --error: #ef4444;
+  --error-foreground: #ffffff;
+  --border: rgb(229, 233, 240);
+  --input: rgb(229, 233, 240);
+  --outline: var(--accent);
+  --radius: 0.85rem;
+
+  /* Derived radii for utilities (for direct CSS usage) */
+  --radius-xs: calc(var(--radius) - 0.375rem);
+  --radius-sm: calc(var(--radius) - 0.25rem);
+  --radius-md: calc(var(--radius) - 0.125rem);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 0.25rem);
+  --radius-2xl: calc(var(--radius) + 0.5rem);
+  --radius-3xl: calc(var(--radius) + 1rem);
+}

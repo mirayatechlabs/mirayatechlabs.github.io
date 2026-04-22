@@ -1,0 +1,277 @@
+---
+// Pagina Servizi — /servizi/
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Servizi — mirayatechlabs."
+  description="Quattro livelli di servizio per le PMI che vogliono usare l'AI concretamente: dalla presenza online alle automazioni interne, fino all'analisi del dato."
+  lang="it"
+>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Non vendo lo stesso pacchetto a tutti.</h1>
+      <p class="hero-sub">Ma parto sempre dagli stessi mattoni. Ecco come funziona.</p>
+    </div>
+  </section>
+
+  <section class="livelli">
+    <div class="container">
+
+      <div class="livello">
+        <div class="livello-num">01</div>
+        <div class="livello-content">
+          <div class="livello-meta">
+            <h2>Presenza</h2>
+            <span class="prezzo-tag">da 800€</span>
+          </div>
+          <p>
+            Il tuo sito esiste, è professionale, e risponde ai clienti anche quando sei occupato.
+            Landing page costruita su di te — non su un template — con un chatbot AI addestrato sui tuoi dati.
+            Consegna in una settimana.
+          </p>
+          <ul class="livello-dettagli">
+            <li>Landing page ottimizzata per mobile</li>
+            <li>Chatbot AI con le tue FAQ e i tuoi toni</li>
+            <li>Dominio, hosting e deploy inclusi</li>
+            <li>Manutenzione base per 3 mesi</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="livello">
+        <div class="livello-num">02</div>
+        <div class="livello-content">
+          <div class="livello-meta">
+            <h2>Comunicazione automatica</h2>
+            <span class="prezzo-tag">+200–300€/anno al canone</span>
+          </div>
+          <p>
+            Le email ripetitive, i reminder, le risposte alle domande frequenti — le gestisce il sistema, non tu.
+            Integrazione con Gmail o Outlook tramite automazioni che funzionano in silenzio.
+          </p>
+          <ul class="livello-dettagli">
+            <li>Email automatiche su trigger (prenotazione, form, acquisto)</li>
+            <li>Reminder appuntamenti e follow-up</li>
+            <li>Risposte automatiche su FAQ via email</li>
+            <li>Dashboard semplice per controllare i flussi</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="livello">
+        <div class="livello-num">03</div>
+        <div class="livello-content">
+          <div class="livello-meta">
+            <h2>Processi interni</h2>
+            <span class="prezzo-tag">da 100€/mese</span>
+          </div>
+          <p>
+            Preventivi, appuntamenti, notifiche, sincronizzazione con il gestionale.
+            Quello che fai a mano ogni settimana — smetti di farlo.
+          </p>
+          <ul class="livello-dettagli">
+            <li>Generazione automatica preventivi</li>
+            <li>Calendario prenotazioni con notifiche</li>
+            <li>Sync con gestionale (Fatture in Cloud, Danea, ecc.)</li>
+            <li>Report settimanale automatico via email</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="livello">
+        <div class="livello-num">04</div>
+        <div class="livello-content">
+          <div class="livello-meta">
+            <h2>AI sul dato</h2>
+            <span class="prezzo-tag">preventivo su richiesta</span>
+          </div>
+          <p>
+            Hai dati ma non sai cosa ti dicono. Ti costruiamo un sistema che risponde a domande concrete:
+            quali clienti non comprano da 3 mesi, dove perdi tempo, cosa funziona davvero.
+          </p>
+          <ul class="livello-dettagli">
+            <li>Analisi del dato aziendale esistente</li>
+            <li>Dashboard personalizzata con metriche che contano</li>
+            <li>Alert automatici su anomalie o opportunità</li>
+            <li>Consulenza mensile inclusa</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Come lavoro -->
+  <section class="metodo">
+    <div class="container">
+      <h2>Come lavoro</h2>
+      <div class="step-grid">
+        <div class="step">
+          <div class="step-n">1</div>
+          <h3>Ascolto</h3>
+          <p>Parto da cosa fai davvero, non da cosa l'AI potrebbe fare in teoria. Una chiamata, nessun template.</p>
+        </div>
+        <div class="step">
+          <div class="step-n">2</div>
+          <h3>Proposta</h3>
+          <p>Ti dico cosa ha senso, cosa no, e quanto costa. Senza vendere fumo, senza gonfiare il preventivo.</p>
+        </div>
+        <div class="step">
+          <div class="step-n">3</div>
+          <h3>Costruzione</h3>
+          <p>Lavoro con il tuo team, testo, itero finché funziona. Ti aggiorno senza aspettarti di capire il codice.</p>
+        </div>
+        <div class="step">
+          <div class="step-n">4</div>
+          <h3>Autonomia</h3>
+          <p>L'obiettivo è che tu non abbia bisogno di me a lungo. Ti consegno gli strumenti, non una dipendenza.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-servizi">
+    <div class="container">
+      <h2>Inizia dal configuratore</h2>
+      <p>Dicci qualcosa sulla tua azienda — ti rispondo entro 24 ore con una proposta concreta.</p>
+      <a href="/configuratore/" class="btn-primary">Apri il configuratore</a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background:
+      radial-gradient(circle at 15% 20%, rgba(193, 106, 42, 0.2), transparent 55%),
+      var(--color-bs-surface-1);
+    color: var(--color-bs-foreground-light);
+    padding: 4rem 0 3rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .page-hero h1 { color: var(--color-bs-foreground-light); max-width: 22ch; margin-bottom: 0.75rem; }
+
+  .hero-sub {
+    color: var(--color-bs-foreground-dark);
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  /* Livelli */
+  .livelli { padding: 4rem 0; }
+
+  .livello {
+    display: flex;
+    gap: 2.5rem;
+    padding: 3rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .livello:last-child { border-bottom: none; }
+
+  .livello-num {
+    font-family: var(--font-sans);
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(193, 106, 42, 0.5);
+    flex-shrink: 0;
+    width: 4rem;
+    line-height: 1;
+    padding-top: 0.2rem;
+  }
+
+  .livello-content { flex: 1; }
+
+  .livello-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+
+  .livello-meta h2 { margin: 0; }
+
+  .prezzo-tag {
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--color-rame-light);
+    background-color: rgba(193, 106, 42, 0.15);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .livello-content > p {
+    color: var(--color-bs-foreground-dark);
+    margin-bottom: 1rem;
+    max-width: 60ch;
+  }
+
+  .livello-dettagli {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .livello-dettagli li {
+    font-size: 0.9rem;
+    color: var(--color-bs-foreground-dark);
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .livello-dettagli li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--color-rame-light);
+  }
+
+  /* Metodo */
+  .metodo {
+    padding: 4rem 0;
+    background-color: var(--color-bs-surface-2);
+  }
+
+  .metodo h2 { margin-bottom: 2.5rem; }
+
+  .step-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+
+  .step { position: relative; }
+
+  .step-n {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-rame-light);
+    margin-bottom: 0.5rem;
+  }
+
+  .step h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .step p { font-size: 0.9rem; color: var(--color-bs-foreground-dark); margin: 0; max-width: none; }
+
+  /* CTA */
+  .cta-servizi {
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .cta-servizi h2 { margin-bottom: 0.5rem; }
+  .cta-servizi p { color: var(--color-bs-foreground-dark); max-width: 48ch; margin: 0 auto 2rem; }
+
+  @media (max-width: 640px) {
+    .livello { flex-direction: column; gap: 1rem; }
+    .livello-num { font-size: 2rem; }
+  }
+</style>

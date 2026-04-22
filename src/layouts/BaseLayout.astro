@@ -1,22 +1,74 @@
 ---
-// BaseLayout — placeholder minimo per Phase 1
-// Implementazione completa: Phase 2, piano 02-01
+// BaseLayout — layout base con SEO, OG tags, Navbar e Footer
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
 interface Props {
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
   lang?: string;
+  canonical?: string;
 }
-const { title = 'mirayatechlabs.', description = '', lang = 'it' } = Astro.props;
+
+const {
+  title,
+  description,
+  lang = 'it',
+  canonical,
+} = Astro.props;
+
+const siteUrl = 'https://mirayatechlabs.github.io';
+const canonicalUrl = canonical ?? siteUrl + Astro.url.pathname;
 ---
 <!DOCTYPE html>
-<html lang={lang}>
+<html lang={lang} class="dark" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    {description && <meta name="description" content={description} />}
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="mirayatechlabs." />
+
+    <!-- Favicon SVG inline -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Hreflang alternates -->
+    {lang === 'it' && (
+      <>
+        <link rel="alternate" hreflang="it" href={siteUrl + Astro.url.pathname} />
+        <link rel="alternate" hreflang="en" href={siteUrl + '/en/'} />
+      </>
+    )}
+    {lang === 'en' && (
+      <>
+        <link rel="alternate" hreflang="it" href={siteUrl + '/'} />
+        <link rel="alternate" hreflang="en" href={siteUrl + Astro.url.pathname} />
+      </>
+    )}
   </head>
   <body>
-    <slot />
+    <div class="bg-orb bg-orb--one" aria-hidden="true"></div>
+    <div class="bg-orb bg-orb--two" aria-hidden="true"></div>
+    <Navbar lang={lang} currentPath={Astro.url.pathname} />
+    <main class="use-utility-layout">
+      <slot />
+    </main>
+    <Footer lang={lang} />
   </body>
 </html>

@@ -1,0 +1,92 @@
+---
+// EN Contact — /en/contact/
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact — mirayatechlabs."
+  description="Write to ciao@mirayatechlabs.it — I reply within 24 hours."
+  lang="en"
+>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Get in touch.</h1>
+      <p class="hero-sub">
+        You have a question, a project, or just want to find out if I can be useful.<br />
+        I don't bite. I reply within 24 hours on working days — usually sooner.
+      </p>
+    </div>
+  </section>
+
+  <section class="contatti-section">
+    <div class="container contatti-inner">
+
+      <div class="contatti-principale">
+        <h2>Direct email</h2>
+        <a href="mailto:ciao@mirayatechlabs.it" class="email-link">
+          ciao@mirayatechlabs.it
+        </a>
+        <p>The only channel I check attentively. No switchboard, no form that disappears into the void.</p>
+      </div>
+
+      <div class="contatti-altri">
+        <div class="contatto-item">
+          <h3>LinkedIn</h3>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">Tatiana Camillucci →</a>
+        </div>
+
+        <div class="contatto-item">
+          <h3>Prefer a call?</h3>
+          <p>If you'd rather talk directly, book 20 minutes with no commitment.</p>
+          <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            Book a call →
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-hero {
+    background:
+      radial-gradient(circle at 15% 20%, rgba(193, 106, 42, 0.2), transparent 55%),
+      var(--color-bs-surface-1);
+    color: var(--color-bs-foreground-light);
+    padding: 5rem 0 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  .page-hero h1 { color: var(--color-bs-foreground-light); margin-bottom: 1rem; }
+  .hero-sub { color: var(--color-bs-foreground-dark); font-size: 1.1rem; line-height: 1.7; margin: 0; max-width: 52ch; }
+
+  .contatti-section { padding: 5rem 0; }
+  .contatti-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .contatti-principale h2 { margin-bottom: 1rem; }
+
+  .email-link {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 700;
+    color: var(--color-rame-light);
+    text-decoration: none;
+    margin-bottom: 1rem;
+    word-break: break-all;
+    transition: color 150ms ease;
+  }
+  .email-link:hover { color: var(--color-rame); }
+  .contatti-principale p { color: var(--color-bs-foreground-dark); font-size: 0.95rem; }
+
+  .contatti-altri { display: flex; flex-direction: column; gap: 2.5rem; }
+  .contatto-item h3 { margin-bottom: 0.5rem; }
+  .contatto-item p { color: var(--color-bs-foreground-dark); font-size: 0.9rem; margin-bottom: 0.75rem; }
+  .contatto-item a:not(.btn-secondary) { font-family: var(--font-sans); font-weight: 700; color: var(--color-rame-light); text-decoration: none; }
+  .contatto-item a:not(.btn-secondary):hover { color: var(--color-rame); }
+
+  @media (max-width: 640px) {
+    .contatti-inner { grid-template-columns: 1fr; gap: 3rem; }
+  }
+</style>

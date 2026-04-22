@@ -1,115 +1,95 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Il nostro approccio: AI utile, comprensibile e orientata ai risultati reali, senza complicazioni.">
+    <meta name="description" content="Manifesto Miraya Tech Labs: principi per costruire prodotti AI con piu sostanza, meno hype e una identita non intercambiabile.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://mirayatechlabs.github.io/manifesto.html">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="it_IT">
     <meta property="og:site_name" content="Miraya Tech Labs">
     <meta property="og:title" content="Manifesto | Miraya Tech Labs">
-    <meta property="og:description" content="AI utile e concreta: principi chiari, risultati reali, percorso semplice.">
+    <meta property="og:description" content="Il manifesto che tiene insieme Miraya e Braindrop senza farli collassare l'uno nell'altro.">
     <meta property="og:url" content="https://mirayatechlabs.github.io/manifesto.html">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Manifesto | Miraya Tech Labs">
-    <meta name="twitter:description" content="AI utile e concreta: principi chiari, risultati reali, percorso semplice.">
     <title>Manifesto | Miraya Tech Labs</title>
     <link rel="stylesheet" href="style-v2.css">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Manifesto | Miraya Tech Labs",
-      "url": "https://mirayatechlabs.github.io/manifesto.html",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "Miraya Tech Labs",
-        "url": "https://mirayatechlabs.github.io/"
-      },
-      "inLanguage": "it-IT"
-    }
-    </script>
     <style>
-        .nav-links { display: flex; gap: 1.5rem; }
-        .nav-links a { color: inherit; text-decoration: none; font-size: 0.9rem; opacity: 0.8; transition: opacity 0.3s; }
-        .nav-links a:hover, .nav-links a.active { opacity: 1; }
-            .lang-switch { display: inline-flex; align-items: center; gap: 0.45rem; margin-left: 1rem; padding-left: 0.9rem; border-left: 1px solid rgba(124,58,237,0.22); }
-            .lang-switch a { opacity: 1; font-size: 1rem; line-height: 1; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; min-width: 1.2rem; }
-        .page-shell { max-width: 1240px; margin: 0 auto; padding: 0 5% 5rem; }
-        .hero { padding: 3rem 0 2rem; }
-        .hero h1 { margin: 0 0 0.8rem; font-size: clamp(2rem, 5vw, 3.8rem); letter-spacing: -1px; }
-        .hero p { margin: 0; max-width: 740px; }
-
-        .principles-grid { display: grid; grid-template-columns: repeat(3, minmax(240px, 1fr)); gap: 1rem; }
-        .card { display: block; height: 100%; text-decoration: none; color: inherit; }
-        .card-glow-wrapper { width: 100%; height: 100%; }
-        .card-inner { height: 100%; display: flex; flex-direction: column; gap: 0.75rem; padding: 1.5rem; }
-        .principle-index { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.7px; }
-        .principle-footer { margin-top: auto; border-top: 1px solid rgba(124,58,237,0.16); padding-top: 0.8rem; font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
-
-        .quote-box { margin-top: 2.4rem; border-radius: 24px; padding: 2px; background: var(--gradient-tech); }
-        .quote-inner { border-radius: 22px; background: rgba(255,255,255,0.95); padding: 2rem; font-size: 1.35rem; line-height: 1.5; font-weight: 700; letter-spacing: -0.4px; }
-
+        .nav-links { display: flex; gap: 1.1rem; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; opacity: 0.72; font-size: 0.9rem; letter-spacing: -0.02em; }
+        .nav-links a.active, .nav-links a:hover { opacity: 1; }
+        .manifesto-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+        .warning-band { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 1.6rem; }
         @media (max-width: 980px) {
-            nav { align-items: flex-start; gap: 0.75rem; padding: 1rem 5%; }
-            .logo { font-size: 1.25rem; }
-            .nav-links { flex-wrap: wrap; row-gap: 0.5rem; column-gap: 1rem; }
-            .lang-switch { margin-left: 0; padding-left: 0; border-left: none; }
-            .lang-switch a { font-size: 0.95rem; }
-            .page-shell { padding: 0 5% 3.5rem; }
-            .principles-grid { grid-template-columns: 1fr; }
+            .manifesto-grid,
+            .warning-band { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <nav>
-        <div class="logo">mirayatechlabs.</div>
+        <div class="logo">miraya tech labs</div>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="progetti.html">Progetti</a>
             <a href="lab.html">Lab</a>
             <a href="manifesto.html" class="active">Manifesto</a>
             <a href="contatti.html">Contatti</a>
-            <span class="lang-switch" aria-label="Selettore lingua">
-                <a href="manifesto.html" title="Italiano">&#127470;&#127481;</a>
-                <a href="en/manifesto.html" title="English">&#127468;&#127463;</a>
-                <a href="zh/manifesto.html" title="Chinese">&#127464;&#127475;</a>
-            </span>
         </div>
     </nav>
 
     <main class="page-shell">
         <header class="hero">
-            <h1>Manifesto<span class="hero-highlight">Linee guida pratiche.</span></h1>
-            <p>Costruiamo AI utile e accessibile con una visione inclusiva: più collaborazione, meno barriere, più valore per le persone.</p>
+            <span class="eyebrow">manifesto</span>
+            <h1>Un brand leggibile, un prodotto reale, nessun travestimento.</h1>
+            <p class="lead">Il manifesto serve proprio a tenere insieme i due livelli che volevi recuperare: Miraya Tech Labs come contenitore piu ampio e Braindrop come progetto principale ma non totalizzante.</p>
         </header>
 
-        <section class="principles-grid" aria-label="Principi">
-            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P01</div><h3>Women in tech &amp; AI</h3><p>Crediamo nella leadership femminile nell'innovazione e in ecosistemi dove più voci guidano le scelte tecnologiche.</p><div class="principle-footer">Rappresentanza</div></div></div></article>
-            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P02</div><h3>Contenuti e servizi inclusivi</h3><p>Progettiamo esperienze che non escludono: linguaggio chiaro, accessibilità reale e attenzione ai diversi bisogni.</p><div class="principle-footer">Inclusione</div></div></div></article>
-            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P03</div><h3>Cooperazione e sisterhood</h3><p>Coltiviamo uno spirito di accoglienza, supporto reciproco e crescita condivisa tra persone, team e comunità.</p><div class="principle-footer">Comunità</div></div></div></article>
-            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P04</div><h3>Visione collaborativa</h3><p>Preferiamo modelli non competitivi: collaborazione concreta, alleanze strategiche e valore distribuito.</p><div class="principle-footer">Collaborazione</div></div></div></article>
-            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P05</div><h3>Differenze e unicità</h3><p>Rispettiamo minoranze, background culturali e percorsi individuali: la diversità è una risorsa progettuale.</p><div class="principle-footer">Pluralità</div></div></div></article>
-            <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><div class="principle-index">P06</div><h3>Sguardo antropologico</h3><p>Integro il mio studio attuale di antropologia per leggere meglio contesti, pratiche e impatto umano delle tecnologie.</p><div class="principle-footer">Metodo umano</div></div></div></article>
+        <section class="section-block">
+            <div class="section-intro">
+                <div>
+                    <span class="eyebrow">principi</span>
+                    <h2>Sei regole per non diventare un sito qualsiasi.</h2>
+                </div>
+                <p>Quando il brand sparisce dentro un solo prodotto, il sito perde ampiezza. Quando il prodotto sparisce dietro il brand, il sito perde sostanza. Qui teniamo entrambe le cose.</p>
+            </div>
+            <div class="manifesto-grid">
+                <article class="card"><div class="card-inner"><div class="principle-index">P01</div><h3>Specificita prima di ampiezza</h3><p>Mostriamo un caso reale, non una promessa universale.</p><div class="principle-footer">Contesto</div></div></article>
+                <article class="card"><div class="card-inner"><div class="principle-index">P02</div><h3>Brand prima di template</h3><p>Il sito deve sembrare Miraya, non un generatore di landing AI.</p><div class="principle-footer">Identita</div></div></article>
+                <article class="card"><div class="card-inner"><div class="principle-index">P03</div><h3>Un flagship, non un monopolio</h3><p>Braindrop guida, ma lascia spazio a progetti futuri e a un discorso piu ampio.</p><div class="principle-footer">Gerarchia</div></div></article>
+                <article class="card"><div class="card-inner"><div class="principle-index">P04</div><h3>Fallback dichiarati</h3><p>Quando parliamo di AI, rendiamo visibile anche cosa succede quando qualcosa fallisce.</p><div class="principle-footer">Affidabilita</div></div></article>
+                <article class="card"><div class="card-inner"><div class="principle-index">P05</div><h3>Pulizia senza sterilita</h3><p>La reference Braindrop ci aiuta su tono e respiro, ma il sito deve avere struttura e voce.</p><div class="principle-footer">Estetica</div></div></article>
+                <article class="card"><div class="card-inner"><div class="principle-index">P06</div><h3>Onesta progettuale</h3><p>Roadmap, limiti e nodi aperti aumentano la credibilita del portfolio.</p><div class="principle-footer">Rigor</div></div></article>
+            </div>
         </section>
 
-        <section class="quote-box" aria-label="Dichiarazione">
-            <div class="quote-inner">"Il futuro dell'AI che vogliamo è inclusivo, cooperativo e profondamente umano."</div>
+        <section class="warning-band">
+            <article class="panel">
+                <span class="small-label">evitiamo</span>
+                <ul class="list">
+                    <li>Look da startup AI generica con glow e slogan prefabbricati.</li>
+                    <li>Siti mono-prodotto che cancellano il brand dietro il caso del momento.</li>
+                    <li>Copy intercambiabile che potrebbe stare ovunque.</li>
+                </ul>
+            </article>
+            <article class="panel">
+                <span class="small-label">teniamo</span>
+                <ul class="list">
+                    <li>La pulizia visiva e il respiro della reference Braindrop.</li>
+                    <li>La struttura a 5 pagine e il tono portfolio-first di Miraya.</li>
+                    <li>Una gerarchia chiara tra brand, progetto principale e sviluppi futuri.</li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="quote-box">
+            <div class="quote-inner">"Braindrop rende Miraya concreta. Miraya impedisce a Braindrop di diventare l'unica cosa che il sito sa dire."</div>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <div>Manifesto Miraya Tech Labs</div>
+        <div><a href="lab.html">Metodo</a> · <a href="contatti.html">Contatti</a></div>
+    </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

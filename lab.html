@@ -1,123 +1,112 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lab di Miraya Tech Labs: metodo operativo per integrare AI con discovery, prototipazione, rollout e KPI condivise.">
+    <meta name="description" content="Lab di Miraya Tech Labs: metodo, osservazione e sviluppo prodotto. Braindrop e il caso principale, non l'unico orizzonte.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://mirayatechlabs.github.io/lab.html">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="it_IT">
     <meta property="og:site_name" content="Miraya Tech Labs">
     <meta property="og:title" content="Lab | Miraya Tech Labs">
-    <meta property="og:description" content="Metodo operativo per integrare AI con discovery, prototipazione e rollout.">
+    <meta property="og:description" content="Il metodo Miraya dietro Braindrop e dietro i progetti futuri.">
     <meta property="og:url" content="https://mirayatechlabs.github.io/lab.html">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Lab | Miraya Tech Labs">
-    <meta name="twitter:description" content="Metodo operativo per integrare AI con discovery, prototipazione e rollout.">
     <title>Lab | Miraya Tech Labs</title>
     <link rel="stylesheet" href="style-v2.css">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Lab | Miraya Tech Labs",
-      "url": "https://mirayatechlabs.github.io/lab.html",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "Miraya Tech Labs",
-        "url": "https://mirayatechlabs.github.io/"
-      },
-      "inLanguage": "it-IT"
-    }
-    </script>
     <style>
-        .nav-links { display: flex; gap: 1.5rem; }
-        .nav-links a { color: inherit; text-decoration: none; font-size: 0.9rem; opacity: 0.8; transition: opacity 0.3s; }
-        .nav-links a:hover, .nav-links a.active { opacity: 1; }
-            .lang-switch { display: inline-flex; align-items: center; gap: 0.45rem; margin-left: 1rem; padding-left: 0.9rem; border-left: 1px solid rgba(124,58,237,0.22); }
-            .lang-switch a { opacity: 1; font-size: 1rem; line-height: 1; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; min-width: 1.2rem; }
-        .page-shell { max-width: 1240px; margin: 0 auto; padding: 0 5% 5rem; }
-        .page-hero { padding: 2.6rem 0 1rem; }
-        .page-hero h1 { margin: 0 0 0.8rem; font-size: clamp(2rem, 5vw, 3.8rem); letter-spacing: -1px; }
-        .page-hero p { margin: 0; max-width: 700px; }
-
-        .steps-grid { display: grid; grid-template-columns: repeat(4, minmax(190px, 1fr)); gap: 0.75rem; }
-        .step-card { border: 1px solid rgba(124,58,237,0.2); border-radius: 18px; background: rgba(255,255,255,0.78); padding: 1.1rem; }
-        .step-n { font-size: 0.72rem; text-transform: uppercase; color: var(--text-muted); }
-        .step-card h3 { margin: 0.45rem 0 0.55rem; font-size: 1.08rem; }
-        .step-card p { margin: 0; font-size: 0.95rem; }
-
-        .section-title { margin: 1.5rem 0 0.75rem; font-size: 1.4rem; letter-spacing: -0.4px; }
-        .cards-grid { display: grid; grid-template-columns: repeat(3, minmax(240px, 1fr)); gap: 0.75rem; }
-        .card { display: block; height: 100%; color: inherit; text-decoration: none; }
-        .card-glow-wrapper { width: 100%; height: 100%; }
-        .card-inner { height: 100%; display: flex; flex-direction: column; padding: 1.25rem; gap: 0.6rem; }
-        .cards-grid p { margin: 0; font-size: 0.95rem; line-height: 1.5; }
-        .small-tag { display: inline-block; width: fit-content; padding: 0.24rem 0.55rem; border: 1px solid rgba(124,58,237,0.2); border-radius: 999px; font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; }
-        .card-foot { margin-top: auto; font-size: 0.82rem; color: var(--text-muted); border-top: 1px solid rgba(124,58,237,0.15); padding-top: 0.8rem; text-transform: uppercase; letter-spacing: 0.6px; }
-
+        .nav-links { display: flex; gap: 1.1rem; flex-wrap: wrap; }
+        .nav-links a { text-decoration: none; opacity: 0.72; font-size: 0.9rem; letter-spacing: -0.02em; }
+        .nav-links a.active, .nav-links a:hover { opacity: 1; }
+        .method-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+        .principles-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+        .lab-note { border-left: 3px solid var(--warm); padding-left: 1rem; }
         @media (max-width: 980px) {
-            nav { align-items: flex-start; gap: 0.75rem; padding: 1rem 5%; }
-            .logo { font-size: 1.25rem; }
-            .nav-links { flex-wrap: wrap; row-gap: 0.5rem; column-gap: 1rem; }
-            .lang-switch { margin-left: 0; padding-left: 0; border-left: none; }
-            .lang-switch a { font-size: 0.95rem; }
-            .page-shell { padding: 0 5% 3.5rem; }
-            .steps-grid { grid-template-columns: 1fr; }
-            .cards-grid { grid-template-columns: 1fr; }
+            .method-grid,
+            .principles-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <nav>
-        <div class="logo">mirayatechlabs.</div>
+        <div class="logo">miraya tech labs</div>
         <div class="nav-links">
             <a href="index.html">Home</a>
             <a href="progetti.html">Progetti</a>
             <a href="lab.html" class="active">Lab</a>
             <a href="manifesto.html">Manifesto</a>
             <a href="contatti.html">Contatti</a>
-            <span class="lang-switch" aria-label="Selettore lingua">
-                <a href="lab.html" title="Italiano">&#127470;&#127481;</a>
-                <a href="en/lab.html" title="English">&#127468;&#127463;</a>
-                <a href="zh/lab.html" title="Chinese">&#127464;&#127475;</a>
-            </span>
         </div>
     </nav>
 
     <main class="page-shell">
         <header class="page-hero">
-            <h1>Lab<span class="hero-highlight">Metodo operativo.</span></h1>
-            <p>Pagina esempio orientata al processo: come passiamo da ipotesi a impatto misurabile.</p>
+            <span class="eyebrow">lab</span>
+            <h1>Il metodo viene prima del singolo tool.</h1>
+            <p class="lead">Braindrop e il caso piu visibile del lab, ma non il suo confine. Miraya usa il lab per osservare attrito reale, ridurre complessita e costruire sistemi che restano leggibili anche quando l'AI sbaglia o si interrompe.</p>
         </header>
 
-        <section class="steps-grid" aria-label="Metodo in 4 step">
-            <article class="step-card"><div class="step-n">Step 01</div><h3>Discovery</h3><p>Analisi flussi, rischi, strumenti e decision maker.</p></article>
-            <article class="step-card"><div class="step-n">Step 02</div><h3>Design Sprint</h3><p>Prototipo rapido con casi reali del team.</p></article>
-            <article class="step-card"><div class="step-n">Step 03</div><h3>Build</h3><p>Integrazione progressiva con guardrail operativi.</p></article>
-            <article class="step-card"><div class="step-n">Step 04</div><h3>Scale</h3><p>Training e KPI condivise per adozione stabile.</p></article>
-        </section>
-
-        <section>
-            <h2 class="section-title">Formati di collaborazione</h2>
-            <div class="cards-grid">
-                <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><span class="small-tag">Audit</span><h3>AI Readiness</h3><p>Valutazione completa di processi, stack e rischio operativo.</p><div class="card-foot">2-3 settimane</div></div></div></article>
-                <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><span class="small-tag">Sprint</span><h3>Prototype Program</h3><p>Un caso d'uso reale pronto per validazione interna.</p><div class="card-foot">4 settimane</div></div></div></article>
-                <article class="card"><div class="card-glow-wrapper"><div class="card-inner"><span class="small-tag">Partnership</span><h3>Continuous Lab</h3><p>Roadmap trimestrale, governance e rilascio continuo.</p><div class="card-foot">ongoing</div></div></div></article>
+        <section class="section-block">
+            <div class="section-intro">
+                <div>
+                    <span class="eyebrow">sequenza</span>
+                    <h2>Quattro step, tutti verificabili.</h2>
+                </div>
+                <p>La struttura resta sobria: ogni fase ha una funzione precisa e un criterio di uscita chiaro.</p>
+            </div>
+            <div class="method-grid">
+                <article class="card"><div class="card-inner"><span class="step-n">01 Observe</span><h3>Dove nasce il caos</h3><p>Guardiamo il punto in cui note, memo vocali e immagini perdono contesto e iniziano a creare frizione.</p><div class="card-foot">Input reali</div></div></article>
+                <article class="card"><div class="card-inner"><span class="step-n">02 Compress</span><h3>Ridurre attrito</h3><p>La cattura deve essere naturale. Le decisioni complesse vanno spostate dopo, non prima.</p><div class="card-foot">Low-friction capture</div></div></article>
+                <article class="card"><div class="card-inner"><span class="step-n">03 Route</span><h3>Fallback prima dell'hype</h3><p>Se un modello non risponde, il sistema deve reggere comunque. La robustezza viene prima della demo.</p><div class="card-foot">Reliability</div></div></article>
+                <article class="card"><div class="card-inner"><span class="step-n">04 Return</span><h3>Restituire contesto</h3><p>Un output utile non e solo un risultato: e un posto giusto, una data, un compito, un seguito.</p><div class="card-foot">Actionable output</div></div></article>
             </div>
         </section>
+
+        <section class="section-block">
+            <div class="section-intro">
+                <div>
+                    <span class="eyebrow">linee operative</span>
+                    <h2>Cose che teniamo dentro, cose che lasciamo fuori.</h2>
+                </div>
+                <p>Questa pagina serve anche a chiarire i limiti del lab: non ci interessano dashboard gonfie o promesse di automazione totale scollegate dall'uso reale.</p>
+            </div>
+            <div class="principles-grid">
+                <article class="panel">
+                    <span class="small-label">manteniamo</span>
+                    <ul class="list">
+                        <li>Terminologia semplice e leggibile.</li>
+                        <li>Scelte di fallback esplicite nella logica di prodotto.</li>
+                        <li>Architettura utile anche con rete instabile.</li>
+                        <li>Roadmap ancorata a problemi veri.</li>
+                    </ul>
+                </article>
+                <article class="panel">
+                    <span class="small-label">scartiamo</span>
+                    <ul class="list">
+                        <li>Promesse di automazione totale non verificabili.</li>
+                        <li>Claim intercambiabili da startup AI generica.</li>
+                        <li>Motion gratuita che distrae dal compito principale.</li>
+                        <li>Interfacce che obbligano a classificare tutto manualmente prima ancora di catturare.</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="quote-box">
+            <div class="quote-inner">"Il criterio non e sembrare avanzati. Il criterio e far passare un pensiero grezzo a un posto giusto con il minimo attrito possibile."</div>
+        </section>
+
+        <section class="section-block">
+            <article class="panel lab-note">
+                <span class="small-label">nota pratica</span>
+                <p>Braindrop oggi rende visibile il metodo del lab, ma il sito resta aperto a nuovi progetti. E questo il punto del mix: un brand che pensa in modo coerente, non una sola landing dedicata a un solo software.</p>
+            </article>
+        </section>
     </main>
+
+    <footer class="site-footer">
+        <div>Lab Miraya Tech Labs</div>
+        <div><a href="progetti.html">Braindrop</a> · <a href="contatti.html">Parliamone</a></div>
+    </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
