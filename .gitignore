@@ -4,12 +4,19 @@ dist/
 
 # Node
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
 # Preview server (legacy)
 .preview-err.log
 .preview-out.log
 .preview-server.js
 *.preview.html
+
+# Agent/workbench local data
+.claude/
 
 # Environment
 .env

@@ -1,30 +1,21 @@
-# AGENTS.override.md — Regole per Miraya Tech Labs Website (portfolio)
+# AGENTS.override.md
 
 ## Obiettivo
-Ristrutturare e mantenere il sito portfolio-first (Home, Progetti, Lab/Metodo, Manifesto, Contatti) senza alterare lo stile visuale esistente.
+Mantenere il sito portfolio-first Miraya con cambi minimi, chiari e verificabili.
 
-## Vincoli NON negoziabili
-- NON modificare `style.css` e NON alterare animazioni (blob, bollicine) o effetti grafici.
-- NON rinominare classi CSS esistenti.
-- NON introdurre librerie/framework o build step nuovi.
-- Consentito: modificare testi, link/href, creare nuove pagine HTML riusando header/footer e classi già presenti.
+## Vincoli fissi
+- Non toccare style.css e non alterare animazioni/espressione visuale.
+- Non rinominare classi CSS esistenti.
+- Non aggiungere framework o nuove dipendenze.
 
-## Architettura target
-- `index.html`
-- `progetti.html`
-- `lab.html`
-- `manifesto.html`
-- `contatti.html`
+## Flusso operativo (token-efficient)
+1. Leggi struttura e link senza modificare.
+2. Definisci mini-checklist (max 5 punti).
+3. Applica patch piccole, file per file.
+4. Verifica nav, link, build, regressioni visive.
+5. Riporta solo: file toccati, rischi, prossimi step.
 
-## Regole operative per agenti (GSD-friendly)
-1) Prima: scansiona file e link esistenti (no modifiche).
-2) Poi: scrivi una mini-SPEC con checklist verificabile.
-3) Poi: implementa in piccoli passi (minimal diff).
-4) Infine: verifica link e coerenza nav su tutte le pagine.
-
-## Definition of Done (DoD)
-- Tutte e 5 le pagine esistono e sono raggiungibili dalla navbar.
-- Nessun link rimanda a vecchie pagine “giochi/agenti” rimosse.
-- `style.css` invariato (diff vuoto).
-- Nessun link rotto in home/nav/footer.
-- Output finale: lista file modificati/creati/eliminati + TODO (email, progetti da inserire).
+## Definition of Done
+- Home, Progetti, Lab, Manifesto, Contatti coerenti e raggiungibili.
+- Nessun link legacy rotto.
+- Diff mirato e spiegazione sintetica.
