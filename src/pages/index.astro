@@ -1,13 +1,30 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/indexandy-styles.css';
 ---
 
-<BaseLayout
-  title="Miraya Tech Labs — Artigianato Digitale"
-  description="Laboratorio di artigianato digitale. Modelliamo soluzioni tecnologiche sull'uomo, non l'inverso."
-  lang="it"
->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miraya Tech Labs — Artigianato Digitale</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2/dist/aos.css">
+</head>
+<body>
+  <nav id="navbar">
+    <div class="container nav-inner">
+      <a href="/" class="logo">Miraya<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="#services">Servizi</a></li>
+        <li><a href="#about">Approccio</a></li>
+        <li><a href="#contact">Contatti</a></li>
+        <li><a href="#contact" class="nav-cta">Parliamo</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
   <main>
     <section class="hero">
       <div class="hero-image-side" data-aos="fade-right" data-aos-duration="1000">
@@ -146,6 +163,15 @@ import '../styles/indexandy-styles.css';
   <script>
     AOS.init({ once: true, duration: 800, easing: 'ease-out-cubic' });
 
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
     function handleSubmit(e) {
       e.preventDefault();
       const btn = e.target.querySelector('.submit-btn');
@@ -159,4 +185,5 @@ import '../styles/indexandy-styles.css';
       }, 3000);
     }
   </script>
-</BaseLayout>
+</body>
+</html>
