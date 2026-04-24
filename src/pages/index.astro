@@ -1,66 +1,162 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import '../styles/reference-design.css';
+import '../styles/indexandy-styles.css';
 ---
 
 <BaseLayout
   title="Miraya Tech Labs — Artigianato Digitale"
-  description="Laboratorio di artigianato digitale dove il codice è materia viva e gli algoritmi sono capolavori."
+  description="Laboratorio di artigianato digitale. Modelliamo soluzioni tecnologiche sull'uomo, non l'inverso."
   lang="it"
 >
   <main>
-    <section class="hero" id="hero">
-      <div class="container">
-        <div class="hero-wrapper">
-          <div class="hero-image">
-            <img src="/hero1.png" alt="Miraya Tech Labs" />
-          </div>
-          <div class="hero-content">
-            <p class="hero-label">Laboratorio di Artigianato Digitale</p>
-            <h1 class="hero-title">L'Intelligenza è un <em>Gesto Umano</em>.</h1>
-            <p class="hero-text">Trattiamo il codice come materia viva. Siamo artigiani del dato e sarti dell'algoritmo.</p>
-            <a href="#contact" class="hero-cta">
-              Iniziamo una conversazione
-            </a>
-          </div>
+    <section class="hero">
+      <div class="hero-image-side" data-aos="fade-right" data-aos-duration="1000">
+        <img src="/hero1.png" alt="Hero Miraya Tech Labs" loading="eager">
+      </div>
+      <div class="hero-content">
+        <div data-aos="fade-up" data-aos-delay="200">
+          <p class="hero-label">Laboratorio di Artigianato Digitale</p>
+          <h1 class="hero-title">L'Intelligenza è un <em>Gesto Umano</em>.</h1>
+          <p class="hero-text">In Miraya Tech Labs, trattiamo il codice come materia viva. Siamo artigiani del dato e sarti dell'algoritmo. Costruiamo ponti tra la complessità delle macchine e la semplicità di un'intuizione.</p>
+          <a href="#contact" class="hero-cta">
+            Iniziamo una conversazione
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
         </div>
       </div>
     </section>
 
     <section class="services" id="services">
       <div class="container">
-        <div class="section-header">
-          <h2>Il Nostro Artigianato</h2>
-          <p>Tre discipline, una filosofia</p>
+        <div class="services-header" data-aos="fade-up">
+          <p class="services-label">Le Nostre Craft</p>
+          <h2 class="services-title">Dove l'artigianato incontra la tecnologia</h2>
         </div>
         <div class="services-grid">
-          <div class="service-card">
-            <h3>Consulenza AI</h3>
-            <p>Strategie di intelligenza artificiale innovative.</p>
-          </div>
-          <div class="service-card">
-            <h3>Progettazione Web</h3>
-            <p>Esperienze digitali estetiche e funzionali.</p>
-          </div>
-          <div class="service-card">
-            <h3>Sviluppo Software</h3>
-            <p>Codice pulito e architetture solide.</p>
-          </div>
+          <article class="craft-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="craft-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+              </svg>
+            </div>
+            <p class="craft-label">AI Consultant</p>
+            <h3 class="craft-title">Maieutica dei Dati</h3>
+            <p class="craft-desc">Estrarre potenziale latente attraverso modelli etici. Non prediciamo il futuro, lo ascoltiamo.</p>
+          </article>
+
+          <article class="craft-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="craft-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+            </div>
+            <p class="craft-label">Web Design</p>
+            <h3 class="craft-title">Architetture Sensoriali</h3>
+            <p class="craft-desc">Interfacce da abitare, non solo da cliccare. Spazi digitali che respirano con chi li attraversa.</p>
+          </article>
+
+          <article class="craft-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="craft-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <p class="craft-label">Sviluppo FE/BE</p>
+            <h3 class="craft-title">Tessitura Digitale</h3>
+            <p class="craft-desc">Infrastrutture robuste intrecciate con cura sartoriale. Ogni riga di codice è un filo che lega.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="contact" id="contact">
       <div class="container">
-        <h2>Contattaci</h2>
-        <p>Pronto a iniziare il tuo prossimo progetto?</p>
-        <a href="mailto:info@mirayatechlabs.it" class="cta-button">Scrivi una email</a>
+        <div class="contact-grid">
+          <div class="contact-content" data-aos="fade-right">
+            <h2>Costruiamo qualcosa di significativo insieme</h2>
+            <p>Ogni grande progetto inizia con una conversazione. Raccontaci la tua visione, troveremo insieme la forma più adatta.</p>
+          </div>
+          <form class="contact-form" data-aos="fade-left" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label for="name">Nome</label>
+              <input type="text" id="name" name="name" placeholder="Il tuo nome" required="">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="la.tua@email.com" required="">
+            </div>
+            <div class="form-group">
+              <label for="message">Messaggio</label>
+              <textarea id="message" name="message" placeholder="Raccontaci il tuo progetto..." required=""></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Invia il tuo messaggio</button>
+          </form>
+        </div>
       </div>
     </section>
   </main>
 
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">Miraya<span>.</span></a>
+          <p>Laboratorio di Artigianato Digitale. Modelliamo soluzioni tecnologiche sull'uomo, non l'inverso.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Servizi</h4>
+          <ul>
+            <li><a href="#services">AI Consultant</a></li>
+            <li><a href="#services">Web Design</a></li>
+            <li><a href="#services">Sviluppo</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Approccio</h4>
+          <ul>
+            <li><a href="#">Metodo</a></li>
+            <li><a href="#">Valori</a></li>
+            <li><a href="#">Case Study</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contatti</h4>
+          <ul>
+            <li><a href="mailto:ciao@miraya.tech">ciao@miraya.tech</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Miraya Tech Labs. Tutti i diritti riservati.</p>
+        <p>P.IVA 00000000000</p>
+      </div>
+    </div>
+  </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/aos@2/dist/aos.js"></script>
   <script>
-    AOS.init();
+    AOS.init({ once: true, duration: 800, easing: 'ease-out-cubic' });
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.submit-btn');
+      const originalText = btn.textContent;
+      btn.textContent = 'Messaggio inviato ✓';
+      btn.style.background = '#824D5E';
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = '';
+        e.target.reset();
+      }, 3000);
+    }
   </script>
 </BaseLayout>
