@@ -1,0 +1,32 @@
+body {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f7f3eb;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b2132;
+  border-radius: 10px;
+}
+
+/* Typography Overrides */
+h1,
+h2,
+h3 {
+  letter-spacing: -0.03em;
+}
+
+/* Navbar Blur Effect */
+.nav-scrolled {
+  background: rgba(247, 233, 238, 0.8);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(59, 33, 50, 0.05);
+  padding: 1rem 0 !important;
+}
