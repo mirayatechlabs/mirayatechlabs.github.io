@@ -1,62 +1,53 @@
 ---
-// Footer — copyright, email, LinkedIn
 interface Props {
   lang: string;
 }
+
 const { lang } = Astro.props;
 const isIT = lang === 'it';
 ---
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <div class="footer-left">
+    <div class="footer-brand">
       <span class="footer-logo">mirayatechlabs.</span>
-      <span class="footer-tagline">
-        {isIT ? 'Tatiana Camillucci — AI consultant' : 'Tatiana Camillucci — AI consultant'}
-      </span>
+      <p class="footer-tagline">
+        {isIT
+          ? 'Sartoria digitale e AI per liberare tempo umano.'
+          : 'Digital craft and AI to free up human time.'}
+      </p>
     </div>
 
-    <nav class="footer-links" aria-label={isIT ? 'Link footer' : 'Footer links'}>
-      <a href="mailto:ciao@mirayatechlabs.it">ciao@mirayatechlabs.it</a>
-      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href={isIT ? '/privacy/' : '/en/privacy/'}>Privacy</a>
-    </nav>
+    <div class="footer-meta">
+      <a href="mailto:mirayatechlabs@gmail.com">mirayatechlabs@gmail.com</a>
+      <span>{isIT ? 'Milano, IT' : 'Milan, IT'}</span>
+    </div>
   </div>
 
   <div class="footer-copy">
-    <div class="container">
-      © 2026 mirayatechlabs. — Tatiana Camillucci ·
-      <a href="https://github.com/blackspike/blackspike-astro-landing-page" target="_blank" rel="noopener noreferrer">
-        Theme inspired by Blackspike (CC BY 4.0)
-      </a>
-      ·
-      <a href="https://github.com/guihubie/free-astro-template" target="_blank" rel="noopener noreferrer">
-        Tokens inspired by Free Astro Template (MIT)
-      </a>
-    </div>
+    <div class="container">© 2026 mirayatechlabs.</div>
   </div>
 </footer>
 
 <style>
   .site-footer {
+    margin-top: 5rem;
     background-color: var(--color-bs-surface-0);
     color: var(--color-bs-foreground-light);
-    margin-top: 5rem;
   }
 
   .footer-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap;
     gap: 1.5rem;
     padding-top: 2.5rem;
     padding-bottom: 2rem;
+    flex-wrap: wrap;
   }
 
-  .footer-left {
-    display: flex;
-    flex-direction: column;
+  .footer-brand {
+    display: grid;
     gap: 0.25rem;
   }
 
@@ -64,29 +55,31 @@ const isIT = lang === 'it';
     font-family: var(--font-sans);
     font-weight: 700;
     font-size: 1.1rem;
-    color: var(--color-bs-foreground-light);
   }
 
   .footer-tagline {
-    font-size: 0.85rem;
+    margin: 0;
+    max-width: 34ch;
+    font-size: 0.9rem;
     color: var(--color-bs-foreground-dark);
   }
 
-  .footer-links {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+  .footer-meta {
+    display: grid;
+    justify-items: end;
+    gap: 0.25rem;
+    font-size: 0.9rem;
+    color: var(--color-bs-foreground-dark);
   }
 
-  .footer-links a {
-    font-size: 0.875rem;
-    color: var(--color-bs-foreground-dark);
+  .footer-meta a {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    color: var(--color-bs-foreground-light);
     text-decoration: none;
-    transition: color 150ms ease;
   }
 
-  .footer-links a:hover {
+  .footer-meta a:hover {
     color: var(--color-rame-light);
   }
 
@@ -97,19 +90,9 @@ const isIT = lang === 'it';
     color: var(--color-bs-foreground-dark);
   }
 
-  .footer-copy a {
-    color: var(--color-bs-foreground-dark);
-    text-decoration: none;
-  }
-
-  .footer-copy a:hover {
-    color: var(--color-rame-light);
-  }
-
   @media (max-width: 640px) {
-    .footer-inner {
-      flex-direction: column;
-      align-items: flex-start;
+    .footer-meta {
+      justify-items: start;
     }
   }
 </style>

@@ -1,0 +1,5 @@
+[     296ms] ReferenceError: AOS is not defined
+    at https://mirayatechlabs.github.io/:6:853
+[     357ms] TypeError: Cannot set properties of undefined (setting 'AOS')
+    at https://cdn.jsdelivr.net/npm/aos@2/dist/aos.js:1:182
+    at https://cdn.jsdelivr.net/npm/aos@2/dist/aos.js:1:187

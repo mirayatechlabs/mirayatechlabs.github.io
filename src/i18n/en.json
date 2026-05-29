@@ -1,14 +1,14 @@
 {
   "nav": {
     "home": "Home",
-    "services": "Services",
-    "configurator": "Configurator",
+    "services": "Competencies",
+    "configurator": "Philosophy",
     "contact": "Contact"
   },
   "meta": {
     "home": {
-      "title": "mirayatechlabs. — AI automation for Italian SMEs",
-      "description": "Website, chatbot and automations for SMEs that don't want to waste time. Tatiana Camillucci, AI consultant in Le Marche."
+      "title": "Miraya Tech Labs — Digital Craft & Artificial Intelligence",
+      "description": "Web design, AI software and process optimization to free up human time and make your business more efficient."
     }
   }
 }

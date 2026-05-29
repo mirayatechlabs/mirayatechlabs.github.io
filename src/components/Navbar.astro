@@ -6,29 +6,32 @@ interface Props {
 }
 const { lang, currentPath } = Astro.props;
 
+const homeHref = lang === 'it' ? '/' : '/en/';
+
 // Link navigazione per lingua
 const links = lang === 'it'
   ? [
       { href: '/', label: 'Home' },
-      { href: '/servizi/', label: 'Servizi' },
-      { href: '/configuratore/', label: 'Configuratore' },
-      { href: '/contatti/', label: 'Contatti' },
+      { href: '/#competenze', label: 'Competenze' },
+      { href: '/#filosofia', label: 'Filosofia' },
+      { href: '/#contact', label: 'Contatti' },
     ]
   : [
       { href: '/en/', label: 'Home' },
-      { href: '/en/services/', label: 'Services' },
-      { href: '/en/configurator/', label: 'Configurator' },
-      { href: '/en/contact/', label: 'Contact' },
+      { href: '/en/#competencies', label: 'Competencies' },
+      { href: '/en/#philosophy', label: 'Philosophy' },
+      { href: '/en/#contact', label: 'Contact' },
     ];
 
 // Percorso per toggle lingua
 const altLang = lang === 'it' ? 'EN' : 'IT';
 const altHref = lang === 'it' ? '/en/' : '/';
+const isActive = (href: string) => href === homeHref && currentPath === homeHref;
 ---
 
 <header class="site-header" id="site-header">
   <div class="container nav-inner">
-    <a href={lang === 'it' ? '/' : '/en/'} class="logo" aria-label="mirayatechlabs. — torna alla home">
+    <a href={homeHref} class="logo" aria-label="mirayatechlabs. — torna alla home">
       mirayatechlabs.
     </a>
 
@@ -39,7 +42,7 @@ const altHref = lang === 'it' ? '/en/' : '/';
           <li>
             <a
               href={link.href}
-              class={currentPath === link.href ? 'nav-link active' : 'nav-link'}
+              class={isActive(link.href) ? 'nav-link active' : 'nav-link'}
             >
               {link.label}
             </a>
