@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://mirayatechlabs.github.io/sitemap.xml
