@@ -1162,8 +1162,6 @@ const numerals = ['I', 'II', 'III'];
         const TERRACOTTA = 0xc0532f;
         const OCHRE = 0xd9a441;
 
-        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
         const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
@@ -1242,17 +1240,12 @@ const numerals = ['I', 'II', 'III'];
 
         figure.classList.add('mandala-live');
 
-        if (reducedMotion) {
-          renderer.render(scene, camera);
-          return;
-        }
-
         // Reattività dinamica e parallasse verso il puntatore
         let targetX = 0;
         let targetY = 0;
         let mouseSpeed = 0;
-        let lastX = 0;
-        let lastY = 0;
+        let lastX = window.innerWidth / 2;
+        let lastY = window.innerHeight / 2;
         let lastEventTime = performance.now();
 
         window.addEventListener('pointermove', (e) => {

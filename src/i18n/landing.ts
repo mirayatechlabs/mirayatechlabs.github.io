@@ -68,7 +68,7 @@ export const it: LandingContent = {
   nav: { services: 'Servizi', vision: 'Visione', contact: 'Parliamo' },
   hero: {
     eyebrow: 'Web · AI · Software — dal volto umano',
-    title: 'Tecnologia a <em>misura d’anima</em>.',
+    title: 'Tecnologia a <em>misura d\'uomo</em>.',
     text: "Siti web, automazioni AI e software costruiti come manufatti: su misura, con cura, attorno alle persone. L'intelligenza artificiale qui potenzia le tue capacità e la tua creatività — non le sostituisce.",
     cta: 'Parliamone',
     imageAlt: 'Mandala geometrico animato: cerchi concentrici e solidi platonici in linee sottili',
@@ -100,7 +100,7 @@ export const it: LandingContent = {
   },
   vision: {
     eyebrow: 'La nostra visione',
-    heading: "La tecnologia è un attrezzo. <em>L'anima del lavoro resta umana.</em>",
+    heading: "La tecnologia è uno strumento. <em>Il cuore del lavoro resta umano.</em>",
     text:
       "Crediamo che l'AI debba <strong>amplificare le tue capacità</strong>, non sostituirle. Costruiamo strumenti che si prendono cura della parte ripetitiva e burocratica, perché tu possa dedicarti a ciò che nessuna macchina sa fare: creatività, relazioni, visione.",
     benefits: [
