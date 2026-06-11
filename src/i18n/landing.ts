@@ -67,11 +67,11 @@ export const it: LandingContent = {
   },
   nav: { services: 'Servizi', vision: 'Visione', contact: 'Parliamo' },
   hero: {
-    eyebrow: 'Web Design Premium · Automazioni AI · Crescita',
-    title: 'Sistemi digitali creati per <em>farti scalare</em>.',
-    text: "Trasformiamo la tua presenza online con siti web magnetici e liberiamo il tuo tempo grazie ad automazioni intelligenti. Più clienti, zero stress. Il tuo business, al livello successivo.",
-    cta: 'Inizia il tuo progetto',
-    imageAlt: 'Sviluppo web e innovazione digitale',
+    eyebrow: 'Web · AI · Software — dal volto umano',
+    title: 'Tecnologia a <em>misura d’anima</em>.',
+    text: "Siti web, automazioni AI e software costruiti come manufatti: su misura, con cura, attorno alle persone. L'intelligenza artificiale qui potenzia le tue capacità e la tua creatività — non le sostituisce.",
+    cta: 'Parliamone',
+    imageAlt: 'Mandala geometrico animato: cerchi concentrici e solidi platonici in linee sottili',
   },
   services: {
     eyebrow: 'I Nostri Servizi',
@@ -99,14 +99,14 @@ export const it: LandingContent = {
     ],
   },
   vision: {
-    eyebrow: "Innovazione dal volto umano",
-    heading: "Tecnologia che <em>potenzia il tuo talento</em>",
+    eyebrow: 'La nostra visione',
+    heading: "La tecnologia è un attrezzo. <em>L'anima del lavoro resta umana.</em>",
     text:
-      "Crediamo che l'AI debba <strong>amplificare le tue capacità</strong>, non sostituirle. Costruiamo strumenti che si occupano della burocrazia e delle operazioni ripetitive, permettendoti di focalizzarti su creatività, relazioni e strategia.",
+      "Crediamo che l'AI debba <strong>amplificare le tue capacità</strong>, non sostituirle. Costruiamo strumenti che si prendono cura della parte ripetitiva e burocratica, perché tu possa dedicarti a ciò che nessuna macchina sa fare: creatività, relazioni, visione.",
     benefits: [
-      'Elimina le ore perse in attività manuali e ridondanti.',
-      'Interfacce intuitive e premium, dal design impeccabile.',
-      'Soluzioni scalabili che crescono insieme al tuo brand.',
+      'Il tempo perso in attività manuali torna a te e al tuo team.',
+      'Strumenti fatti a mano sui tuoi processi reali, non template adattati.',
+      'Soluzioni che crescono con te, senza mai toglierti il controllo.',
     ],
   },
   contact: {
@@ -145,12 +145,12 @@ export const en: LandingContent = {
   },
   nav: { services: 'Services', vision: 'Vision', contact: "Let's talk" },
   hero: {
-    eyebrow: 'Web Design · AI Automation · Custom Software',
-    title: 'A site, automations and software that <em>work for you</em>.',
+    eyebrow: 'Web · AI · Software — with a human face',
+    title: 'Technology with <em>a soul</em>.',
     text:
-      'I design professional websites, AI-powered automations and custom software to remove repetitive work and make your business run better. Crafted style, concrete results.',
-    cta: "Let's talk about your project",
-    imageAlt: 'Cozy home workspace with a laptop, plants and framed children’s drawings on the wall',
+      'Websites, AI automations and software built like artifacts: tailored, with care, around people. Here, artificial intelligence amplifies your skills and creativity — it never replaces them.',
+    cta: "Let's talk",
+    imageAlt: 'Animated geometric mandala: concentric circles and platonic solids drawn in thin lines',
   },
   services: {
     eyebrow: 'What I do',
@@ -178,14 +178,14 @@ export const en: LandingContent = {
     ],
   },
   vision: {
-    eyebrow: 'Technology built around people',
-    heading: 'Technology that <em>adapts to people</em>',
+    eyebrow: 'Our vision',
+    heading: 'Technology is a tool. <em>The soul of the work stays human.</em>',
     text:
-      'I believe AI should <strong>empower people</strong>, not replace them. I build tools that take care of the boring, repetitive part, so you can focus on what really matters: creativity, relationships and strategy.',
+      'I believe AI should <strong>amplify your abilities</strong>, not replace them. I build tools that take care of the repetitive, bureaucratic part, so you can focus on what no machine can do: creativity, relationships, vision.',
     benefits: [
-      'Less time lost on manual, repetitive tasks.',
-      'Simple interfaces you can use without a manual.',
-      'Solutions that grow with your business.',
+      'Time lost to manual tasks goes back to you and your team.',
+      'Tools handcrafted around your real processes, not adapted templates.',
+      'Solutions that grow with you, without ever taking away control.',
     ],
   },
   contact: {
