@@ -1247,31 +1247,52 @@ const numerals = ['I', 'II', 'III'];
           return;
         }
 
-        // Parallasse dolce verso il puntatore
+        // Reattività dinamica e parallasse verso il puntatore
         let targetX = 0;
         let targetY = 0;
+        let mouseSpeed = 0;
+        let lastX = 0;
+        let lastY = 0;
+        let lastEventTime = performance.now();
+
         window.addEventListener('pointermove', (e) => {
-          targetY = (e.clientX / window.innerWidth - 0.5) * 0.5;
-          targetX = (e.clientY / window.innerHeight - 0.5) * 0.5;
+          const now = performance.now();
+          const dt = Math.max(1, now - lastEventTime);
+          const dx = e.clientX - lastX;
+          const dy = e.clientY - lastY;
+          
+          // Calcola la velocità del mouse per aggiungere dinamismo
+          mouseSpeed = Math.min(1.0, mouseSpeed + (Math.sqrt(dx*dx + dy*dy) / dt) * 0.05);
+
+          lastX = e.clientX;
+          lastY = e.clientY;
+          lastEventTime = now;
+
+          // Ampio parallasse
+          targetY = (e.clientX / window.innerWidth - 0.5) * 1.5;
+          targetX = (e.clientY / window.innerHeight - 0.5) * 1.5;
         });
 
         const clock = new THREE.Clock();
         const animate = () => {
           const t = clock.getElapsedTime();
+          mouseSpeed *= 0.95; // decadimento della velocità del mouse
 
-          group.rotation.z = t * 0.04;
-          ico.rotation.x = t * 0.12;
-          ico.rotation.y = t * 0.08;
+          // Rotazione di base + aumento di rotazione basato sulla velocità del mouse
+          group.rotation.z = t * (0.04 + mouseSpeed * 0.2);
+          ico.rotation.x = t * (0.12 + mouseSpeed * 0.3);
+          ico.rotation.y = t * (0.08 + mouseSpeed * 0.3);
           icoPts.rotation.copy(ico.rotation);
-          octa.rotation.x = -t * 0.16;
-          octa.rotation.y = -t * 0.1;
+          octa.rotation.x = -t * (0.16 + mouseSpeed * 0.4);
+          octa.rotation.y = -t * (0.1 + mouseSpeed * 0.4);
 
-          // Respiro lento dell'intero mandala
-          const breath = 1 + Math.sin(t * 0.6) * 0.02;
+          // Respiro lento dell'intero mandala + espansione reattiva al mouse
+          const breath = 1 + Math.sin(t * 0.6) * 0.02 + mouseSpeed * 0.15;
           group.scale.setScalar(breath);
 
-          group.rotation.x += (targetX - group.rotation.x) * 0.04;
-          group.rotation.y += (targetY - group.rotation.y) * 0.04;
+          // Parallasse inerziale
+          group.rotation.x += (targetX - group.rotation.x) * 0.06;
+          group.rotation.y += (targetY - group.rotation.y) * 0.06;
 
           renderer.render(scene, camera);
           requestAnimationFrame(animate);
