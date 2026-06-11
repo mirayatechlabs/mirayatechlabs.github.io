@@ -1254,38 +1254,38 @@ const numerals = ['I', 'II', 'III'];
           const dx = e.clientX - lastX;
           const dy = e.clientY - lastY;
           
-          // Calcola la velocità del mouse per aggiungere dinamismo (moltiplicatore aumentato)
-          mouseSpeed = Math.min(2.0, mouseSpeed + (Math.sqrt(dx*dx + dy*dy) / dt) * 0.15);
+          // Calcola la velocità del mouse per aggiungere dinamismo (più misurato)
+          mouseSpeed = Math.min(1.0, mouseSpeed + (Math.sqrt(dx*dx + dy*dy) / dt) * 0.08);
 
           lastX = e.clientX;
           lastY = e.clientY;
           lastEventTime = now;
 
-          // Ampio parallasse (fino a 180 gradi di rotazione)
-          targetY = (e.clientX / window.innerWidth - 0.5) * 3.0;
-          targetX = (e.clientY / window.innerHeight - 0.5) * 3.0;
+          // Parallasse elegante e morbido
+          targetY = (e.clientX / window.innerWidth - 0.5) * 1.5;
+          targetX = (e.clientY / window.innerHeight - 0.5) * 1.5;
         });
 
         const clock = new THREE.Clock();
         const animate = () => {
           const t = clock.getElapsedTime();
-          mouseSpeed *= 0.98; // decadimento più lento
+          mouseSpeed *= 0.95; // decadimento fluido
 
-          // Velocità base molto più alta per non sembrare fermo
-          group.rotation.z = t * (0.15 + mouseSpeed * 0.5);
-          ico.rotation.x = t * (0.25 + mouseSpeed * 0.6);
-          ico.rotation.y = t * (0.20 + mouseSpeed * 0.6);
+          // Velocità base bilanciata: visibile ma non frenetica
+          group.rotation.z = t * (0.08 + mouseSpeed * 0.15);
+          ico.rotation.x = t * (0.16 + mouseSpeed * 0.2);
+          ico.rotation.y = t * (0.12 + mouseSpeed * 0.2);
           icoPts.rotation.copy(ico.rotation);
-          octa.rotation.x = -t * (0.30 + mouseSpeed * 0.8);
-          octa.rotation.y = -t * (0.25 + mouseSpeed * 0.8);
+          octa.rotation.x = -t * (0.20 + mouseSpeed * 0.3);
+          octa.rotation.y = -t * (0.15 + mouseSpeed * 0.3);
 
-          // Respiro visibile del mandala + forte espansione reattiva al mouse
-          const breath = 1 + Math.sin(t * 1.5) * 0.05 + mouseSpeed * 0.25;
+          // Respiro elegante e armonioso
+          const breath = 1 + Math.sin(t * 1.0) * 0.03 + mouseSpeed * 0.1;
           group.scale.setScalar(breath);
 
           // Parallasse inerziale reattivo
-          group.rotation.x += (targetX - group.rotation.x) * 0.08;
-          group.rotation.y += (targetY - group.rotation.y) * 0.08;
+          group.rotation.x += (targetX - group.rotation.x) * 0.05;
+          group.rotation.y += (targetY - group.rotation.y) * 0.05;
 
           renderer.render(scene, camera);
           requestAnimationFrame(animate);

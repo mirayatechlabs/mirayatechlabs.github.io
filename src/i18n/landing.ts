@@ -68,7 +68,7 @@ export const it: LandingContent = {
   nav: { services: 'Servizi', vision: 'Visione', contact: 'Parliamo' },
   hero: {
     eyebrow: 'Web · AI · Software — dal volto umano',
-    title: 'Tecnologia a <em>misura d\'uomo</em>.',
+    title: 'Tecnologia che si <em>prende cura</em> delle tue idee.',
     text: "Siti web, automazioni AI e software costruiti come manufatti: su misura, con cura, attorno alle persone. L'intelligenza artificiale qui potenzia le tue capacità e la tua creatività — non le sostituisce.",
     cta: 'Parliamone',
     imageAlt: 'Mandala geometrico animato: cerchi concentrici e solidi platonici in linee sottili',
