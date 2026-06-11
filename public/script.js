@@ -22,18 +22,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Carousel Logic
-  const carousel = document.getElementById('heroCarousel');
-  if (carousel) {
-    const images = carousel.querySelectorAll('img');
-    let currentIndex = 0;
-    if (images.length > 1) {
-      setInterval(() => {
-        images[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex + 1) % images.length;
-        images[currentIndex].classList.add('active');
-      }, 5000);
-    }
+  // Scroll reveal: gli elementi .reveal entrano quando diventano visibili
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    revealEls.forEach((el) => io.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add('is-visible'));
   }
 
   // Chatbot Logic
