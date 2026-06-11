@@ -4,21 +4,21 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
+import react from '@astrojs/react';
+
 export default defineConfig({
   output: 'static',
   site: 'https://mirayatechlabs.github.io',
   base: '/',
-  integrations: [
-    sitemap({
-      i18n: {
-        defaultLocale: 'it',
-        locales: {
-          it: 'it-IT',
-          en: 'en-US',
-        },
+  integrations: [sitemap({
+    i18n: {
+      defaultLocale: 'it',
+      locales: {
+        it: 'it-IT',
+        en: 'en-US',
       },
-    }),
-  ],
+    },
+  }), react()],
   vite: {
     plugins: [tailwindcss()],
   },
