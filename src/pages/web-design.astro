@@ -1,0 +1,169 @@
+---
+import { it as t } from '../i18n/landing';
+---
+
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Design Premium | Miraya Tech Labs</title>
+    <meta name="description" content="Siti web ad alta conversione, design premium e micro-animazioni. Fai il salto di qualità." />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: 'Inter', Arial, sans-serif; background: #f7f3eb; color: #3b2132; line-height: 1.7; font-weight: 300; overflow-x: hidden; }
+      
+      /* Navigation */
+      nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; padding: 1.5rem 0; background: linear-gradient(to bottom, rgba(247, 243, 235, 0.98), rgba(247, 243, 235, 0)); transition: all 0.4s ease; }
+      nav.nav-scrolled { background: rgba(247, 243, 235, 0.86); backdrop-filter: blur(12px); box-shadow: 0 1px 0 rgba(59, 33, 50, 0.08); padding: 1rem 0; }
+      nav .max-w-7xl { max-width: 1400px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 5rem); display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+      nav a:first-child { font-family: 'Playfair Display', Georgia, serif; font-size: 1.5rem; font-weight: 600; letter-spacing: -0.03em; color: #3b2132; text-decoration: none; }
+      nav ul { display: flex; gap: 2.5rem; align-items: center; list-style: none; margin: 0; padding: 0; }
+      nav ul a { font-size: 0.9rem; font-weight: 500; opacity: 0.75; transition: opacity 0.3s ease, color 0.3s ease, transform 0.3s ease; text-decoration: none; color: inherit; }
+      nav ul a:hover { opacity: 1; }
+      nav ul a.back-btn { background: #3b2132; color: #faf8f3; padding: 0.8rem 1.5rem; border-radius: 999px; opacity: 1; }
+      nav ul a.back-btn:hover { background: #1f5867; transform: translateY(-2px); }
+
+      /* Footer */
+      footer { background: #3b2132; color: #faf8f3; padding: 3rem 0; border-top: 1px solid rgba(255, 255, 255, 0.05); margin-top: 6rem; }
+      footer .max-w-7xl { max-width: 1400px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 5rem); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+      footer a { font-family: 'Playfair Display', Georgia, serif; font-size: 1.25rem; font-weight: 600; color: #faf8f3; text-decoration: none; }
+      footer p { opacity: 0.5; font-size: 0.75rem; margin: 0; }
+
+      /* Web Design Page Specific */
+      main { padding-top: 120px; }
+      .max-w-7xl { max-width: 1400px; margin: 0 auto; padding: 0 clamp(1.5rem, 5vw, 5rem); }
+      
+      .hero-section { text-align: center; padding: 4rem 0 6rem; }
+      .eyebrow { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.2em; color: #965228; font-weight: 600; display: block; margin-bottom: 1.5rem; }
+      h1 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(3rem, 6vw, 5.5rem); letter-spacing: -0.03em; margin: 0 0 1.5rem; color: #3b2132; line-height: 1.1; }
+      h1 em { font-style: normal; color: #1f5867; }
+      .subtitle { font-size: 1.125rem; max-width: 40rem; opacity: 0.8; margin: 0 auto 3rem; line-height: 1.8; }
+      
+      .btn { display: inline-flex; align-items: center; gap: 0.75rem; background: #00a5b5; color: #fff; padding: 1rem 2rem; border-radius: 999px; font-weight: 500; text-decoration: none; transition: transform 0.3s ease, background 0.3s ease; }
+      .btn:hover { background: #1f5867; transform: translateY(-2px); }
+
+      .section-features { padding: 6rem 0; background: #fff; border-radius: 2rem; margin: 0 1rem; box-shadow: 0 10px 40px rgba(59,33,50,0.05); }
+      .section-title { text-align: center; margin-bottom: 4rem; }
+      .section-title h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(2.2rem, 4vw, 3.5rem); letter-spacing: -0.03em; margin: 0; color: #3b2132; }
+      .section-title h2 em { font-style: normal; color: #1f5867; }
+      
+      .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; }
+      .card { background: #f7f3eb; padding: 2.5rem; border-radius: 1.75rem; transition: transform 0.5s ease, box-shadow 0.5s ease; border: 1px solid transparent; }
+      .card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(59, 33, 50, 0.12); border-color: rgba(130, 77, 94, 0.2); }
+      .card-icon { width: 4rem; height: 4rem; border-radius: 1rem; background: linear-gradient(135deg, #3b2132, #824d5e); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem; margin-bottom: 2rem; }
+      .card h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.75rem; margin: 0 0 1rem; color: #3b2132; }
+      .card p { margin: 0; opacity: 0.8; line-height: 1.8; color: #3b2132; }
+
+      .interactive-section { padding: 6rem 0; }
+      .flex-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+      .interactive-demo { background: #fff; padding: 3rem; border-radius: 2rem; box-shadow: 0 20px 50px rgba(59,33,50,0.08); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; }
+      
+      .demo-btn { padding: 1rem 3rem; background: #3b2132; color: #fff; border-radius: 999px; position: relative; overflow: hidden; cursor: pointer; transition: all 0.3s ease; border: none; font-size: 1rem; }
+      .demo-btn::after { content: ''; position: absolute; top: 50%; left: 50%; width: 300px; height: 300px; background: rgba(255,255,255,0.2); border-radius: 50%; transform: translate(-50%, -50%) scale(0); transition: transform 0.5s ease; pointer-events: none; }
+      .demo-btn:hover::after { transform: translate(-50%, -50%) scale(1); }
+      .demo-btn:hover { background: #1f5867; }
+
+      @media (max-width: 768px) {
+        .flex-2 { grid-template-columns: 1fr; }
+        body > nav ul { display: none; }
+        .grid-3 { padding: 0 1.5rem !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="max-w-7xl">
+        <a href="/">Miraya Tech Labs<span style="color: #00A5B5">.</span></a>
+        <ul>
+          <li><a href="/" class="back-btn">← Torna alla Home</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero-section max-w-7xl">
+        <span class="eyebrow">Web Design Premium</span>
+        <h1>Il Tuo Sito Web non deve solo esistere.<br/><em>Deve dominare.</em></h1>
+        <p class="subtitle">Trasformiamo visitatori in clienti attraverso esperienze digitali immersive, veloci e studiate per convertire. Il design incontra la psicologia della vendita.</p>
+        <a href="/#contact" class="btn">Richiedi un Preventivo</a>
+      </section>
+
+      <div class="max-w-7xl">
+        <section class="section-features">
+          <div class="section-title">
+            <span class="eyebrow">I Vantaggi</span>
+            <h2>Perché un <em>Sito Premium?</em></h2>
+          </div>
+          <div class="grid-3" style="padding: 0 3rem; padding-bottom: 3rem;">
+            <article class="card">
+              <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+              </div>
+              <h3>Velocità Estrema</h3>
+              <p>Ogni millisecondo conta. Ottimizziamo il codice per garantire tempi di caricamento istantanei, riducendo il tasso di abbandono.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+              </div>
+              <h3>Design Magnetico</h3>
+              <p>Estetica elegante (come quella che stai vedendo), studiata per catturare l'attenzione e trasmettere fiducia immediata al tuo brand.</p>
+            </article>
+            <article class="card">
+              <div class="card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+              </div>
+              <h3>Ottimizzato per Convertire</h3>
+              <p>Il design è guidato dai dati. Posizioniamo le Call to Action strategicamente per massimizzare lead e vendite vere.</p>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <section class="interactive-section max-w-7xl">
+        <div class="flex-2">
+          <div>
+            <span class="eyebrow">Dettagli che contano</span>
+            <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3vw, 2.5rem); margin-bottom: 1.5rem; color: #3b2132; letter-spacing: -0.03em;">L'importanza delle <br/><em>Micro-Animazioni</em></h2>
+            <p style="opacity: 0.8; font-size: 1.125rem; line-height: 1.8;">Un'interfaccia viva reagisce alle azioni dell'utente. Bottoni che si illuminano, elementi che appaiono dolcemente: tutto contribuisce a creare un'esperienza utente memorabile e rassicurante.</p>
+            <ul style="list-style: none; padding: 0; margin-top: 2rem; opacity: 0.9;">
+              <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;"><svg width="20" height="20" stroke="#00a5b5" stroke-width="2" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg> Feedback visivo immediato</li>
+              <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;"><svg width="20" height="20" stroke="#00a5b5" stroke-width="2" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg> Maggior tempo di permanenza sul sito</li>
+              <li style="margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;"><svg width="20" height="20" stroke="#00a5b5" stroke-width="2" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg> Percezione di altissima qualità</li>
+            </ul>
+          </div>
+          <div class="interactive-demo">
+            <h3 style="font-family: 'Playfair Display', serif; color: #3b2132; font-size: 1.5rem; margin:0;">Prova l'interazione</h3>
+            <p style="opacity:0.7; margin:0; font-size: 0.95rem;">Passa il mouse sul bottone per vedere un effetto premium fluido.</p>
+            <button class="demo-btn">Bottone Premium</button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="max-w-7xl">
+        <a href="/">Miraya<span style="color: #00A5B5">.</span></a>
+        <p>{t.footer.copyright}</p>
+      </div>
+    </footer>
+
+    <script>
+      const navbar = document.getElementById('navbar');
+      if (navbar) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 50) {
+            navbar.classList.add('nav-scrolled');
+          } else {
+            navbar.classList.remove('nav-scrolled');
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

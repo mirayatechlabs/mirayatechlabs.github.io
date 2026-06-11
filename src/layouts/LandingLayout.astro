@@ -177,29 +177,34 @@ const WEB3FORMS_ACCESS_KEY = '12a894d8-d8f5-45e6-a3d7-575129397057';
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      main > section:first-of-type > div:first-child {
+      main > section:first-of-type > .hero-carousel {
         position: relative;
         overflow: hidden;
         background: #3b2132;
         min-height: 720px;
       }
 
-      main > section:first-of-type > div:first-child img {
+      main > section:first-of-type > .hero-carousel img {
+        position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
-        opacity: 0.8;
-        transition: transform 8s ease;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out, transform 8s ease;
+        transform: scale(1);
       }
 
-      main > section:first-of-type > div:first-child:hover img {
+      main > section:first-of-type > .hero-carousel img.active {
+        opacity: 0.8;
         transform: scale(1.05);
       }
 
-      main > section:first-of-type > div:first-child > div {
+      main > section:first-of-type > .hero-carousel .hero-overlay {
         position: absolute;
         inset: 0;
         background: linear-gradient(135deg, rgba(59, 33, 50, 0.4), rgba(31, 88, 103, 0.4));
+        z-index: 1;
       }
 
       main > section:first-of-type > div:last-child {
@@ -583,6 +588,125 @@ const WEB3FORMS_ACCESS_KEY = '12a894d8-d8f5-45e6-a3d7-575129397057';
         text-align: center;
       }
 
+      /* Chatbot Widget Styles */
+      #chatbot-container {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 100;
+        font-family: 'Inter', sans-serif;
+      }
+      #chatbot-toggle {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #00a5b5;
+        color: white;
+        border: none;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease, background 0.3s ease;
+      }
+      #chatbot-toggle:hover {
+        transform: scale(1.1);
+        background: #1f5867;
+      }
+      #chatbot-window {
+        position: absolute;
+        bottom: 80px;
+        right: 0;
+        width: 320px;
+        background: #fff;
+        border-radius: 1rem;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        transform-origin: bottom right;
+      }
+      #chatbot-window.hidden {
+        opacity: 0;
+        transform: scale(0.8);
+        pointer-events: none;
+      }
+      .chatbot-header {
+        background: linear-gradient(135deg, #3b2132, #1f5867);
+        color: white;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+      }
+      .chatbot-header button {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 1.2rem;
+      }
+      .chatbot-body {
+        padding: 1rem;
+        min-height: 200px;
+        background: #f9f9f9;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .bot-msg {
+        background: #e1e1e1;
+        padding: 0.75rem;
+        border-radius: 0.75rem;
+        border-bottom-left-radius: 0;
+        font-size: 0.9rem;
+        color: #333;
+        margin: 0;
+        width: fit-content;
+        max-width: 85%;
+      }
+      .user-msg {
+        background: #00a5b5;
+        color: white;
+        padding: 0.75rem;
+        border-radius: 0.75rem;
+        border-bottom-right-radius: 0;
+        font-size: 0.9rem;
+        margin: 0;
+        align-self: flex-end;
+        width: fit-content;
+        max-width: 85%;
+      }
+      .chatbot-input {
+        display: flex;
+        border-top: 1px solid #eee;
+        padding: 0.5rem;
+        background: white;
+      }
+      .chatbot-input input {
+        flex: 1;
+        border: none;
+        padding: 0.5rem;
+        outline: none;
+        color: #333;
+        background: transparent;
+      }
+      .chatbot-input button {
+        background: #00a5b5;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .chatbot-input button:hover {
+        background: #1f5867;
+      }
+
       @media (max-width: 1100px) {
         main > section:first-of-type,
         #vision .max-w-7xl,
@@ -644,15 +768,22 @@ const WEB3FORMS_ACCESS_KEY = '12a894d8-d8f5-45e6-a3d7-575129397057';
 
     <main>
       <section>
-        <div>
+        <div class="hero-carousel" id="heroCarousel">
           <img
-            src="/images/hero.webp"
-            alt={t.hero.imageAlt}
-            width="1100"
-            height="1473"
+            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200"
+            alt="Web Design 1"
+            class="active"
             fetchpriority="high"
           />
-          <div></div>
+          <img
+            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=1200"
+            alt="Web Design 2"
+          />
+          <img
+            src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=1200"
+            alt="Web Design 3"
+          />
+          <div class="hero-overlay"></div>
         </div>
         <div>
           <div>
@@ -679,41 +810,84 @@ const WEB3FORMS_ACCESS_KEY = '12a894d8-d8f5-45e6-a3d7-575129397057';
           <div class="grid">
             {t.services.cards.map((card, i) => (
               <article>
-                <div>
-                  {i === 0 && (
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <rect width="18" height="18" x="3" y="3" rx="2"></rect>
-                      <path d="M3 9h18"></path>
-                      <path d="M9 21V9"></path>
-                    </svg>
-                  )}
-                  {i === 1 && (
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M12 20v2"></path>
-                      <path d="M12 2v2"></path>
-                      <path d="M17 20v2"></path>
-                      <path d="M17 2v2"></path>
-                      <path d="M2 12h2"></path>
-                      <path d="M2 17h2"></path>
-                      <path d="M2 7h2"></path>
-                      <path d="M20 12h2"></path>
-                      <path d="M20 17h2"></path>
-                      <path d="M20 7h2"></path>
-                      <path d="M7 20v2"></path>
-                      <path d="M7 2v2"></path>
-                      <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-                      <rect x="8" y="8" width="8" height="8" rx="1"></rect>
-                    </svg>
-                  )}
-                  {i === 2 && (
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
-                    </svg>
-                  )}
-                </div>
-                <p>{card.tag}</p>
-                <h3>{card.title}</h3>
-                <p>{card.text}</p>
+                {card.href ? (
+                  <a href={card.href} style="text-decoration: none; color: inherit; display: block; height: 100%;">
+                    <div>
+                      {i === 0 && (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                          <path d="M3 9h18"></path>
+                          <path d="M9 21V9"></path>
+                        </svg>
+                      )}
+                      {i === 1 && (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M12 20v2"></path>
+                          <path d="M12 2v2"></path>
+                          <path d="M17 20v2"></path>
+                          <path d="M17 2v2"></path>
+                          <path d="M2 12h2"></path>
+                          <path d="M2 17h2"></path>
+                          <path d="M2 7h2"></path>
+                          <path d="M20 12h2"></path>
+                          <path d="M20 17h2"></path>
+                          <path d="M20 7h2"></path>
+                          <path d="M7 20v2"></path>
+                          <path d="M7 2v2"></path>
+                          <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                          <rect x="8" y="8" width="8" height="8" rx="1"></rect>
+                        </svg>
+                      )}
+                      {i === 2 && (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
+                        </svg>
+                      )}
+                    </div>
+                    <p>{card.tag}</p>
+                    <h3>{card.title}</h3>
+                    <p>{card.text}</p>
+                    <span style="display: inline-block; margin-top: 1rem; color: #00A5B5; font-weight: 600;">Scopri di più &rarr;</span>
+                  </a>
+                ) : (
+                  <>
+                    <div>
+                      {i === 0 && (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                          <path d="M3 9h18"></path>
+                          <path d="M9 21V9"></path>
+                        </svg>
+                      )}
+                      {i === 1 && (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M12 20v2"></path>
+                          <path d="M12 2v2"></path>
+                          <path d="M17 20v2"></path>
+                          <path d="M17 2v2"></path>
+                          <path d="M2 12h2"></path>
+                          <path d="M2 17h2"></path>
+                          <path d="M2 7h2"></path>
+                          <path d="M20 12h2"></path>
+                          <path d="M20 17h2"></path>
+                          <path d="M20 7h2"></path>
+                          <path d="M7 20v2"></path>
+                          <path d="M7 2v2"></path>
+                          <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                          <rect x="8" y="8" width="8" height="8" rx="1"></rect>
+                        </svg>
+                      )}
+                      {i === 2 && (
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                          <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path>
+                        </svg>
+                      )}
+                    </div>
+                    <p>{card.tag}</p>
+                    <h3>{card.title}</h3>
+                    <p>{card.text}</p>
+                  </>
+                )}
               </article>
             ))}
           </div>
@@ -812,6 +986,25 @@ const WEB3FORMS_ACCESS_KEY = '12a894d8-d8f5-45e6-a3d7-575129397057';
         <p>{t.footer.copyright}</p>
       </div>
     </footer>
+
+    <div id="chatbot-container">
+      <div id="chatbot-window" class="hidden">
+        <div class="chatbot-header">
+          <span>Miraya Assistant</span>
+          <button id="chatbot-close">✕</button>
+        </div>
+        <div class="chatbot-body" id="chatbot-body">
+          <p class="bot-msg">Ciao! Vuoi scoprire come posso migliorare la tua presenza online?</p>
+        </div>
+        <div class="chatbot-input">
+          <input type="text" id="chatbot-input-field" placeholder="Scrivi qui..." />
+          <button id="chatbot-send">Invia</button>
+        </div>
+      </div>
+      <button id="chatbot-toggle" aria-label="Apri chat">
+        <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+      </button>
+    </div>
 
     <script src="/script.js" is:inline></script>
     <script>

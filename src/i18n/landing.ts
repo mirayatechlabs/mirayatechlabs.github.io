@@ -6,6 +6,7 @@ export interface LandingCard {
   tag: string;
   title: string;
   text: string;
+  href?: string;
 }
 
 export interface LandingContent {
@@ -66,46 +67,46 @@ export const it: LandingContent = {
   },
   nav: { services: 'Servizi', vision: 'Visione', contact: 'Parliamo' },
   hero: {
-    eyebrow: 'Web Design · Automazioni AI · Software su misura',
-    title: 'Sito, automazioni e software che <em>lavorano per te</em>.',
-    text:
-      "Progetto siti web professionali, automazioni con l'intelligenza artificiale e software su misura per eliminare il lavoro ripetitivo e far girare meglio la tua azienda. Stile curato, risultati concreti.",
-    cta: 'Parliamo del tuo progetto',
-    imageAlt: 'Postazione di lavoro accogliente con laptop, piante e disegni dei bambini incorniciati alla parete',
+    eyebrow: 'Web Design Premium · Automazioni AI · Crescita',
+    title: 'Sistemi digitali creati per <em>farti scalare</em>.',
+    text: "Trasformiamo la tua presenza online con siti web magnetici e liberiamo il tuo tempo grazie ad automazioni intelligenti. Più clienti, zero stress. Il tuo business, al livello successivo.",
+    cta: 'Inizia il tuo progetto',
+    imageAlt: 'Sviluppo web e innovazione digitale',
   },
   services: {
-    eyebrow: 'Cosa faccio',
-    heading: 'Tre modi per semplificarti il lavoro',
+    eyebrow: 'I Nostri Servizi',
+    heading: 'Soluzioni pensate per farti vendere',
     cards: [
       {
         tag: 'Web Design',
-        title: 'Siti web professionali',
+        title: 'Siti web ad alta conversione',
         text:
-          'Siti e landing page costruiti su misura — veloci, curati e pensati per trasformare i visitatori in clienti, non solo per fare bella figura.',
+          'Non solo belli da vedere. Costruiamo esperienze digitali veloci, curate e ottimizzate per trasformare i visitatori in clienti fidelizzati.',
+        href: '/web-design',
       },
       {
         tag: 'Automazioni AI',
-        title: 'Meno lavoro ripetitivo',
+        title: 'Lavora meno, produci di più',
         text:
-          "Automatizzo email, risposte, preventivi e le attività che fai a mano ogni giorno, usando l'AI dove serve davvero. Il tempo torna a te e al tuo team.",
+          "Delega all'Intelligenza Artificiale email, preventivi e task ripetitivi. Riprenditi il tuo tempo e concentrati su ciò che conta davvero.",
       },
       {
-        tag: 'Software su misura',
-        title: 'Strumenti fatti per te',
+        tag: 'Software Su Misura',
+        title: 'Strumenti che si adattano a te',
         text:
-          'Sviluppo software personalizzati che si adattano ai tuoi processi reali e li rendono più semplici, veloci e ordinati.',
+          'Sviluppiamo soluzioni software personalizzate che snelliscono i tuoi processi aziendali, rendendoli più rapidi ed efficienti.',
       },
     ],
   },
   vision: {
-    eyebrow: "Tecnologia su misura dell'uomo",
-    heading: "Tecnologia che <em>si adatta all'uomo</em>",
+    eyebrow: "Innovazione dal volto umano",
+    heading: "Tecnologia che <em>potenzia il tuo talento</em>",
     text:
-      "Credo che l'AI debba <strong>potenziare le persone</strong>, non sostituirle. Costruisco strumenti che tolgono di mezzo la parte noiosa e ripetitiva, così puoi concentrarti su ciò che conta davvero: creatività, relazioni e strategia.",
+      "Crediamo che l'AI debba <strong>amplificare le tue capacità</strong>, non sostituirle. Costruiamo strumenti che si occupano della burocrazia e delle operazioni ripetitive, permettendoti di focalizzarti su creatività, relazioni e strategia.",
     benefits: [
-      'Meno tempo perso in attività manuali e ripetitive.',
-      'Interfacce semplici, da usare senza bisogno di un manuale.',
-      'Soluzioni che crescono insieme alla tua attività.',
+      'Elimina le ore perse in attività manuali e ridondanti.',
+      'Interfacce intuitive e premium, dal design impeccabile.',
+      'Soluzioni scalabili che crescono insieme al tuo brand.',
     ],
   },
   contact: {
@@ -160,6 +161,7 @@ export const en: LandingContent = {
         title: 'Professional websites',
         text:
           'Websites and landing pages built around you — fast, polished and designed to turn visitors into clients, not just to look good.',
+        href: '/web-design',
       },
       {
         tag: 'AI Automation',
