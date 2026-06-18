@@ -13,23 +13,23 @@
 
           <!-- Seme della Vita -->
           <TresLineLoop v-for="(seed, idx) in seeds" :key="'seed-'+idx" :geometry="seed.geo" :position="seed.pos" ref="seedsRef">
-            <TresLineBasicMaterial color="#ffffff" :transparent="true" :opacity="0.16" />
+            <TresLineBasicMaterial color="#b026ff" :transparent="true" :opacity="0.25" />
           </TresLineLoop>
 
           <!-- Solidi Platonici Annidati (wireframe) -->
           <TresLineSegments :geometry="icoGeo" ref="icoRef">
-            <TresLineBasicMaterial color="#ffffff" :transparent="true" :opacity="0.5" />
+            <TresLineBasicMaterial color="#b026ff" :transparent="true" :opacity="0.8" />
           </TresLineSegments>
           <TresLineSegments :geometry="octaGeo" ref="octaRef">
-            <TresLineBasicMaterial color="#00f0ff" :transparent="true" :opacity="0.75" />
+            <TresLineBasicMaterial color="#ff0055" :transparent="true" :opacity="0.9" />
           </TresLineSegments>
           
           <!-- Punti per l'effetto luminoso -->
           <TresPoints :geometry="icoPtsGeo" ref="icoPtsRef">
-            <TresPointsMaterial color="#b026ff" :size="0.07" :transparent="true" :opacity="0.9" />
+            <TresPointsMaterial color="#00d2ff" :size="0.08" :transparent="true" :opacity="1" />
           </TresPoints>
           <TresPoints :geometry="crownGeo">
-            <TresPointsMaterial color="#00f0ff" :size="0.05" :transparent="true" :opacity="0.8" />
+            <TresPointsMaterial color="#ff0055" :size="0.06" :transparent="true" :opacity="0.9" />
           </TresPoints>
         </TresGroup>
       </Float>
@@ -49,9 +49,9 @@ const octaRef = shallowRef(null)
 const icoPtsRef = shallowRef(null)
 const seedsRef = shallowRef([])
 
-const INK = '#ffffff'
-const TERRACOTTA = '#00f0ff'
-const OCHRE = '#b026ff'
+const INK = '#b026ff' // Viola vibrante
+const TERRACOTTA = '#ff0055' // Rosa/Rosso sgargiante
+const OCHRE = '#00d2ff' // Azzurro acceso
 
 const circlePoints = (radius, segments = 96) => {
   const pts = []

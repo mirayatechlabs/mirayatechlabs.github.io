@@ -40,12 +40,11 @@ const numerals = ['I', 'II', 'III'];
     </noscript>
     <style>
       :root {
-        --paper: transparent;
-        --bg-color: #020205;
-        --ink: #ffffff;
-        --terracotta: #00f0ff;
-        --ochre: #b026ff;
-        --sage: #ff007f;
+        --paper: #f7f5f0;
+        --ink: #221a12;
+        --terracotta: #d95e40;
+        --ochre: #d69f3e;
+        --sage: #7a8b76;
         --serif: 'Fraunces', Georgia, serif;
         --sans: 'Inter', Arial, sans-serif;
       }
@@ -63,7 +62,7 @@ const numerals = ['I', 'II', 'III'];
       body {
         margin: 0;
         font-family: var(--sans);
-        background: var(--bg-color);
+        background: var(--paper);
         color: var(--ink);
         line-height: 1.7;
         font-weight: 300;
@@ -221,12 +220,12 @@ const numerals = ['I', 'II', 'III'];
         right: 0;
         z-index: 50;
         padding: 1.5rem 0;
-        background: linear-gradient(to bottom, rgba(2, 2, 5, 0.98), rgba(2, 2, 5, 0));
+        background: linear-gradient(to bottom, rgba(247, 245, 240, 0.98), rgba(247, 245, 240, 0));
         transition: all 0.4s ease;
       }
 
       body > nav.nav-scrolled {
-        background: rgba(2, 2, 5, 0.75);
+        background: rgba(247, 245, 240, 0.88);
         backdrop-filter: blur(12px);
         box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
         padding: 1rem 0;
@@ -362,7 +361,7 @@ const numerals = ['I', 'II', 'III'];
         gap: 0.75rem;
         width: fit-content;
         background: var(--terracotta);
-        color: var(--bg-color);
+        color: var(--paper);
         padding: 1rem 2.2rem;
         border-radius: 999px;
         font-weight: 400;
@@ -371,7 +370,6 @@ const numerals = ['I', 'II', 'III'];
 
       .btn-primary:hover {
         background: var(--ink);
-        color: var(--bg-color);
         transform: translateY(-2px);
       }
 
@@ -554,9 +552,8 @@ const numerals = ['I', 'II', 'III'];
 
       #contact {
         padding: 7rem 0;
-        background: rgba(2, 2, 5, 0.6);
-        backdrop-filter: blur(8px);
-        color: var(--ink);
+        background: var(--ink);
+        color: var(--paper);
       }
 
       #contact .container {
@@ -650,7 +647,7 @@ const numerals = ['I', 'II', 'III'];
         width: 100%;
         border: 0;
         background: var(--terracotta);
-        color: var(--bg-color);
+        color: var(--paper);
         font-weight: 400;
         padding: 1rem 2rem;
         border-radius: 999px;
@@ -660,7 +657,7 @@ const numerals = ['I', 'II', 'III'];
 
       #contact button:hover {
         background: var(--ochre);
-        color: var(--bg-color);
+        color: var(--ink);
         transform: translateY(-2px);
       }
 
@@ -738,10 +735,10 @@ const numerals = ['I', 'II', 'III'];
         width: 60px;
         height: 60px;
         border-radius: 50%;
-        background: var(--terracotta);
-        color: var(--bg-color);
+        background: var(--ink);
+        color: var(--paper);
         border: none;
-        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -776,8 +773,8 @@ const numerals = ['I', 'II', 'III'];
       }
 
       .chatbot-header {
-        background: rgba(2, 2, 5, 0.9);
-        color: var(--ink);
+        background: var(--ink);
+        color: var(--paper);
         padding: 1rem;
         display: flex;
         justify-content: space-between;
@@ -789,7 +786,7 @@ const numerals = ['I', 'II', 'III'];
       .chatbot-header button {
         background: none;
         border: none;
-        color: var(--ink);
+        color: var(--paper);
         cursor: pointer;
         font-size: 1.2rem;
       }
@@ -817,7 +814,7 @@ const numerals = ['I', 'II', 'III'];
 
       .user-msg {
         background: var(--terracotta);
-        color: var(--bg-color);
+        color: var(--paper);
         padding: 0.75rem;
         border-radius: 0.75rem;
         border-bottom-right-radius: 0;
@@ -846,7 +843,7 @@ const numerals = ['I', 'II', 'III'];
 
       .chatbot-input button {
         background: var(--terracotta);
-        color: var(--bg-color);
+        color: var(--paper);
         border: none;
         padding: 0.5rem 1rem;
         border-radius: 0.5rem;
@@ -856,7 +853,6 @@ const numerals = ['I', 'II', 'III'];
 
       .chatbot-input button:hover {
         background: var(--ink);
-        color: var(--bg-color);
       }
 
       /* ---------- Responsive ---------- */
@@ -957,7 +953,7 @@ const numerals = ['I', 'II', 'III'];
         </div>
         <div class="hero-figure" role="img" aria-label={t.hero.imageAlt}>
           <svg class="mandala-fallback" viewBox="0 0 400 400" fill="none" aria-hidden="true">
-            <g stroke="#ffffff" stroke-width="1" opacity="0.3">
+            <g stroke="#b026ff" stroke-width="1" opacity="0.3">
               <circle cx="200" cy="200" r="56" />
               <circle cx="200" cy="144" r="56" />
               <circle cx="200" cy="256" r="56" />
@@ -966,15 +962,15 @@ const numerals = ['I', 'II', 'III'];
               <circle cx="151.5" cy="172" r="56" />
               <circle cx="151.5" cy="228" r="56" />
             </g>
-            <circle cx="200" cy="200" r="120" stroke="#ffffff" stroke-width="1" opacity="0.2" />
-            <circle cx="200" cy="200" r="150" stroke="#b026ff" stroke-width="1" stroke-dasharray="2 7" opacity="0.6" />
+            <circle cx="200" cy="200" r="120" stroke="#b026ff" stroke-width="1" opacity="0.4" />
+            <circle cx="200" cy="200" r="150" stroke="#00d2ff" stroke-width="1" stroke-dasharray="2 7" opacity="0.8" />
             <polygon
               points="200,80 304,140 304,260 200,320 96,260 96,140"
-              stroke="#00f0ff"
+              stroke="#ff0055"
               stroke-width="1"
-              opacity="0.5"
+              opacity="0.8"
             />
-            <g fill="#b026ff">
+            <g fill="#00d2ff">
               <circle cx="200" cy="80" r="3" />
               <circle cx="304" cy="140" r="3" />
               <circle cx="304" cy="260" r="3" />
@@ -982,7 +978,7 @@ const numerals = ['I', 'II', 'III'];
               <circle cx="96" cy="260" r="3" />
               <circle cx="96" cy="140" r="3" />
             </g>
-            <circle cx="200" cy="200" r="4" fill="#00f0ff" />
+            <circle cx="200" cy="200" r="4" fill="#ff0055" />
           </svg>
           <div style="position: absolute; inset: 0; width: 100%; height: 100%;">
             <SacredGeometryTres client:only="vue" />
