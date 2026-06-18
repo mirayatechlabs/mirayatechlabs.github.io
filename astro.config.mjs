@@ -4,21 +4,30 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
-import react from '@astrojs/react';
+import vue from '@astrojs/vue';
 
 export default defineConfig({
   output: 'static',
   site: 'https://mirayatechlabs.github.io',
   base: '/',
-  integrations: [sitemap({
-    i18n: {
-      defaultLocale: 'it',
-      locales: {
-        it: 'it-IT',
-        en: 'en-US',
+  integrations: [
+    sitemap({
+      i18n: {
+        defaultLocale: 'it',
+        locales: {
+          it: 'it-IT',
+          en: 'en-US',
+        },
       },
-    },
-  }), react()],
+    }),
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: tag => tag.startsWith('Tres') && tag !== 'TresCanvas',
+        },
+      },
+    })
+  ],
   vite: {
     plugins: [tailwindcss()],
   },
