@@ -56,7 +56,7 @@ const numerals = ['I', 'II', 'III'];
       }
 
       html {
-        scroll-behavior: smooth;
+        /* Disabilito smooth scroll nativo perché useremo Lenis */
       }
 
       body {
@@ -525,6 +525,140 @@ const numerals = ['I', 'II', 'III'];
         max-width: 42rem;
       }
 
+      /* ---------- Cursore Personalizzato ---------- */
+      body {
+        cursor: none; /* Nasconde il cursore di default */
+      }
+      a, button {
+        cursor: none; /* Il nostro cursore custom gestirà gli hover */
+      }
+      
+      #cursor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 12px;
+        height: 12px;
+        background-color: var(--ink);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        z-index: 9999;
+        transition: width 0.3s, height 0.3s, background-color 0.3s;
+        mix-blend-mode: difference;
+      }
+
+      #cursor.hovered {
+        width: 60px;
+        height: 60px;
+        background-color: var(--terracotta);
+        mix-blend-mode: normal;
+        opacity: 0.8;
+      }
+
+      /* ---------- Animazioni GSAP Reveal ---------- */
+      .reveal-text {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      }
+      .reveal-text > div {
+        transform: translateY(110%);
+        opacity: 0;
+      }
+
+      /* ---------- Tipografia Premium e Hero ---------- */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding-top: 6rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: center;
+        z-index: 2;
+        position: relative;
+      }
+      
+      .hero-title {
+        font-size: clamp(3rem, 10vw, 8rem);
+        line-height: 0.9;
+        letter-spacing: -0.04em;
+        margin-bottom: 2rem;
+        font-family: var(--serif);
+        text-transform: uppercase;
+        font-weight: 500;
+        z-index: 10;
+        position: relative;
+        mix-blend-mode: difference;
+        color: #fff; /* Su fondo chiaro con mix-blend-mode diventa nero, sul 3D reagisce */
+      }
+      
+      .hero-title .italic-serif {
+        font-family: var(--serif);
+        font-style: italic;
+        font-weight: 300;
+        color: var(--terracotta);
+      }
+
+      .hero-subtitle {
+        font-size: clamp(1.1rem, 2vw, 1.5rem);
+        max-width: 500px;
+        margin-bottom: 3rem;
+        font-weight: 400;
+      }
+
+      /* La Geometria Sacra nella Hero ridisegnata */
+      .hero-figure {
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        transform: translateY(-50%);
+        width: 50vw;
+        height: 50vw;
+        max-width: 800px;
+        max-height: 800px;
+        z-index: 1;
+        opacity: 0.9;
+      }
+
+      /* ---------- Marquee Infinito ---------- */
+      .marquee-wrapper {
+        width: 100%;
+        overflow: hidden;
+        padding: 4rem 0;
+        background: var(--ink);
+        color: var(--paper);
+        position: relative;
+        z-index: 10;
+        transform: rotate(-2deg) scale(1.05); /* Stile agenzia creativa: leggermente inclinato */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      }
+      
+      .marquee-content {
+        display: flex;
+        white-space: nowrap;
+        font-size: clamp(3rem, 8vw, 6rem);
+        font-family: var(--sans);
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      
+      .marquee-item {
+        padding: 0 2rem;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .marquee-item span {
+        color: var(--terracotta);
+        margin-right: 2rem;
+      }
+
       .benefits {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -920,6 +1054,9 @@ const numerals = ['I', 'II', 'III'];
     </style>
   </head>
   <body>
+    <!-- Cursore Magnetico -->
+    <div id="cursor"></div>
+
     <nav id="navbar">
       <div class="container">
         <a href="#" class="brand">
@@ -939,52 +1076,54 @@ const numerals = ['I', 'II', 'III'];
     </nav>
 
     <main>
-      <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">{t.hero.eyebrow}</p>
-          <h1 set:html={t.hero.title}></h1>
-          <p>{t.hero.text}</p>
-          <a href="#contact" class="btn-primary">
-            {t.hero.cta}
-            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
-          </a>
+      <section class="hero" id="home">
+        <div class="container">
+          <div class="hero-content">
+            <h1 class="hero-title reveal-text">
+              <div>
+                {t.hero.titlePart1}
+              </div>
+            </h1>
+            <h1 class="hero-title reveal-text">
+              <div>
+                <span class="italic-serif">{t.hero.titleHighlight}</span>
+              </div>
+            </h1>
+            <h1 class="hero-title reveal-text">
+              <div>
+                {t.hero.titlePart2}
+              </div>
+            </h1>
+            <p class="hero-subtitle reveal-text"><div>{t.hero.subtitle}</div></p>
+            <div class="reveal-text">
+              <div>
+                <a href="#contact" class="btn-primary" data-magnetic>
+                  {t.hero.cta}
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="hero-figure" role="img" aria-label={t.hero.imageAlt}>
-          <svg class="mandala-fallback" viewBox="0 0 400 400" fill="none" aria-hidden="true">
-            <g stroke="#b026ff" stroke-width="1" opacity="0.3">
-              <circle cx="200" cy="200" r="56" />
-              <circle cx="200" cy="144" r="56" />
-              <circle cx="200" cy="256" r="56" />
-              <circle cx="248.5" cy="172" r="56" />
-              <circle cx="248.5" cy="228" r="56" />
-              <circle cx="151.5" cy="172" r="56" />
-              <circle cx="151.5" cy="228" r="56" />
-            </g>
-            <circle cx="200" cy="200" r="120" stroke="#b026ff" stroke-width="1" opacity="0.4" />
-            <circle cx="200" cy="200" r="150" stroke="#00d2ff" stroke-width="1" stroke-dasharray="2 7" opacity="0.8" />
-            <polygon
-              points="200,80 304,140 304,260 200,320 96,260 96,140"
-              stroke="#ff0055"
-              stroke-width="1"
-              opacity="0.8"
-            />
-            <g fill="#00d2ff">
-              <circle cx="200" cy="80" r="3" />
-              <circle cx="304" cy="140" r="3" />
-              <circle cx="304" cy="260" r="3" />
-              <circle cx="200" cy="320" r="3" />
-              <circle cx="96" cy="260" r="3" />
-              <circle cx="96" cy="140" r="3" />
-            </g>
-            <circle cx="200" cy="200" r="4" fill="#ff0055" />
-          </svg>
           <div style="position: absolute; inset: 0; width: 100%; height: 100%;">
             <SacredGeometryTres client:only="vue" />
           </div>
         </div>
       </section>
+
+      <div class="marquee-wrapper">
+        <div class="marquee-content">
+          <div class="marquee-item">FUTURE PROOF INNOVATION <span>*</span></div>
+          <div class="marquee-item">CREATIVE TECH <span>*</span></div>
+          <div class="marquee-item">DIGITAL TRANSFORMATION <span>*</span></div>
+          <div class="marquee-item">WEB 3.0 <span>*</span></div>
+          <div class="marquee-item">FUTURE PROOF INNOVATION <span>*</span></div>
+          <div class="marquee-item">CREATIVE TECH <span>*</span></div>
+          <div class="marquee-item">DIGITAL TRANSFORMATION <span>*</span></div>
+          <div class="marquee-item">WEB 3.0 <span>*</span></div>
+        </div>
+      </div>
 
       <section id="services">
         <div class="container">
@@ -1148,9 +1287,96 @@ const numerals = ['I', 'II', 'III'];
     </div>
 
     <script src="/script.js" is:inline></script>
-    <script src="/script.js" is:inline></script>
     <script>
-      // Invio form via Web3Forms (sito statico, nessun backend).
+      import Lenis from 'lenis';
+      import gsap from 'gsap';
+      import ScrollTrigger from 'gsap/ScrollTrigger';
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      // 1. Lenis Smooth Scroll
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1,
+      });
+
+      lenis.on('scroll', ScrollTrigger.update);
+
+      gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+      });
+      gsap.ticker.lagSmoothing(0);
+
+      // 2. Custom Magnetic Cursor
+      const cursor = document.getElementById('cursor');
+      let mouseX = window.innerWidth / 2;
+      let mouseY = window.innerHeight / 2;
+      let cursorX = mouseX;
+      let cursorY = mouseY;
+
+      window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      gsap.ticker.add(() => {
+        const dt = 1.0 - Math.pow(0.8, gsap.ticker.deltaRatio());
+        cursorX += (mouseX - cursorX) * 0.2;
+        cursorY += (mouseY - cursorY) * 0.2;
+        if (cursor) {
+          cursor.style.transform = `translate(calc(${cursorX}px - 50%), calc(${cursorY}px - 50%))`;
+        }
+      });
+
+      const interactables = document.querySelectorAll('a, button, [data-magnetic]');
+      interactables.forEach((el) => {
+        el.addEventListener('mouseenter', () => cursor?.classList.add('hovered'));
+        el.addEventListener('mouseleave', () => cursor?.classList.remove('hovered'));
+      });
+
+      // 3. Text Reveal GSAP Animations
+      const revealElements = document.querySelectorAll('.reveal-text > div');
+      if (revealElements.length > 0) {
+        gsap.to(revealElements, {
+          y: '0%',
+          opacity: 1,
+          duration: 1.2,
+          stagger: 0.15,
+          ease: 'power4.out',
+          delay: 0.2
+        });
+      }
+
+      const sections = document.querySelectorAll('section:not(.hero)');
+      sections.forEach((sec) => {
+        gsap.fromTo(sec, 
+          { opacity: 0, y: 50 }, 
+          { 
+            opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+            scrollTrigger: {
+              trigger: sec,
+              start: 'top 85%',
+            }
+          }
+        );
+      });
+
+      // 4. Infinite Marquee Animation
+      const marqueeContent = document.querySelector('.marquee-content');
+      if (marqueeContent) {
+        gsap.to(marqueeContent, {
+          xPercent: -50,
+          ease: "none",
+          duration: 15,
+          repeat: -1
+        });
+      }
+
+      // Invio form via Web3Forms
       const form = document.getElementById('contact-form') as HTMLFormElement | null;
       const result = form?.querySelector('.form-result') as HTMLElement | null;
       const button = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
@@ -1182,7 +1408,7 @@ const numerals = ['I', 'II', 'III'];
             result.textContent = result.dataset.error ?? 'Error';
             result.classList.add('is-error');
           }
-        } catch {
+        } catch (err) {
           result.textContent = result.dataset.error ?? 'Error';
           result.classList.add('is-error');
         } finally {
