@@ -40,6 +40,69 @@ Serve a coinvolgere il visitatore, capire i suoi gusti e portarlo al contatto gi
 
 ---
 
+## 2. 💭 Chatbot vero sulla pagina Consulenze AI
+
+**Cosa**: nella pagina dedicata alle consulenze AI, un chatbot **funzionante** (non finto) con
+tante risposte sensate già pronte alle domande tipiche dei clienti (cosa fai, quanto costa,
+tempi, esempi, come iniziare, privacy dei dati, ecc.).
+
+**Come potrebbe funzionare (statico, GitHub Pages):**
+- Base a "intent" predefiniti: un set di domande/risposte curate + matching su parole chiave,
+  con bottoni di domande suggerite per guidare la conversazione. Tutto client-side, nessun backend.
+- Opzionale evoluzione: collegarlo a un vero modello AI via API (richiederebbe un endpoint/serverless,
+  fuori dall'attuale architettura statica) — da valutare se serve davvero.
+- Tono on-brand: caldo, umano, niente "assistente robotico".
+- È anche una **demo vivente** della competenza: "ti sto mostrando ciò che so costruire".
+
+**Aperti**: quante domande coprire? Solo risposte pronte o anche AI vera? Dove porta la conversazione
+(contatto/preventivo)?
+
+---
+
+## 3. 💭 Tutorial visivo "prima → dopo" sulla pagina Consulenze AI
+
+**Cosa**: una sezione che mostra con esempi concreti **come ottimizzo il lavoro in azienda** con la
+consulenza. Formato "prima → dopo" o piccola animazione/step.
+
+**Esempi da raccontare:**
+- Un **file Excel** che diventa un **programmino** dedicato.
+- **Estrazione di dati importanti** da documenti PDF di centinaia di pagine.
+- (collegato all'idea 6) estrazione di **domande a risposta multipla** da un manuale PDF di 400 pagine
+  con immagini.
+
+**Come**: card/step con icona, mini-animazione o GIF/loop, una frase di problema e una di risultato.
+Coerente col design system del brand. Serve a rendere tangibile un servizio astratto.
+
+---
+
+## 4. 💭 Opzioni di sito sulla pagina Web Design
+
+**Cosa**: presentare i tipi di sito che offro come opzioni chiare, così il cliente si riconosce subito.
+Possibili tipologie:
+- **Sito velocissimo e personalizzato** (performance + su misura).
+- **Sito interattivo** (animazioni, 3D, esperienze — come la home Miraya).
+- **Sito con prenotazioni** (booking/calendario).
+- _(spazio per altre: e-commerce, one-page, portfolio…)_
+
+**Nota**: si lega bene all'idea 1 (il configuratore "che stile preferisci"): lì si sceglie lo *stile*,
+qui la *tipologia/funzione*. Valutare se unirle in un unico flusso o tenerle separate.
+
+---
+
+## 5. 💭 Portfolio / lavori fatti
+
+**Cosa**: una sezione "lavori" o "portfolio" con i progetti reali, per dare prova concreta.
+
+**Da includere:**
+- Siti **WordPress** performanti: **performarti.it** e **https://educ-art.com/**.
+- Progetto AI: **estrazione di domande a risposta multipla da un manuale PDF di 400 pagine con immagini**
+  (ottimo case study, si lega all'idea 3).
+
+**Aperti**: dove vive il portfolio? (home, /web-design, o pagina dedicata). Servono screenshot/anteprime
+dei siti WordPress. Per educ-art.com e performarti.it: chiedere conferma che si possano mostrare pubblicamente.
+
+---
+
 ## Altre idee
 
 _(spazio per le prossime — aggiungiamo qui mano a mano)_
