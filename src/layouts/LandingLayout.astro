@@ -31,7 +31,8 @@ const numerals = ['I', 'II', 'III'];
     />
     <noscript>
       <style>
-        .reveal {
+        .reveal,
+        .reveal-text > div {
           opacity: 1 !important;
           transform: none !important;
         }
@@ -308,52 +309,6 @@ const numerals = ['I', 'II', 'III'];
 
       /* ---------- Hero ---------- */
 
-      .hero {
-        min-height: calc(100vh - 84px);
-        display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
-        align-items: center;
-        gap: 2rem;
-        max-width: 1300px;
-        margin: 0 auto;
-        padding: 2rem clamp(1.5rem, 5vw, 4rem);
-      }
-
-      .hero-copy > * {
-        animation: fade-up 0.9s ease both;
-      }
-
-      .hero-copy > p.eyebrow {
-        animation-delay: 0.1s;
-      }
-
-      .hero-copy > h1 {
-        animation-delay: 0.25s;
-      }
-
-      .hero-copy > p:nth-of-type(2) {
-        animation-delay: 0.4s;
-      }
-
-      .hero-copy > a {
-        animation-delay: 0.55s;
-      }
-
-      .hero-copy h1 {
-        font-size: clamp(2.8rem, 5.5vw, 5rem);
-        line-height: 1.08;
-        margin: 0 0 1.5rem;
-        max-width: 14ch;
-      }
-
-      .hero-copy p:nth-of-type(2) {
-        font-size: 1.1rem;
-        max-width: 32rem;
-        opacity: 0.82;
-        margin: 0 0 2.5rem;
-        line-height: 1.8;
-      }
-
       .btn-primary {
         display: inline-flex;
         align-items: center;
@@ -370,36 +325,6 @@ const numerals = ['I', 'II', 'III'];
       .btn-primary:hover {
         background: var(--ink);
         transform: translateY(-2px);
-      }
-
-      /* Figura mandala: SVG statico di fallback + canvas Three.js sovrapposto */
-      .hero-figure {
-        position: relative;
-        aspect-ratio: 1;
-        max-height: 640px;
-        width: 100%;
-        align-self: center;
-      }
-
-      .hero-figure .mandala-fallback,
-      .hero-figure canvas {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        transition: opacity 1.2s ease;
-      }
-
-      .hero-figure canvas {
-        opacity: 0;
-      }
-
-      .hero-figure.mandala-live canvas {
-        opacity: 1;
-      }
-
-      .hero-figure.mandala-live .mandala-fallback {
-        opacity: 0;
       }
 
       /* ---------- Sezioni comuni ---------- */
@@ -524,35 +449,41 @@ const numerals = ['I', 'II', 'III'];
         max-width: 42rem;
       }
 
-      /* ---------- Cursore Personalizzato ---------- */
-      body {
-        cursor: none; /* Nasconde il cursore di default */
-      }
-      a, button {
-        cursor: none; /* Il nostro cursore custom gestirà gli hover */
-      }
-      
+      /* ---------- Cursore magnetico (solo puntatore fine) ---------- */
       #cursor {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 12px;
-        height: 12px;
-        background-color: var(--ink);
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        pointer-events: none;
-        z-index: 9999;
-        transition: width 0.3s, height 0.3s, background-color 0.3s;
-        mix-blend-mode: difference;
+        display: none;
       }
 
-      #cursor.hovered {
-        width: 60px;
-        height: 60px;
-        background-color: var(--terracotta);
-        mix-blend-mode: normal;
-        opacity: 0.8;
+      @media (pointer: fine) {
+        body,
+        a,
+        button {
+          cursor: none; /* lo gestisce il cursore custom */
+        }
+
+        #cursor {
+          display: block;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 12px;
+          height: 12px;
+          background-color: var(--ink);
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          pointer-events: none;
+          z-index: 9999;
+          transition: width 0.3s, height 0.3s, background-color 0.3s;
+          mix-blend-mode: difference;
+        }
+
+        #cursor.hovered {
+          width: 60px;
+          height: 60px;
+          background-color: var(--terracotta);
+          mix-blend-mode: normal;
+          opacity: 0.8;
+        }
       }
 
       /* ---------- Animazioni GSAP Reveal ---------- */
@@ -611,18 +542,41 @@ const numerals = ['I', 'II', 'III'];
         font-weight: 400;
       }
 
-      /* La Geometria Sacra nella Hero ridisegnata */
+      /* La Geometria Sacra nella Hero: manufatto luminoso in una nicchia scura.
+         L'alone caldo-scuro sfuma nella carta (niente bordo netto) e fa risaltare
+         il laser additivo, senza cambiare il tema chiaro della pagina. */
       .hero-figure {
         position: absolute;
         top: 50%;
-        right: 5%;
+        right: 4%;
         transform: translateY(-50%);
-        width: 50vw;
-        height: 50vw;
-        max-width: 800px;
-        max-height: 800px;
+        width: 52vw;
+        height: 52vw;
+        max-width: 760px;
+        max-height: 760px;
         z-index: 1;
-        opacity: 0.9;
+        pointer-events: none;
+      }
+
+      .hero-figure::before {
+        content: '';
+        position: absolute;
+        inset: -6%;
+        z-index: -1;
+        background: radial-gradient(
+          circle at 50% 48%,
+          #1d150d 0%,
+          rgba(29, 21, 13, 0.92) 42%,
+          rgba(29, 21, 13, 0.55) 60%,
+          rgba(29, 21, 13, 0) 74%
+        );
+      }
+
+      .hero-figure canvas {
+        position: absolute;
+        inset: 0;
+        width: 100% !important;
+        height: 100% !important;
       }
 
       /* ---------- Marquee Infinito ---------- */
@@ -854,140 +808,6 @@ const numerals = ['I', 'II', 'III'];
         text-align: center;
       }
 
-      /* ---------- Chatbot ---------- */
-
-      #chatbot-container {
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        z-index: 100;
-        font-family: var(--sans);
-      }
-
-      #chatbot-toggle {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: var(--ink);
-        color: var(--paper);
-        border: none;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.3s ease, background 0.3s ease;
-      }
-
-      #chatbot-toggle:hover {
-        transform: scale(1.1);
-        background: var(--terracotta);
-      }
-
-      #chatbot-window {
-        position: absolute;
-        bottom: 80px;
-        right: 0;
-        width: 320px;
-        background: var(--paper);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        box-shadow: 0 10px 25px rgba(255, 255, 255, 0.18);
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        transition: opacity 0.3s ease, transform 0.3s ease;
-        transform-origin: bottom right;
-      }
-
-      #chatbot-window.hidden {
-        opacity: 0;
-        transform: scale(0.8);
-        pointer-events: none;
-      }
-
-      .chatbot-header {
-        background: var(--ink);
-        color: var(--paper);
-        padding: 1rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-weight: 500;
-        font-family: var(--serif);
-      }
-
-      .chatbot-header button {
-        background: none;
-        border: none;
-        color: var(--paper);
-        cursor: pointer;
-        font-size: 1.2rem;
-      }
-
-      .chatbot-body {
-        padding: 1rem;
-        min-height: 200px;
-        background: var(--paper);
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      .bot-msg {
-        background: rgba(255, 255, 255, 0.08);
-        padding: 0.75rem;
-        border-radius: 0.75rem;
-        border-bottom-left-radius: 0;
-        font-size: 0.9rem;
-        color: var(--ink);
-        margin: 0;
-        width: fit-content;
-        max-width: 85%;
-      }
-
-      .user-msg {
-        background: var(--terracotta);
-        color: var(--paper);
-        padding: 0.75rem;
-        border-radius: 0.75rem;
-        border-bottom-right-radius: 0;
-        font-size: 0.9rem;
-        margin: 0;
-        align-self: flex-end;
-        width: fit-content;
-        max-width: 85%;
-      }
-
-      .chatbot-input {
-        display: flex;
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
-        padding: 0.5rem;
-        background: var(--paper);
-      }
-
-      .chatbot-input input {
-        flex: 1;
-        border: none;
-        padding: 0.5rem;
-        outline: none;
-        color: var(--ink);
-        background: transparent;
-      }
-
-      .chatbot-input button {
-        background: var(--terracotta);
-        color: var(--paper);
-        border: none;
-        padding: 0.5rem 1rem;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        font-weight: 500;
-      }
-
-      .chatbot-input button:hover {
-        background: var(--ink);
-      }
-
       /* ---------- Responsive ---------- */
 
       @media (max-width: 1100px) {
@@ -1111,16 +931,11 @@ const numerals = ['I', 'II', 'III'];
         </div>
       </section>
 
-      <div class="marquee-wrapper">
+      <div class="marquee-wrapper" aria-hidden="true">
         <div class="marquee-content">
-          <div class="marquee-item">FUTURE PROOF INNOVATION <span>*</span></div>
-          <div class="marquee-item">CREATIVE TECH <span>*</span></div>
-          <div class="marquee-item">DIGITAL TRANSFORMATION <span>*</span></div>
-          <div class="marquee-item">WEB 3.0 <span>*</span></div>
-          <div class="marquee-item">FUTURE PROOF INNOVATION <span>*</span></div>
-          <div class="marquee-item">CREATIVE TECH <span>*</span></div>
-          <div class="marquee-item">DIGITAL TRANSFORMATION <span>*</span></div>
-          <div class="marquee-item">WEB 3.0 <span>*</span></div>
+          {[...t.marquee, ...t.marquee].map((word) => (
+            <div class="marquee-item">{word} <span>◆</span></div>
+          ))}
         </div>
       </div>
 
@@ -1266,25 +1081,6 @@ const numerals = ['I', 'II', 'III'];
       </div>
     </footer>
 
-    <div id="chatbot-container">
-      <div id="chatbot-window" class="hidden">
-        <div class="chatbot-header">
-          <span>Miraya Assistant</span>
-          <button id="chatbot-close">✕</button>
-        </div>
-        <div class="chatbot-body" id="chatbot-body">
-          <p class="bot-msg">Ciao! Vuoi scoprire come posso migliorare la tua presenza online?</p>
-        </div>
-        <div class="chatbot-input">
-          <input type="text" id="chatbot-input-field" placeholder="Scrivi qui..." />
-          <button id="chatbot-send">Invia</button>
-        </div>
-      </div>
-      <button id="chatbot-toggle" aria-label="Apri chat">
-        <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
-      </button>
-    </div>
-
     <script src="/script.js" is:inline></script>
     <script>
       import Lenis from 'lenis';
@@ -1293,85 +1089,89 @@ const numerals = ['I', 'II', 'III'];
 
       gsap.registerPlugin(ScrollTrigger);
 
-      // 1. Lenis Smooth Scroll
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const finePointer = window.matchMedia('(pointer: fine)').matches;
+
+      // 1. Lenis: unico gestore dello smooth scroll
       const lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        orientation: 'vertical',
-        gestureOrientation: 'vertical',
-        smoothWheel: true,
-        wheelMultiplier: 1,
+        smoothWheel: !reduceMotion,
       });
 
       lenis.on('scroll', ScrollTrigger.update);
-
-      gsap.ticker.add((time) => {
-        lenis.raf(time * 1000);
-      });
+      gsap.ticker.add((time) => lenis.raf(time * 1000));
       gsap.ticker.lagSmoothing(0);
 
-      // 2. Custom Magnetic Cursor
+      // Anchor link gestiti da Lenis (niente scrollIntoView in conflitto)
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', (e) => {
+          const href = anchor.getAttribute('href');
+          if (!href || href === '#') return;
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            lenis.scrollTo(target, { offset: -80 });
+          }
+        });
+      });
+
+      // 2. Cursore magnetico — solo desktop (puntatore fine), no reduced motion
       const cursor = document.getElementById('cursor');
-      let mouseX = window.innerWidth / 2;
-      let mouseY = window.innerHeight / 2;
-      let cursorX = mouseX;
-      let cursorY = mouseY;
+      if (cursor && finePointer && !reduceMotion) {
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let cursorX = mouseX;
+        let cursorY = mouseY;
 
-      window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-      });
+        window.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+        });
 
-      gsap.ticker.add(() => {
-        const dt = 1.0 - Math.pow(0.8, gsap.ticker.deltaRatio());
-        cursorX += (mouseX - cursorX) * 0.2;
-        cursorY += (mouseY - cursorY) * 0.2;
-        if (cursor) {
+        gsap.ticker.add(() => {
+          cursorX += (mouseX - cursorX) * 0.2;
+          cursorY += (mouseY - cursorY) * 0.2;
           cursor.style.transform = `translate(calc(${cursorX}px - 50%), calc(${cursorY}px - 50%))`;
-        }
-      });
+        });
 
-      const interactables = document.querySelectorAll('a, button, [data-magnetic]');
-      interactables.forEach((el) => {
-        el.addEventListener('mouseenter', () => cursor?.classList.add('hovered'));
-        el.addEventListener('mouseleave', () => cursor?.classList.remove('hovered'));
-      });
-
-      // 3. Text Reveal GSAP Animations
-      const revealElements = document.querySelectorAll('.reveal-text > div');
-      if (revealElements.length > 0) {
-        gsap.to(revealElements, {
-          y: '0%',
-          opacity: 1,
-          duration: 1.2,
-          stagger: 0.15,
-          ease: 'power4.out',
-          delay: 0.2
+        document.querySelectorAll('a, button, [data-magnetic]').forEach((el) => {
+          el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+          el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
         });
       }
 
-      const sections = document.querySelectorAll('section:not(.hero)');
-      sections.forEach((sec) => {
-        gsap.fromTo(sec, 
-          { opacity: 0, y: 50 }, 
-          { 
-            opacity: 1, y: 0, duration: 1, ease: 'power3.out',
-            scrollTrigger: {
-              trigger: sec,
-              start: 'top 85%',
-            }
-          }
-        );
-      });
+      // 3. Reveal del titolo a maschera riga-per-riga
+      const revealElements = document.querySelectorAll('.reveal-text > div');
+      if (revealElements.length > 0) {
+        if (reduceMotion) {
+          gsap.set(revealElements, { y: '0%', opacity: 1 });
+        } else {
+          gsap.to(revealElements, {
+            y: '0%',
+            opacity: 1,
+            duration: 1.2,
+            stagger: 0.15,
+            ease: 'power4.out',
+            delay: 0.2,
+          });
+        }
+      }
 
-      // 4. Infinite Marquee Animation
+      // 4. Marquee infinito con leggero velocity-skew legato allo scroll
       const marqueeContent = document.querySelector('.marquee-content');
-      if (marqueeContent) {
-        gsap.to(marqueeContent, {
-          xPercent: -50,
-          ease: "none",
-          duration: 15,
-          repeat: -1
+      if (marqueeContent && !reduceMotion) {
+        gsap.to(marqueeContent, { xPercent: -50, ease: 'none', duration: 22, repeat: -1 });
+
+        let resetSkew;
+        lenis.on('scroll', ({ velocity }) => {
+          const skew = gsap.utils.clamp(-8, 8, velocity * 0.35);
+          gsap.to(marqueeContent, { skewX: skew, duration: 0.2, overwrite: 'auto' });
+          clearTimeout(resetSkew);
+          resetSkew = setTimeout(
+            () => gsap.to(marqueeContent, { skewX: 0, duration: 0.4 }),
+            120
+          );
         });
       }
 

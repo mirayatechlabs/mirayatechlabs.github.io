@@ -14,6 +14,7 @@ export interface LandingContent {
   altLang: { label: string; href: string };
   meta: { title: string; description: string };
   nav: { services: string; vision: string; contact: string };
+  marquee: string[];
   hero: {
     eyebrow: string;
     title: string; // HTML (con <em>)
@@ -66,6 +67,7 @@ export const it: LandingContent = {
       "Siti web professionali, automazioni con l'AI e software su misura per eliminare il lavoro ripetitivo e ottimizzare la tua azienda.",
   },
   nav: { services: 'Servizi', vision: 'Visione', contact: 'Parliamo' },
+  marquee: ['Su misura', 'Con cura', 'Attorno alle persone', 'Dal volto umano', 'Fatto a mano'],
   hero: {
     eyebrow: 'Web · AI · Software — dal volto umano',
     title: 'Tecnologia che si <em>prende cura</em> delle tue idee.',
@@ -144,6 +146,7 @@ export const en: LandingContent = {
       'Professional websites, AI automations and custom software to remove repetitive work and optimize your business.',
   },
   nav: { services: 'Services', vision: 'Vision', contact: "Let's talk" },
+  marquee: ['Tailored', 'With care', 'Around people', 'With a human face', 'Handcrafted'],
   hero: {
     eyebrow: 'Web · AI · Software — with a human face',
     title: 'Technology with <em>a soul</em>.',
