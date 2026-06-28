@@ -17,8 +17,10 @@ export interface LandingContent {
   marquee: string[];
   hero: {
     eyebrow: string;
-    title: string; // HTML (con <em>)
-    text: string;
+    titlePart1: string;
+    titleHighlight: string; // riga in corsivo serif (accento terracotta)
+    titlePart2: string;
+    subtitle: string;
     cta: string;
     imageAlt: string;
   };
@@ -70,8 +72,11 @@ export const it: LandingContent = {
   marquee: ['Su misura', 'Con cura', 'Attorno alle persone', 'Dal volto umano', 'Fatto a mano'],
   hero: {
     eyebrow: 'Web · AI · Software — dal volto umano',
-    title: 'Tecnologia che si <em>prende cura</em> delle tue idee.',
-    text: "Siti web, automazioni AI e software costruiti come manufatti: su misura, con cura, attorno alle persone. L'intelligenza artificiale qui potenzia le tue capacità e la tua creatività — non le sostituisce.",
+    titlePart1: 'Tecnologia',
+    titleHighlight: 'che si prende cura',
+    titlePart2: 'delle tue idee',
+    subtitle:
+      "Siti web, automazioni AI e software costruiti come manufatti: su misura, con cura, attorno alle persone. L'intelligenza artificiale qui potenzia le tue capacità — non le sostituisce.",
     cta: 'Parliamone',
     imageAlt: 'Mandala geometrico animato: cerchi concentrici e solidi platonici in linee sottili',
   },
@@ -149,9 +154,11 @@ export const en: LandingContent = {
   marquee: ['Tailored', 'With care', 'Around people', 'With a human face', 'Handcrafted'],
   hero: {
     eyebrow: 'Web · AI · Software — with a human face',
-    title: 'Technology with <em>a soul</em>.',
-    text:
-      'Websites, AI automations and software built like artifacts: tailored, with care, around people. Here, artificial intelligence amplifies your skills and creativity — it never replaces them.',
+    titlePart1: 'Technology',
+    titleHighlight: 'with a soul',
+    titlePart2: 'built for people',
+    subtitle:
+      'Websites, AI automations and software built like artifacts: tailored, with care, around people. Here, artificial intelligence amplifies your skills — it never replaces them.',
     cta: "Let's talk",
     imageAlt: 'Animated geometric mandala: concentric circles and platonic solids drawn in thin lines',
   },

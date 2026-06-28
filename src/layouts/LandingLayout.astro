@@ -513,25 +513,35 @@ const numerals = ['I', 'II', 'III'];
         z-index: 2;
         position: relative;
       }
+
+      .hero-content {
+        max-width: 640px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-title + .hero-title {
+        margin-top: 0.1em;
+      }
       
       .hero-title {
-        font-size: clamp(3rem, 10vw, 8rem);
-        line-height: 0.9;
-        letter-spacing: -0.04em;
-        margin-bottom: 2rem;
+        font-size: clamp(3rem, 9vw, 7rem);
+        line-height: 0.95;
+        letter-spacing: -0.03em;
+        margin: 0;
         font-family: var(--serif);
         text-transform: uppercase;
         font-weight: 500;
-        z-index: 10;
         position: relative;
-        mix-blend-mode: difference;
-        color: #fff; /* Su fondo chiaro con mix-blend-mode diventa nero, sul 3D reagisce */
+        z-index: 10;
+        color: var(--ink);
       }
-      
+
       .hero-title .italic-serif {
         font-family: var(--serif);
         font-style: italic;
-        font-weight: 300;
+        font-weight: 400;
+        text-transform: none;
         color: var(--terracotta);
       }
 
@@ -558,58 +568,79 @@ const numerals = ['I', 'II', 'III'];
         pointer-events: none;
       }
 
+      /* Alone caldo leggerissimo dietro al mandala, sulla carta (niente nicchia scura) */
       .hero-figure::before {
         content: '';
         position: absolute;
-        inset: -6%;
+        inset: 4%;
         z-index: -1;
+        border-radius: 50%;
         background: radial-gradient(
-          circle at 50% 48%,
-          #1d150d 0%,
-          rgba(29, 21, 13, 0.92) 42%,
-          rgba(29, 21, 13, 0.55) 60%,
-          rgba(29, 21, 13, 0) 74%
+          circle at 50% 50%,
+          rgba(217, 159, 62, 0.14) 0%,
+          rgba(217, 159, 62, 0.06) 45%,
+          rgba(217, 159, 62, 0) 70%
         );
       }
 
-      .hero-figure canvas {
+      /* Il TresCanvas misura il suo contenitore: l'astro-island (iniettato a
+         runtime, fuori dallo scope degli stili) è display:contents e ha area 0,
+         quindi il canvas risulta 0. Forzo un box a piena dimensione via :global. */
+      .hero-figure > div {
+        display: block;
         position: absolute;
         inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .hero-figure :global(astro-island) {
+        display: block;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .hero-figure canvas {
+        display: block;
         width: 100% !important;
         height: 100% !important;
       }
 
-      /* ---------- Marquee Infinito ---------- */
+      /* ---------- Marquee ---------- */
       .marquee-wrapper {
         width: 100%;
         overflow: hidden;
-        padding: 4rem 0;
+        padding: 2.2rem 0;
         background: var(--ink);
         color: var(--paper);
         position: relative;
         z-index: 10;
-        transform: rotate(-2deg) scale(1.05); /* Stile agenzia creativa: leggermente inclinato */
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border-top: 1px solid rgba(217, 159, 62, 0.25);
+        border-bottom: 1px solid rgba(217, 159, 62, 0.25);
       }
-      
+
       .marquee-content {
         display: flex;
         white-space: nowrap;
-        font-size: clamp(3rem, 8vw, 6rem);
-        font-family: var(--sans);
-        font-weight: 600;
-        text-transform: uppercase;
+        font-family: var(--serif);
+        font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+        font-weight: 500;
+        will-change: transform;
       }
-      
+
       .marquee-item {
-        padding: 0 2rem;
+        padding: 0 1.5rem;
         display: inline-flex;
         align-items: center;
+        gap: 1.5rem;
+        letter-spacing: 0.01em;
       }
 
       .marquee-item span {
-        color: var(--terracotta);
-        margin-right: 2rem;
+        color: var(--ochre);
+        font-size: 0.6em;
       }
 
       .benefits {
