@@ -38,7 +38,7 @@
 </template>
 
 <script setup>
-import { TresCanvas, useRenderLoop } from '@tresjs/core'
+import { TresCanvas, useLoop } from '@tresjs/core'
 import { Stars, Float } from '@tresjs/cientos'
 import { shallowRef, onMounted, onUnmounted, ref } from 'vue'
 import * as THREE from 'three'
@@ -102,9 +102,9 @@ onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
 })
 
-const { onLoop } = useRenderLoop()
+const { onBeforeRender } = useLoop()
 
-onLoop(({ delta, elapsed }) => {
+onBeforeRender(({ delta, elapsed }) => {
   if (!groupRef.value || !icoRef.value || !octaRef.value || !icoPtsRef.value) return
 
   const group = groupRef.value
