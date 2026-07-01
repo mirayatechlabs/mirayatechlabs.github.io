@@ -15,6 +15,7 @@ export interface LandingContent {
   meta: { title: string; description: string };
   nav: { services: string; vision: string; contact: string };
   marquee: string[];
+  reel: { caption: string; video?: string }[];
   hero: {
     eyebrow: string;
     titlePart1: string;
@@ -69,7 +70,15 @@ export const it: LandingContent = {
       "Siti web professionali, automazioni con l'AI e software su misura per eliminare il lavoro ripetitivo e ottimizzare la tua azienda.",
   },
   nav: { services: 'Servizi', vision: 'Visione', contact: 'Parliamo' },
-  marquee: ['Su misura', 'Con cura', 'Attorno alle persone', 'Dal volto umano', 'Fatto a mano'],
+  marquee: ['Siti web su misura', 'Automazioni con l’AI', 'Software fatto a mano', 'Tecnologia dal volto umano'],
+  // Showreel dei lavori reali. Aggiungi il video in public/showreel/ e metti il
+  // percorso in `video` (es. '/showreel/excel.mp4'): apparirà al posto del placeholder.
+  reel: [
+    { caption: 'Un Excel che diventa un programma' },
+    { caption: 'Dati estratti da PDF di 400 pagine' },
+    { caption: 'Email e preventivi in automatico' },
+    { caption: 'Siti web fatti a mano' },
+  ],
   hero: {
     eyebrow: 'Web · AI · Software — dal volto umano',
     titlePart1: 'Tecnologia',
@@ -151,7 +160,13 @@ export const en: LandingContent = {
       'Professional websites, AI automations and custom software to remove repetitive work and optimize your business.',
   },
   nav: { services: 'Services', vision: 'Vision', contact: "Let's talk" },
-  marquee: ['Tailored', 'With care', 'Around people', 'With a human face', 'Handcrafted'],
+  marquee: ['Tailored websites', 'AI automations', 'Handcrafted software', 'Technology with a human face'],
+  reel: [
+    { caption: 'An Excel file becomes an app' },
+    { caption: 'Data pulled from 400-page PDFs' },
+    { caption: 'Emails and quotes on autopilot' },
+    { caption: 'Handcrafted websites' },
+  ],
   hero: {
     eyebrow: 'Web · AI · Software — with a human face',
     titlePart1: 'Technology',

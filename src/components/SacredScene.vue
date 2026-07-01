@@ -23,29 +23,10 @@
       <TresLineBasicMaterial :color="INK" :transparent="true" :opacity="0.75" />
     </TresLineSegments>
 
-    <!-- Vertici dei solidi: compaiono a disegno completato -->
-    <TresPoints :geometry="vertexGeo">
-      <TresPointsMaterial
-        ref="vertexMatRef"
-        :color="TERRACOTTA"
-        :size="0.11"
-        :transparent="true"
-        :opacity="0"
-        :sizeAttenuation="true"
-      />
-    </TresPoints>
-
-    <!-- Testa del laser: segue i tracciati in costruzione -->
-    <TresPoints :geometry="sparkGeo">
-      <TresPointsMaterial
-        ref="sparkMatRef"
-        :color="SPARK"
-        :size="0.26"
-        :transparent="true"
-        :opacity="0"
-        :sizeAttenuation="true"
-      />
-    </TresPoints>
+    <!-- Vertici dei solidi + testa del laser: costruiti in JS con la texture già
+         nel materiale (round garantito), inseriti con primitive. -->
+    <primitive :object="vertexPoints" />
+    <primitive :object="sparkPoints" />
   </TresGroup>
 </template>
 
@@ -61,8 +42,19 @@ const INK = '#5a3a22'
 const SPARK = '#e8631f'
 
 const groupRef = shallowRef(null)
-const vertexMatRef = shallowRef(null)
-const sparkMatRef = shallowRef(null)
+
+// Rende un PointsMaterial un bagliore rotondo modellando l'alpha in base alla
+// distanza dal centro del punto (gl_PointCoord). `core` = raggio del nucleo pieno.
+const roundGlow = (mat, core = 0.0) => {
+  mat.onBeforeCompile = (shader) => {
+    shader.fragmentShader = shader.fragmentShader.replace(
+      'vec4 diffuseColor = vec4( diffuse, opacity );',
+      `float _d = length( gl_PointCoord - vec2( 0.5 ) );
+       float _a = smoothstep( 0.5, ${core.toFixed(2)}, _d );
+       vec4 diffuseColor = vec4( diffuse, opacity * _a );`
+    )
+  }
+}
 
 // ---------- Geometrie ----------
 const circlePoints = (radius, segments = 128) => {
@@ -111,15 +103,39 @@ const BUILD = []
 const pushBuild = (geo, t0, t1) => {
   BUILD.push({ geo, count: geo.attributes.position.count, t0, t1 })
 }
-ringDrawables.forEach((d, i) => pushBuild(d.geo, 0.0 + i * 0.18, 0.9 + i * 0.18))
-seedDrawables.forEach((d, i) => pushBuild(d.geo, 0.7 + i * 0.1, 1.5 + i * 0.1))
-pushBuild(icoGeo, 1.5, 2.3)
-pushBuild(octaGeo, 1.7, 2.5)
-const BUILD_END = 2.7
+// Timeline lenta e scandita: si segue ogni tratto del laser (durata ~5.5s)
+ringDrawables.forEach((d, i) => pushBuild(d.geo, 0.0 + i * 0.5, 1.6 + i * 0.5))
+seedDrawables.forEach((d, i) => pushBuild(d.geo, 1.7 + i * 0.28, 3.0 + i * 0.28))
+pushBuild(icoGeo, 3.9, 5.1)
+pushBuild(octaGeo, 4.4, 5.6)
+const BUILD_END = 5.8
 
 const sparkGeo = new THREE.BufferGeometry()
 const sparkPositions = new Float32Array(BUILD.length * 3)
 sparkGeo.setAttribute('position', new THREE.BufferAttribute(sparkPositions, 3))
+
+// Vertici: bagliori tondi terracotta. Testa laser: nucleo caldo brillante + alone.
+const vertexMat = new THREE.PointsMaterial({
+  color: new THREE.Color(TERRACOTTA),
+  size: 0.22,
+  transparent: true,
+  opacity: 0,
+  depthWrite: false,
+  sizeAttenuation: true,
+})
+roundGlow(vertexMat, 0.0)
+const vertexPoints = new THREE.Points(vertexGeo, vertexMat)
+
+const sparkMat = new THREE.PointsMaterial({
+  color: new THREE.Color(SPARK),
+  size: 0.6,
+  transparent: true,
+  opacity: 0,
+  depthWrite: false,
+  sizeAttenuation: true,
+})
+roundGlow(sparkMat, 0.18)
+const sparkPoints = new THREE.Points(sparkGeo, sparkMat)
 
 // ---------- Interazione ----------
 const prefersReduced =
@@ -151,7 +167,7 @@ onMounted(() => {
     window.addEventListener('pointermove', onPointer, { passive: true })
   } else {
     BUILD.forEach((b) => b.geo.setDrawRange(0, b.count))
-    if (vertexMatRef.value) vertexMatRef.value.opacity = 0.9
+    vertexMat.opacity = 0.9
   }
   requestAnimationFrame(() => {
     const figure = document.querySelector('.hero-figure')
@@ -197,13 +213,13 @@ onBeforeRender(({ delta, elapsed }) => {
     }
     sparkGeo.setDrawRange(0, activeSparks)
     sparkGeo.attributes.position.needsUpdate = true
-    if (sparkMatRef.value) sparkMatRef.value.opacity = activeSparks > 0 ? 1 : 0
-    if (vertexMatRef.value) {
-      const vp = THREE.MathUtils.clamp((elapsed - 2.2) / 0.8, 0, 1)
-      vertexMatRef.value.opacity = vp * 0.85
-    }
-  } else if (sparkMatRef.value && sparkMatRef.value.opacity > 0) {
-    sparkMatRef.value.opacity = Math.max(0, sparkMatRef.value.opacity - delta * 2)
+    sparkMat.opacity = activeSparks > 0 ? 1 : 0
+    // Battito luminoso: la testa del laser "respira" mentre disegna
+    sparkMat.size = 0.55 * (1 + 0.25 * Math.sin(elapsed * 7))
+    const vp = THREE.MathUtils.clamp((elapsed - 5.0) / 1.0, 0, 1)
+    vertexMat.opacity = vp * 0.85
+  } else if (sparkMat.opacity > 0) {
+    sparkMat.opacity = Math.max(0, sparkMat.opacity - delta * 2)
   }
 
   if (prefersReduced) {

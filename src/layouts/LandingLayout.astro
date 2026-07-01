@@ -5,6 +5,7 @@
 // vedi docs/superpowers/specs/2026-06-11-landing-redesign-design.md
 import type { LandingContent } from '../i18n/landing';
 import SacredGeometryTres from '../components/SacredGeometryTres.vue';
+import Showreel from '../components/Showreel.astro';
 
 interface Props {
   content: LandingContent;
@@ -487,8 +488,10 @@ const numerals = ['I', 'II', 'III'];
       }
 
       /* ---------- Animazioni GSAP Reveal ---------- */
+      /* Maschera verticale per il reveal, ma senza tagliare orizzontalmente
+         (i lati sono estesi, così le lettere lunghe non vengono clippate). */
       .reveal-text {
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        clip-path: inset(0 -20% 0 -20%);
       }
       .reveal-text > div {
         transform: translateY(110%);
@@ -501,6 +504,7 @@ const numerals = ['I', 'II', 'III'];
         display: flex;
         align-items: center;
         padding-top: 6rem;
+        padding-bottom: 7rem; /* stacca il CTA dal fascione sottostante */
         position: relative;
         overflow: hidden;
       }
@@ -515,7 +519,7 @@ const numerals = ['I', 'II', 'III'];
       }
 
       .hero-content {
-        max-width: 640px;
+        max-width: 44rem;
         position: relative;
         z-index: 2;
       }
@@ -608,40 +612,7 @@ const numerals = ['I', 'II', 'III'];
         height: 100% !important;
       }
 
-      /* ---------- Marquee ---------- */
-      .marquee-wrapper {
-        width: 100%;
-        overflow: hidden;
-        padding: 2.2rem 0;
-        background: var(--ink);
-        color: var(--paper);
-        position: relative;
-        z-index: 10;
-        border-top: 1px solid rgba(217, 159, 62, 0.25);
-        border-bottom: 1px solid rgba(217, 159, 62, 0.25);
-      }
-
-      .marquee-content {
-        display: flex;
-        white-space: nowrap;
-        font-family: var(--serif);
-        font-size: clamp(1.6rem, 3.5vw, 2.6rem);
-        font-weight: 500;
-        will-change: transform;
-      }
-
-      .marquee-item {
-        padding: 0 1.5rem;
-        display: inline-flex;
-        align-items: center;
-        gap: 1.5rem;
-        letter-spacing: 0.01em;
-      }
-
-      .marquee-item span {
-        color: var(--ochre);
-        font-size: 0.6em;
-      }
+      /* Il fascione showreel ha i propri stili in Showreel.astro (scope del componente). */
 
       .benefits {
         display: grid;
@@ -962,13 +933,7 @@ const numerals = ['I', 'II', 'III'];
         </div>
       </section>
 
-      <div class="marquee-wrapper" aria-hidden="true">
-        <div class="marquee-content">
-          {[...t.marquee, ...t.marquee].map((word) => (
-            <div class="marquee-item">{word} <span>◆</span></div>
-          ))}
-        </div>
-      </div>
+      <Showreel words={t.marquee} reel={t.reel} />
 
       <section id="services">
         <div class="container">
