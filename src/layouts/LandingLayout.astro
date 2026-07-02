@@ -524,6 +524,22 @@ const numerals = ['I', 'II', 'III'];
         z-index: 2;
       }
 
+      /* Scrim: velo di carta sfumato dietro al testo della hero. Garantisce la
+         leggibilità del titolo sopra i fasci laser senza un "box" visibile. */
+      .hero-content::before {
+        content: '';
+        position: absolute;
+        inset: -3rem -7rem -3rem -5rem;
+        z-index: -1;
+        pointer-events: none;
+        background: radial-gradient(
+          ellipse 95% 95% at 35% 50%,
+          var(--paper) 42%,
+          rgba(247, 245, 240, 0.82) 62%,
+          rgba(247, 245, 240, 0) 82%
+        );
+      }
+
       .hero-title + .hero-title {
         margin-top: 0.1em;
       }
