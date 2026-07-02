@@ -1,5 +1,5 @@
 <template>
-  <TresCanvas antialias :dpr="[1, 2]" :clear-color="'#f7f5f0'">
+  <TresCanvas antialias :dpr="[1, 2]" :clear-color="'#f2ede3'">
     <TresPerspectiveCamera :position="[0, 0, 9]" :fov="42" />
     <SacredScene />
   </TresCanvas>

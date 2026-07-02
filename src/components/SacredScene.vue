@@ -15,11 +15,11 @@ import { LineSegments2 } from 'three/examples/jsm/lines/LineSegments2.js'
 import { LineSegmentsGeometry } from 'three/examples/jsm/lines/LineSegmentsGeometry.js'
 import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial.js'
 
-// Palette calda luminosa — niente toni scuri/neri
-const TERRACOTTA = '#d95e40'
+// Palette luminosa allineata al design system — vermiglio, oro, viola
+const TERRACOTTA = '#e14f28'
 const GOLD = '#e2a24b'
 const OCHRE = '#d99a3e'
-const EMBER = '#f07a3a'
+const VIOLET = '#8a4fd8' // il nucleo (ottaedro) in viola: cuore umano della geometria
 const SPARK = '#ff8c42'
 
 const groupRef = shallowRef(null)
@@ -88,7 +88,7 @@ const edgePositions = (edgesGeo) => Array.from(edgesGeo.attributes.position.arra
 const icoEdges = edgePositions(new THREE.EdgesGeometry(new THREE.IcosahedronGeometry(1.6)))
 const octaEdges = edgePositions(new THREE.EdgesGeometry(new THREE.OctahedronGeometry(0.95)))
 const icoLaser = makeLaser(icoEdges, TERRACOTTA, { core: 2.4, halo: 9, haloOpacity: 0.2 })
-const octaLaser = makeLaser(octaEdges, EMBER, { core: 2.2, halo: 8, haloOpacity: 0.22 })
+const octaLaser = makeLaser(octaEdges, VIOLET, { core: 2.2, halo: 8, haloOpacity: 0.22 })
 lasers.push(icoLaser, octaLaser)
 
 // Timeline del disegno [start, end] in secondi (lenta, si segue ogni tratto)

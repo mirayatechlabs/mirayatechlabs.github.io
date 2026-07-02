@@ -103,6 +103,33 @@ dei siti WordPress. Per educ-art.com e performarti.it: chiedere conferma che si 
 
 ---
 
+## 6. ✅ Generatore di mockup per clienti (approvato, da costruire dopo /web-design)
+
+**Cosa**: pagina `/mockup` dove un cliente genera bozze di landing page HTML su misura
+(settore, stile, colori) usando l'AI. Accesso controllato: prima mi scrive via form,
+io rispondo con un **codice d'accesso personale** (es. `MIRAYA-A7F3`).
+
+**Architettura** (vincolo: GitHub Pages è statico → la API key NON può stare nel frontend):
+- **Cloudflare Worker** (tier free, 100k req/giorno) custodisce la API key Anthropic.
+- Il Worker valida il codice (lista in KV gestita da me), chiama Claude, restituisce
+  un **mockup HTML navigabile** mostrato in iframe con watermark.
+- Ogni codice ha un cap (es. 3 generazioni) → danno massimo da abuso: centesimi.
+- Serve: account Cloudflare gratuito + API key Anthropic. Claude prepara worker + pagina,
+  deploy con `wrangler`.
+
+**Analisi costi/benefici (2026-07-02):**
+- Costi: infrastruttura €0; ~€0,05–0,25 a generazione (Haiku/Sonnet);
+  scenario 10 lead/mese × 3 gen ≈ **€1,50–7,50/mese**. Il denaro non è il problema.
+- Conversione, onestamente: come esca sul form può dare un lift relativo (+20–50% su base
+  1–3%), ma **con poco traffico il collo di bottiglia è il traffico, non il tool**.
+  Il valore vero è (1) nel **closing**: rispondere a un prospect con bozze già generate è
+  memorabile e quasi nessun competitor lo fa; (2) come **demo vivente** di ciò che vendo
+  (automazioni AI su misura) — vale come pezzo da portfolio anche con pochi utenti.
+- **Decisione**: si fa, ma DOPO /web-design + portfolio (prima la fiducia, poi il differenziatore).
+  Unica ragione per anticiparlo: usarlo in trattative già in corso.
+
+---
+
 ## Altre idee
 
 _(spazio per le prossime — aggiungiamo qui mano a mano)_

@@ -13,28 +13,28 @@ export interface LandingContent {
   lang: 'it' | 'en';
   altLang: { label: string; href: string };
   meta: { title: string; description: string };
-  nav: { services: string; vision: string; contact: string };
+  nav: { services: string; manifesto: string; contact: string };
   marquee: string[];
   reel: { caption: string; video?: string }[];
   hero: {
     eyebrow: string;
     titlePart1: string;
-    titleHighlight: string; // riga in corsivo serif (accento terracotta)
-    titlePart2: string;
+    titleHighlight: string; // riga in corsivo serif (accento viola)
+    titlePart2: string; // riga con sottolineatura annotata
     subtitle: string;
     cta: string;
+    note: string; // nota a margine in mono
     imageAlt: string;
   };
   services: {
     eyebrow: string;
-    heading: string;
+    heading: string; // HTML (con <em>)
     cards: [LandingCard, LandingCard, LandingCard];
   };
-  vision: {
+  manifesto: {
     eyebrow: string;
     heading: string; // HTML (con <em>)
-    text: string; // HTML (con <strong>)
-    benefits: [string, string, string];
+    items: string[]; // articoli del manifesto, HTML (con <em>/<strong>)
   };
   contact: {
     heading: string; // HTML (con <br>)
@@ -58,183 +58,200 @@ export interface LandingContent {
       error: string;
     };
   };
-  footer: { copyright: string };
+  footer: { copyright: string; tagline: string };
 }
 
 export const it: LandingContent = {
   lang: 'it',
   altLang: { label: 'EN', href: '/en/' },
   meta: {
-    title: 'Miraya Tech Labs — Web Design, Automazioni AI e Software su misura',
+    title: 'Miraya Tech Labs — Siti web, automazioni AI e software dalla parte delle persone',
     description:
-      "Siti web professionali, automazioni con l'AI e software su misura per eliminare il lavoro ripetitivo e ottimizzare la tua azienda.",
+      'Studio indipendente a Milano: siti web, automazioni AI e software costruiti come manufatti. Tecnologia che amplifica le capacità umane, non le sostituisce.',
   },
-  nav: { services: 'Servizi', vision: 'Visione', contact: 'Parliamo' },
-  marquee: ['Siti web su misura', 'Automazioni con l’AI', 'Software fatto a mano', 'Tecnologia dal volto umano'],
+  nav: { services: 'Cosa faccio', manifesto: 'Manifesto', contact: 'Parliamone' },
+  marquee: [
+    'Dalla parte delle persone',
+    'AI come leva, non come protesi',
+    'Niente template travestiti',
+    'Fatto a mano a Milano',
+  ],
   // Showreel dei lavori reali. Aggiungi il video in public/showreel/ e metti il
   // percorso in `video` (es. '/showreel/excel.mp4'): apparirà al posto del placeholder.
   reel: [
     { caption: 'Un Excel che diventa un programma' },
     { caption: 'Dati estratti da PDF di 400 pagine' },
     { caption: 'Email e preventivi in automatico' },
-    { caption: 'Siti web fatti a mano' },
+    { caption: 'Siti web cuciti a mano' },
   ],
   hero: {
-    eyebrow: 'Web · AI · Software — dal volto umano',
+    eyebrow: 'Studio indipendente · Web · AI · Software',
     titlePart1: 'Tecnologia',
-    titleHighlight: 'che si prende cura',
-    titlePart2: 'delle tue idee',
+    titleHighlight: 'che amplifica',
+    titlePart2: 'l’umano',
     subtitle:
-      "Siti web, automazioni AI e software costruiti come manufatti: su misura, con cura, attorno alle persone. L'intelligenza artificiale qui potenzia le tue capacità — non le sostituisce.",
+      'Miraya è uno studio indipendente: siti, automazioni AI e software costruiti come manufatti — su misura, con cura, dalla parte di chi li usa.',
     cta: 'Parliamone',
-    imageAlt: 'Mandala geometrico animato: cerchi concentrici e solidi platonici in linee sottili',
+    note: '* nessun tracker su questo sito.\nSolo geometria sacra e codice.',
+    imageAlt:
+      'Geometria sacra disegnata da fasci di luce: cerchi concentrici e solidi platonici',
   },
   services: {
-    eyebrow: 'I Nostri Servizi',
-    heading: 'Soluzioni pensate per farti vendere',
+    eyebrow: 'Cosa faccio',
+    heading: 'Tre mestieri, <em>una direzione</em>',
     cards: [
       {
-        tag: 'Web Design',
-        title: 'Siti web ad alta conversione',
+        tag: 'Web design',
+        title: 'Siti che parlano come te',
         text:
-          'Non solo belli da vedere. Costruiamo esperienze digitali veloci, curate e ottimizzate per trasformare i visitatori in clienti fidelizzati.',
+          'Veloci, accessibili, disegnati a mano attorno al tuo progetto. Niente template travestiti da design.',
         href: '/web-design',
       },
       {
         tag: 'Automazioni AI',
-        title: 'Lavora meno, produci di più',
+        title: 'Il lavoro noioso, via',
         text:
-          "Delega all'Intelligenza Artificiale email, preventivi e task ripetitivi. Riprenditi il tuo tempo e concentrati su ciò che conta davvero.",
+          'Email, preventivi, documenti infiniti: automatizzo il ripetitivo perché il tuo tempo torni alle cose vive.',
       },
       {
-        tag: 'Software Su Misura',
-        title: 'Strumenti che si adattano a te',
+        tag: 'Software su misura',
+        title: 'Strumenti con la tua forma',
         text:
-          'Sviluppiamo soluzioni software personalizzate che snelliscono i tuoi processi aziendali, rendendoli più rapidi ed efficienti.',
+          'Un Excel che diventa un’app. Un archivio di PDF che risponde alle domande. Software piccolo, preciso, tuo.',
       },
     ],
   },
-  vision: {
-    eyebrow: 'La nostra visione',
-    heading: "La tecnologia è uno strumento. <em>Il cuore del lavoro resta umano.</em>",
-    text:
-      "Crediamo che l'AI debba <strong>amplificare le tue capacità</strong>, non sostituirle. Costruiamo strumenti che si prendono cura della parte ripetitiva e burocratica, perché tu possa dedicarti a ciò che nessuna macchina sa fare: creatività, relazioni, visione.",
-    benefits: [
-      'Il tempo perso in attività manuali torna a te e al tuo team.',
-      'Strumenti fatti a mano sui tuoi processi reali, non template adattati.',
-      'Soluzioni che crescono con te, senza mai toglierti il controllo.',
+  manifesto: {
+    eyebrow: 'Manifesto',
+    heading: 'La tecnologia non è neutra. <em>Sceglie sempre una parte.</em>',
+    items: [
+      'L’AI qui lavora <em>per</em> te — mai al posto tuo. Amplifica capacità e creatività, e ti lascia il controllo.',
+      'Credo in una tecnologia <strong>femminista e inclusiva</strong>: che redistribuisce possibilità invece di concentrarle.',
+      'Ogni strumento è cucito su chi lo usa. Le persone non si adattano ai software: è il contrario.',
+      'Il tempo liberato dalle macchine torna a chi crea, cura, immagina. Non a un altro foglio Excel.',
     ],
   },
   contact: {
-    heading: 'Parliamo del tuo <br /> progetto.',
+    heading: 'Raccontami il<br />tuo progetto.',
     text:
-      'Raccontami cosa vorresti migliorare o automatizzare. Ti rispondo entro 24 ore con una proposta concreta — senza impegno.',
+      'Scrivimi cosa vorresti costruire, migliorare o automatizzare. Ti rispondo entro 24 ore, con una proposta concreta e senza impegno.',
     emailLabel: 'Email',
     email: 'mirayatechlabs@gmail.com',
-    locationLabel: 'Sede',
+    locationLabel: 'Base',
     location: 'Milano, IT',
     form: {
       subject: 'Nuova richiesta dal sito Miraya Tech Labs',
       name: 'Nome',
-      namePlaceholder: 'Mario Rossi',
-      company: 'Azienda',
-      companyPlaceholder: 'Nome azienda',
+      namePlaceholder: 'Il tuo nome',
+      company: 'Progetto / azienda',
+      companyPlaceholder: 'Facoltativo',
       email: 'Email',
-      emailPlaceholder: 'mario@azienda.it',
-      message: 'Come posso aiutarti?',
-      messagePlaceholder: 'Descrivi cosa vorresti migliorare o automatizzare…',
-      submit: 'Invia richiesta',
+      emailPlaceholder: 'nome@esempio.it',
+      message: 'Di cosa hai bisogno?',
+      messagePlaceholder: 'Racconta pure con parole tue…',
+      submit: 'Invia',
       success: 'Ricevuto! Ti rispondo entro 24 ore.',
-      error: "Qualcosa è andato storto. Scrivimi pure direttamente a mirayatechlabs@gmail.com.",
+      error: 'Qualcosa è andato storto. Scrivimi direttamente a mirayatechlabs@gmail.com.',
     },
   },
-  footer: { copyright: '© 2026 Miraya Tech Labs. Tutti i diritti riservati.' },
+  footer: {
+    copyright: '© 2026 Miraya Tech Labs',
+    tagline: 'Fatto a mano a Milano. Niente cookie, niente tracker.',
+  },
 };
 
 export const en: LandingContent = {
   lang: 'en',
   altLang: { label: 'IT', href: '/' },
   meta: {
-    title: 'Miraya Tech Labs — Web Design, AI Automation & Custom Software',
+    title: 'Miraya Tech Labs — Websites, AI automation & software on the human side',
     description:
-      'Professional websites, AI automations and custom software to remove repetitive work and optimize your business.',
+      'Independent studio in Milan: websites, AI automations and custom software built like artifacts. Technology that amplifies human abilities — it never replaces them.',
   },
-  nav: { services: 'Services', vision: 'Vision', contact: "Let's talk" },
-  marquee: ['Tailored websites', 'AI automations', 'Handcrafted software', 'Technology with a human face'],
+  nav: { services: 'What I do', manifesto: 'Manifesto', contact: "Let's talk" },
+  marquee: [
+    'On the human side',
+    'AI as a lever, not a prosthesis',
+    'No templates in disguise',
+    'Handmade in Milan',
+  ],
   reel: [
     { caption: 'An Excel file becomes an app' },
     { caption: 'Data pulled from 400-page PDFs' },
     { caption: 'Emails and quotes on autopilot' },
-    { caption: 'Handcrafted websites' },
+    { caption: 'Hand-stitched websites' },
   ],
   hero: {
-    eyebrow: 'Web · AI · Software — with a human face',
+    eyebrow: 'Independent studio · Web · AI · Software',
     titlePart1: 'Technology',
-    titleHighlight: 'with a soul',
-    titlePart2: 'built for people',
+    titleHighlight: 'that amplifies',
+    titlePart2: 'the human',
     subtitle:
-      'Websites, AI automations and software built like artifacts: tailored, with care, around people. Here, artificial intelligence amplifies your skills — it never replaces them.',
+      'Miraya is an independent studio: websites, AI automations and software built like artifacts — tailored, with care, on the side of the people who use them.',
     cta: "Let's talk",
-    imageAlt: 'Animated geometric mandala: concentric circles and platonic solids drawn in thin lines',
+    note: '* no trackers on this site.\nJust sacred geometry and code.',
+    imageAlt: 'Sacred geometry drawn by beams of light: concentric circles and platonic solids',
   },
   services: {
     eyebrow: 'What I do',
-    heading: 'Three ways to make your work simpler',
+    heading: 'Three crafts, <em>one direction</em>',
     cards: [
       {
-        tag: 'Web Design',
-        title: 'Professional websites',
+        tag: 'Web design',
+        title: 'Websites that sound like you',
         text:
-          'Websites and landing pages built around you — fast, polished and designed to turn visitors into clients, not just to look good.',
+          'Fast, accessible, hand-drawn around your project. No templates dressed up as design.',
         href: '/web-design',
       },
       {
-        tag: 'AI Automation',
-        title: 'Less repetitive work',
+        tag: 'AI automation',
+        title: 'Boring work, gone',
         text:
-          'I automate emails, replies, quotes and the tasks you do by hand every day, using AI where it actually helps. Time goes back to you and your team.',
+          'Emails, quotes, endless documents: I automate the repetitive so your time goes back to the living parts of your work.',
       },
       {
-        tag: 'Custom Software',
-        title: 'Tools made for you',
+        tag: 'Custom software',
+        title: 'Tools shaped like you',
         text:
-          'I build custom software that fits your real processes and makes them simpler, faster and tidier.',
+          'An Excel file becomes an app. A pile of PDFs starts answering questions. Small, precise software — yours.',
       },
     ],
   },
-  vision: {
-    eyebrow: 'Our vision',
-    heading: 'Technology is a tool. <em>The soul of the work stays human.</em>',
-    text:
-      'I believe AI should <strong>amplify your abilities</strong>, not replace them. I build tools that take care of the repetitive, bureaucratic part, so you can focus on what no machine can do: creativity, relationships, vision.',
-    benefits: [
-      'Time lost to manual tasks goes back to you and your team.',
-      'Tools handcrafted around your real processes, not adapted templates.',
-      'Solutions that grow with you, without ever taking away control.',
+  manifesto: {
+    eyebrow: 'Manifesto',
+    heading: 'Technology is never neutral. <em>It always picks a side.</em>',
+    items: [
+      'Here, AI works <em>for</em> you — never instead of you. It amplifies skill and creativity, and leaves you in control.',
+      'I believe in <strong>feminist, inclusive technology</strong>: one that redistributes possibilities instead of concentrating them.',
+      'Every tool is stitched around the person who uses it. People don’t adapt to software: it’s the other way round.',
+      'The time machines free up goes back to those who create, care, imagine. Not to another spreadsheet.',
     ],
   },
   contact: {
-    heading: "Let's talk about <br /> your project.",
+    heading: 'Tell me about<br />your project.',
     text:
-      "Tell me what you'd like to improve or automate. I'll reply within 24 hours with a concrete proposal — no strings attached.",
+      "Write me what you'd like to build, improve or automate. I reply within 24 hours with a concrete proposal — no strings attached.",
     emailLabel: 'Email',
     email: 'mirayatechlabs@gmail.com',
-    locationLabel: 'Location',
+    locationLabel: 'Base',
     location: 'Milan, IT',
     form: {
       subject: 'New enquiry from the Miraya Tech Labs website',
       name: 'Name',
-      namePlaceholder: 'John Smith',
-      company: 'Company',
-      companyPlaceholder: 'Company name',
+      namePlaceholder: 'Your name',
+      company: 'Project / company',
+      companyPlaceholder: 'Optional',
       email: 'Email',
-      emailPlaceholder: 'john@company.com',
-      message: 'How can I help?',
-      messagePlaceholder: "Describe what you'd like to improve or automate…",
-      submit: 'Send request',
+      emailPlaceholder: 'name@example.com',
+      message: 'What do you need?',
+      messagePlaceholder: 'Tell me in your own words…',
+      submit: 'Send',
       success: "Got it! I'll reply within 24 hours.",
-      error: 'Something went wrong. Feel free to email me directly at mirayatechlabs@gmail.com.',
+      error: 'Something went wrong. Email me directly at mirayatechlabs@gmail.com.',
     },
   },
-  footer: { copyright: '© 2026 Miraya Tech Labs. All rights reserved.' },
+  footer: {
+    copyright: '© 2026 Miraya Tech Labs',
+    tagline: 'Handmade in Milan. No cookies, no trackers.',
+  },
 };
